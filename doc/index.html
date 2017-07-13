@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SkiBoot Documentation &#8212; skiboot 5.6.0-87-ge835c2fb7ce1
+    <title>SkiBoot Documentation &#8212; skiboot v5.7-rc2
  documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.6.0-87-ge835c2fb7ce1
+        VERSION:     'v5.7-rc2
 ',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot 5.6.0-87-ge835c2fb7ce1
+        <li class="nav-item nav-item-0"><a href="#">skiboot v5.7-rc2
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -160,6 +160,13 @@
 <li class="toctree-l2"><a class="reference internal" href="xive.html#iv-opal-apis">IV - OPAL APIs</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="imc.html">OPAL/Skiboot In-Memory Collection (IMC) interface Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imc.html#overview">Overview:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc.html#nest-on-chip-off-core-unit">Nest (On-Chip, Off-Core) unit:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc.html#core-unit">Core unit:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imc.html#opal-apis">OPAL APIs:</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -180,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="device-tree/index.html">Device Tree</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/ibm,opal.html">ibm,opal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/ibm,secureboot.html">ibm,secureboot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device-tree/imc.html">IMC Device Tree Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/nvlink.html">Nvlink Device Tree Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/nx.html">Nest (NX) Accelerator Coprocessor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/reserved-memory.html">reserved-memory device tree nodes</a></li>
@@ -201,6 +209,9 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-get-xive-20.html">OPAL_GET_XIVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-get-xive-source-38.html">OPAL_GET_XIVE_SOURCE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-handle-interrupt.html">OPAL_HANDLE_INTERRUPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-imc-counters.html">OPAL_IMC_COUNTERS_INIT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-imc-counters.html#opal-imc-counters-start">OPAL_IMC_COUNTERS_START</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-imc-counters.html#opal-imc-counters-stop">OPAL_IMC_COUNTERS_STOP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-int-eoi-124.html">OPAL_INT_EOI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-int-get-xirr-122.html">OPAL_INT_GET_XIRR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-int-set-cppr-123.html">OPAL_INT_SET_CPPR</a></li>
@@ -316,6 +327,8 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.6.0.html">skiboot-5.6.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.6.0-rc1.html">skiboot-5.6.0-rc1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.6.0-rc2.html">skiboot-5.6.0-rc2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.7-rc1.html">skiboot-5.7-rc1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.7-rc2.html">skiboot-5.7-rc2</a></li>
 </ul>
 </li>
 </ul>
@@ -373,7 +386,7 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot 5.6.0-87-ge835c2fb7ce1
+        <li class="nav-item nav-item-0"><a href="#">skiboot v5.7-rc2
  documentation</a> &#187;</li> 
       </ul>
     </div>

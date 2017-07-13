@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OPAL/Skiboot In-Memory Collection (IMC) interface Documentation &#8212; skiboot v5.7-rc2
+ documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v5.7-rc2
+',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Secure and Trusted Boot Overview" href="stb.html" />
+    <link rel="prev" title="P9 XIVE Exploitation" href="xive.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="stb.html" title="Secure and Trusted Boot Overview"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xive.html" title="P9 XIVE Exploitation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7-rc2
+ documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="opal-skiboot-in-memory-collection-imc-interface-documentation">
+<span id="imc"></span><h1>OPAL/Skiboot In-Memory Collection (IMC) interface Documentation<a class="headerlink" href="#opal-skiboot-in-memory-collection-imc-interface-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview:<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In-Memory-Collection (IMC) is performance monitoring infrastrcuture
+for counters that (once started) can be read from memory at any time by
+an operating system. Such counters include those for the Nest and Core
+units, enabling continuous monitoring of resource utilisation on the chip.</p>
+<p>The API is agnostic as to how these counters are implemented. For the
+Nest units, they&#8217;re implemented by having microcode in an on-chip
+microcontroller and for core units, they are implemented as part of core logic
+to gather data and periodically write it to the memory locations.</p>
+</div>
+<div class="section" id="nest-on-chip-off-core-unit">
+<h2>Nest (On-Chip, Off-Core) unit:<a class="headerlink" href="#nest-on-chip-off-core-unit" title="Permalink to this headline">¶</a></h2>
+<p>Nest units have dedicated hardware counters which can be programmed
+to monitor various chip resources such as memory bandwidth,
+xlink bandwidth, alink bandwidth, PCI, NVlink and so on. These Nest
+unit PMU counters can be programmed in-band via scom. But alternatively,
+programming of these counters and periodically moving the counter data
+to memory are offloaded to a hardware engine part of OCC (On-Chip Controller).</p>
+<p>Microcode, starts to run at system boot in OCC complex, initialize these
+Nest unit PMUs and periodically accumulate the nest pmu counter values
+to memory. List of supported events by the microcode is packages as a DTS
+and stored in IMA_CATALOG partition.</p>
+</div>
+<div class="section" id="core-unit">
+<h2>Core unit:<a class="headerlink" href="#core-unit" title="Permalink to this headline">¶</a></h2>
+<p>Core IMC PMU counters are handled in the core-imc unit. Each core has
+4 Core Performance Monitoring Counters (CPMCs) which are used by Core-IMC logic.
+Two of these are dedicated to count core cycles and instructions.
+The 2 remaining CPMCs have to multiplex 128 events each.</p>
+<p>Core IMC hardware does not support interrupts and it peridocially (based on
+sampling duration) fetches the counter data and accumulate to main memory.
+Memory to accumulate counter data are refered from &#8220;PDBAR&#8221; (per-core scom)
+and &#8220;LDBAR&#8221; per-thread spr.</p>
+</div>
+<div class="section" id="opal-apis">
+<h2>OPAL APIs:<a class="headerlink" href="#opal-apis" title="Permalink to this headline">¶</a></h2>
+<p>The OPAL API is simple: a call to init a counter type, and calls to
+start and stop collection. The memory locations are described in the
+device tree.</p>
+<p>See <a class="reference internal" href="opal-api/opal-imc-counters.html#opal-imc-counters"><span class="std std-ref">OPAL_IMC_COUNTERS_INIT</span></a> and <a class="reference internal" href="device-tree/imc.html#device-tree-imc"><span class="std std-ref">IMC Device Tree Bindings</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OPAL/Skiboot In-Memory Collection (IMC) interface Documentation</a><ul>
+<li><a class="reference internal" href="#overview">Overview:</a></li>
+<li><a class="reference internal" href="#nest-on-chip-off-core-unit">Nest (On-Chip, Off-Core) unit:</a></li>
+<li><a class="reference internal" href="#core-unit">Core unit:</a></li>
+<li><a class="reference internal" href="#opal-apis">OPAL APIs:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xive.html"
+                        title="previous chapter">P9 XIVE Exploitation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stb.html"
+                        title="next chapter">Secure and Trusted Boot Overview</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/imc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="stb.html" title="Secure and Trusted Boot Overview"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xive.html" title="P9 XIVE Exploitation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7-rc2
+ documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Stewart Smith, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Device Tree &#8212; skiboot 5.6.0-87-ge835c2fb7ce1
+    <title>Device Tree &#8212; skiboot v5.7-rc2
  documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.6.0-87-ge835c2fb7ce1
+        VERSION:     'v5.7-rc2
 ',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="stb.html" title="Secure and Trusted Boot Overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.6.0-87-ge835c2fb7ce1
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7-rc2
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -99,28 +99,30 @@ of that property)</p>
 </div>
 <div class="section" id="root-node">
 <h2>Root Node<a class="headerlink" href="#root-node" title="Permalink to this headline">¶</a></h2>
-<p>Root node of device tree</p>
+<p>Root node of device tree. There are a few required and a few optional properties
+that sit in the root node. They&#8217;re described here.</p>
+<div class="section" id="compatible">
+<h3>compatible<a class="headerlink" href="#compatible" title="Permalink to this headline">¶</a></h3>
+<p>The &#8220;compatible&#8221; properties are string lists indicating the overall
+compatibility from the more specific to the least specific.</p>
+<p>The root node compatible property <em>must</em> contain &#8220;ibm,powernv&#8221; for
+Linux to have the powernv platform match the machine.</p>
+<p>Each distinct platform <em>MUST</em> also add a more precise property (first
+in order) indicating the board type.</p>
+<p>The standard naming is &#8220;vendor,name&#8221;. For example: <cite>compatible = &#8220;goog,rhesus&#8221;,&#8221;ibm,powernv&#8221;;</cite>
+would work. Or even better: <cite>compatible = &#8220;goog,rhesus-v1&#8221;,&#8221;goog,rhesus&#8221;,&#8221;ibm,powernv&#8221;;</cite>.</p>
+<p>The bare <cite>ibm,powernv</cite> should be reserved for bringup/testing:</p>
 <div class="highlight-dts"><div class="highlight"><pre><span></span><span class="k">/dts-v1/;</span>
 <span class="k">/</span> <span class="p">{</span>
-       <span class="cm">/*</span>
-<span class="cm">        * &quot;compatible&quot; properties are string lists (ASCII strings separated by</span>
-<span class="cm">        * \0 characters) indicating the overall compatibility from the more</span>
-<span class="cm">        * specific to the least specific.</span>
-<span class="cm">        *</span>
-<span class="cm">        * The root node compatible property *must* contain &quot;ibm,powernv&quot; for</span>
-<span class="cm">        * Linux to have the powernv platform match the machine. It is recommended</span>
-<span class="cm">        * to add a slightly more precise property (first in order) indicating more</span>
-<span class="cm">        * precisely the board type. We don&#39;t currently do that in HDAT based</span>
-<span class="cm">        * setups but will.</span>
-<span class="cm">        *</span>
-<span class="cm">        * The standard naming is &quot;vendor,name&quot; so in your case, something like</span>
-<span class="cm">        *</span>
-<span class="cm">        * compatible = &quot;goog,rhesus&quot;,&quot;ibm,powernv&quot;;</span>
-<span class="cm">        *</span>
-<span class="cm">        * would work. Or even better:</span>
-<span class="cm">        *</span>
-<span class="cm">        * compatible = &quot;goog,rhesus-v1&quot;,&quot;goog,rhesus&quot;,&quot;ibm,powernv&quot;;</span>
-<span class="cm">        */</span>
+       <span class="nf">compatible</span> <span class="o">=</span> <span class="s">&quot;ibm,powernv&quot;</span><span class="p">;</span>
+  <span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-dts"><div class="highlight"><pre><span></span><span class="k">/dts-v1/;</span>
+<span class="k">/</span> <span class="p">{</span>
        <span class="nf">compatible</span> <span class="o">=</span> <span class="s">&quot;ibm,powernv&quot;</span><span class="p">;</span>
 
        <span class="cm">/* mandatory */</span>
@@ -547,6 +549,7 @@ of that property)</p>
 </div>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -559,7 +562,11 @@ of that property)</p>
 <li><a class="reference internal" href="#">Device Tree</a><ul>
 <li><a class="reference internal" href="#general-comments">General comments</a></li>
 <li><a class="reference internal" href="#reserve-map">Reserve Map</a></li>
-<li><a class="reference internal" href="#root-node">Root Node</a></li>
+<li><a class="reference internal" href="#root-node">Root Node</a><ul>
+<li><a class="reference internal" href="#compatible">compatible</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -603,7 +610,7 @@ of that property)</p>
         <li class="right" >
           <a href="stb.html" title="Secure and Trusted Boot Overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.6.0-87-ge835c2fb7ce1
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7-rc2
  documentation</a> &#187;</li> 
       </ul>
     </div>
