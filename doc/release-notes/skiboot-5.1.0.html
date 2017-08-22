@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.1.0 &#8212; skiboot v5.7
+    <title>skiboot-5.1.0 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.1.0-beta1" href="skiboot-5.1.0-beta1.html" />
     <link rel="prev" title="Release Notes" href="index.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="index.html" title="Release Notes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -110,7 +106,7 @@ systems it was getting closer than we liked.</li>
 <li>Versioning of pflash and gard utilities to help Linux (or other OS)
 distributions with packaging.</li>
 <li>OCC throttle status messages to host</li>
-<li>CAPP timebase sync (&#8220;ibm,capp-timebase-sync&#8221; in DT to indicate CAPP timebase
+<li>CAPP timebase sync (“ibm,capp-timebase-sync” in DT to indicate CAPP timebase
 was synced by OPAL)</li>
 <li>opal-api: Add OPAL call to handle abnormal reboots.</li>
 </ul>
@@ -167,26 +163,26 @@ possibly leading to missed errors.</li>
 <li>could eventually lead to failing to map PRD ranges</li>
 </ul>
 </li>
-<li>On skiboot crash, don&#8217;t try to print symbol when we didn&#8217;t find one<ul>
+<li>On skiboot crash, don’t try to print symbol when we didn’t find one<ul>
 <li>makes backtrace prettier</li>
 </ul>
 </li>
 <li>On skiboot crash, dump hssr0 and hsrr1 registers correctly.</li>
 <li>Better support old and biarch compilers<ul>
-<li>test &#8220;new&#8221; compiler flags before using them</li>
-<li>Specify -mabi=elfv1 if supported (which means it&#8217;s needed)</li>
+<li>test “new” compiler flags before using them</li>
+<li>Specify -mabi=elfv1 if supported (which means it’s needed)</li>
 </ul>
 </li>
 <li>fix boot-coverage-report makefile target</li>
 <li>ipmi: Fix the opal_ipmi_recv() call to handle the error path</li>
 <li>Could make kernel a sad panda when in continues with other IPMI commands</li>
 <li>IPMI: truncate SELs at 2kb<ul>
-<li>it&#8217;s the limit of the astbmc. We think.</li>
+<li>it’s the limit of the astbmc. We think.</li>
 </ul>
 </li>
 <li>IPMI/SEL/PEL:<ul>
-<li>As per PEL spec, we should log events with severity &gt;= 0x22 and &#8220;service
-action flag&#8221; is &#8220;on&#8221;. But in our case, all logs OPAL originagted logs
+<li>As per PEL spec, we should log events with severity &gt;= 0x22 and “service
+action flag” is “on”. But in our case, all logs OPAL originagted logs
 are makred as report externally.
 We now only report logs with severity &gt;= 0x22</li>
 </ul>
@@ -197,7 +193,7 @@ We now only report logs with severity &gt;= 0x22</li>
 to PE assignment request from kernel. The last M64 BAR is configured
 to have shared mode. So we have to cut off the first M64 segment,
 which corresponds to reserved PE#0 in kernel. If the first BAR
-(for example PF&#8217;s IOV BAR) requires huge alignment in kernel, we
+(for example PF’s IOV BAR) requires huge alignment in kernel, we
 have to waste huge M64 space to accommodate the alignment. If we
 have reserved PE#256, the waste of M64 space will be avoided.</li>
 </ul>
@@ -209,7 +205,7 @@ have reserved PE#256, the waste of M64 space will be avoided.</li>
 <ul>
 <li><p class="first">(also fixed in skiboot-5.0.2) Fix race in firenze_get_slot_info() leading to
 assert() with many PCI cards</p>
-<p>With many PCI cards, we&#8217;d hit a race where calls to
+<p>With many PCI cards, we’d hit a race where calls to
 firenze_add_pcidev_to_fsp_inventory would step on each other leading to
 memory corruption and finally an assert() in the allocator being hit
 during boot.</p>
@@ -230,7 +226,7 @@ during boot.</p>
 <li>lays framework for supporting Centaur i2c</li>
 </ul>
 </li>
-<li>don&#8217;t run pollers on non-boot CPUs in time_wait</li>
+<li>don’t run pollers on non-boot CPUs in time_wait</li>
 <li>improvements to opal-prd, pflash, libflash<ul>
 <li>including new blocklevel interface in libflash</li>
 </ul>
@@ -238,7 +234,7 @@ during boot.</p>
 <li>many minor fixes to issues found by static analysis</li>
 <li>improvements in FSP error log code paths</li>
 <li>code cleanup in memory allocator</li>
-<li>Don&#8217;t expose individual nvram partitions in the device tree, just the whole
+<li>Don’t expose individual nvram partitions in the device tree, just the whole
 flash device.</li>
 <li>build improvements for building on ppc64el host</li>
 <li>improvements in cpu_relax() for idle threads, needed for GCOV on large
@@ -262,7 +258,7 @@ LPC bus exist (e.g. flash)</li>
 </ul>
 <div class="section" id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
-<p>Since skiboot-5.0, we&#8217;ve had the following changesets:</p>
+<p>Since skiboot-5.0, we’ve had the following changesets:</p>
 <p>Processed 372 csets from 27 developers
 2 employers found
 A total of 15868 lines added, 3359 removed (delta 12509)</p>
@@ -368,8 +364,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -463,8 +459,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -483,8 +479,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -503,8 +499,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -547,8 +543,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -564,8 +560,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -581,8 +577,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -604,8 +600,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -624,8 +620,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -644,8 +640,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -664,8 +660,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -681,8 +677,8 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -759,14 +755,14 @@ A total of 15868 lines added, 3359 removed (delta 12509)</p>
         <li class="right" >
           <a href="index.html" title="Release Notes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

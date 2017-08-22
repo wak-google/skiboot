@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Device Tree &#8212; skiboot v5.7
+    <title>Device Tree &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="Device Tree" href="device-tree/index.html" />
     <link rel="prev" title="Secure and Trusted Boot Overview" href="stb.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="stb.html" title="Secure and Trusted Boot Overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -69,16 +65,16 @@ to have them since they are needed to represent the cache levels.</li>
 nodes that are referenced by other nodes. This is <em>not</em> correct
 and is purely done for keeping this document smaller, make sure
 to follow the rule above.</li>
-<li>Only the &#8220;phandle&#8221; property is required. Sapphire also generates
-a &#8220;linux,phandle&#8221; for backward compatibility but doesn&#8217;t require
+<li>Only the “phandle” property is required. Sapphire also generates
+a “linux,phandle” for backward compatibility but doesn’t require
 it as an input</li>
-<li>Any property not specifically documented must be put in &#8220;as is&#8221;</li>
+<li>Any property not specifically documented must be put in “as is”</li>
 <li>All ibm,chip-id properties contain a HW chip ID which correspond
-on P8 to the PIR value shifted right by 7 bits, ie. it&#8217;s a 6-bit
+on P8 to the PIR value shifted right by 7 bits, ie. it’s a 6-bit
 value made of a 3-bit node number and a 3-bit chip number.</li>
 <li>Unit addresses (&#64;xxxx part of node names) should if possible use
 lower case hexadecimal to be consistent with what skiboot does
-and to help some stupid parsers out there...</li>
+and to help some stupid parsers out there…</li>
 </ul>
 </div>
 <div class="section" id="reserve-map">
@@ -100,17 +96,17 @@ of that property)</p>
 <div class="section" id="root-node">
 <h2>Root Node<a class="headerlink" href="#root-node" title="Permalink to this headline">¶</a></h2>
 <p>Root node of device tree. There are a few required and a few optional properties
-that sit in the root node. They&#8217;re described here.</p>
+that sit in the root node. They’re described here.</p>
 <div class="section" id="compatible">
 <h3>compatible<a class="headerlink" href="#compatible" title="Permalink to this headline">¶</a></h3>
-<p>The &#8220;compatible&#8221; properties are string lists indicating the overall
+<p>The “compatible” properties are string lists indicating the overall
 compatibility from the more specific to the least specific.</p>
-<p>The root node compatible property <em>must</em> contain &#8220;ibm,powernv&#8221; for
+<p>The root node compatible property <em>must</em> contain “ibm,powernv” for
 Linux to have the powernv platform match the machine.</p>
 <p>Each distinct platform <em>MUST</em> also add a more precise property (first
 in order) indicating the board type.</p>
-<p>The standard naming is &#8220;vendor,name&#8221;. For example: <cite>compatible = &#8220;goog,rhesus&#8221;,&#8221;ibm,powernv&#8221;;</cite>
-would work. Or even better: <cite>compatible = &#8220;goog,rhesus-v1&#8221;,&#8221;goog,rhesus&#8221;,&#8221;ibm,powernv&#8221;;</cite>.</p>
+<p>The standard naming is “vendor,name”. For example: <cite>compatible = “goog,rhesus”,”ibm,powernv”;</cite>
+would work. Or even better: <cite>compatible = “goog,rhesus-v1”,”goog,rhesus”,”ibm,powernv”;</cite>.</p>
 <p>The bare <cite>ibm,powernv</cite> should be reserved for bringup/testing:</p>
 <div class="highlight-dts"><div class="highlight"><pre><span></span><span class="k">/dts-v1/;</span>
 <span class="k">/</span> <span class="p">{</span>
@@ -610,13 +606,13 @@ would work. Or even better: <cite>compatible = &#8220;goog,rhesus-v1&#8221;,&#82
         <li class="right" >
           <a href="stb.html" title="Secure and Trusted Boot Overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

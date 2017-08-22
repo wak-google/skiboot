@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>SkiBoot Console Log &#8212; skiboot v5.7
+    <title>SkiBoot Console Log &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="How to log errors on OPAL" href="error-logging.html" />
     <link rel="prev" title="OPAL Specification" href="opal-spec.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-spec.html" title="OPAL Specification"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -59,16 +55,37 @@
 <p>Skiboot maintains a circular textual log buffer in memory.</p>
 <p>It can be accessed using any debugging method that can peek at
 memory contents. While the debug_descriptor does hold the location
-of the memory console, we&#8217;re pretty keen on keeping its location
+of the memory console, we’re pretty keen on keeping its location
 static.</p>
 <p>Events are logged in the following format:
-[timebase,log_level] message</p>
+<code class="docutils literal"><span class="pre">[S.T,L]</span> <span class="pre">message</span></code> where:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">S:</th><td class="field-body">Seconds, which is the timebase divided by 512,000,000.
+<strong>NOTE</strong>: The timebase is reset during boot, so zero is a few dozen
+messages into skiboot booting.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">T:</th><td class="field-body">Remaining Timebase. It is <em>NOT</em> a fraction of a second, but rather
+timebase%512000000</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">L:</th><td class="field-body">Log level (see below)</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span>    <span class="mf">2.223466021</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="n">FLASH</span><span class="p">:</span> <span class="n">Found</span> <span class="n">system</span> <span class="n">flash</span><span class="p">:</span> <span class="n">Macronix</span> <span class="n">MXxxL51235F</span> <span class="nb">id</span><span class="p">:</span><span class="mi">0</span>
+<span class="p">[</span>    <span class="mf">3.494892796</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="n">FLASH</span><span class="p">:</span> <span class="n">flash</span> <span class="n">subpartition</span> <span class="n">eyecatcher</span> <span class="n">CAPP</span>
+</pre></div>
+</div>
 <p>You should use the new prlog() call for any log message and set the
 log level/priority appropriately.</p>
 <p>printf() is mapped to PR_PRINTF and should be phased out and replaced
 with prlog() calls.</p>
 <p>See timebase.h for full timebase explanation.</p>
-<p>Log level from skiboot.h:</p>
+<div class="section" id="log-levels">
+<h2>Log levels<a class="headerlink" href="#log-levels" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="60%" />
@@ -134,6 +151,7 @@ well as in memory. If you write 0x95 you get PR_INSANE in memory but
 still only PR_NOTICE through drivers.</p>
 <p>People who write something like 0x1f will get a very quiet boot indeed.</p>
 </div>
+</div>
 
 
           </div>
@@ -141,6 +159,14 @@ still only PR_NOTICE through drivers.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SkiBoot Console Log</a><ul>
+<li><a class="reference internal" href="#log-levels">Log levels</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="opal-spec.html"
                         title="previous chapter">OPAL Specification</a></p>
@@ -180,13 +206,13 @@ still only PR_NOTICE through drivers.</p>
         <li class="right" >
           <a href="opal-spec.html" title="OPAL Specification"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

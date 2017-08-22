@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>How to log errors on OPAL &#8212; skiboot v5.7
+    <title>How to log errors on OPAL &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL &lt;–&gt; BMC interactions" href="bmc.html" />
     <link rel="prev" title="SkiBoot Console Log" href="console-log.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="console-log.html" title="SkiBoot Console Log"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -66,7 +62,7 @@ on the kind of event and error that needs to be reported. All the information
 needed to be reported as part of the error, is passed by user using the
 error-logging interfaces outlined below. Following which, PEL structure is
 generated based on the input and then passed on to service processor.</p>
-<p>We do create eSEL error log format for some service processors but it&#8217;s just
+<p>We do create eSEL error log format for some service processors but it’s just
 a wrapper around PEL format. Actual data still stays in PEL format.</p>
 <div class="section" id="error-logging-interfaces-in-opal">
 <h2>Error logging interfaces in OPAL<a class="headerlink" href="#error-logging-interfaces-in-opal" title="Permalink to this headline">¶</a></h2>
@@ -224,7 +220,7 @@ call.</p>
 <p><code class="docutils literal"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*fmt</span></code>: Formatted error log string.</p>
 <p>Additional user data sections can be added to the error log to
 separate data (eg. readable text vs binary data) by calling
-<code class="docutils literal"><span class="pre">log_add_section()</span></code>. The interfaces in Step 2 operate on the &#8216;last&#8217;
+<code class="docutils literal"><span class="pre">log_add_section()</span></code>. The interfaces in Step 2 operate on the ‘last’
 user data section of the error log.</p>
 <p><code class="docutils literal"><span class="pre">void</span> <span class="pre">log_add_section(struct</span> <span class="pre">errorlog</span> <span class="pre">*buf,</span> <span class="pre">uint32_t</span> <span class="pre">tag);</span></code></p>
 </div></blockquote>
@@ -266,7 +262,7 @@ be committed in FSP.</p>
 <p>In the process of committing an error to FSP, log info is first
 internally converted to PEL format and then pushed to the FSP.
 FSP then take cares of sending all logs including its own and
-OPAL&#8217;s one to the POWERNV.</p>
+OPAL’s one to the POWERNV.</p>
 <p class="last">OPAL maintains timeout field for all error logs it is sending to
 FSP. If it is not logged within allotted time period (e.g if FSP
 is down), in that case OPAL sends those logs to POWERNV.</p>
@@ -370,14 +366,14 @@ process goes on every FSP error log.</p>
 </div>
 <p>Currently, the number of error logs from FSP, OPAL can hold is limited to
 128. If OPAL run out of free node in the list for the new error log, it sends
-&#8216;Discarded by OPAL&#8217; message to the FSP. At some point in the future, it is
+‘Discarded by OPAL’ message to the FSP. At some point in the future, it is
 upto FSP when it notifies again to OPAL about the discarded error log.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define ELOG_WRITE_MAX_RECORD           64</span>
 </pre></div>
 </div>
 <p>There is also limitation on the number of OPAL error logs OPAL can hold is 64.
 If it is run out of the buffers in the pool, it will log the message saying
-&#8216;Failed to get the buffer&#8217;.</p>
+‘Failed to get the buffer’.</p>
 </div>
 <div class="section" id="note">
 <h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
@@ -601,7 +597,7 @@ structures.</li>
                         title="previous chapter">SkiBoot Console Log</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="bmc.html"
-                        title="next chapter">OPAL &lt;&#8211;&gt; BMC interactions</a></p>
+                        title="next chapter">OPAL &lt;–&gt; BMC interactions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -635,13 +631,13 @@ structures.</li>
         <li class="right" >
           <a href="console-log.html" title="SkiBoot Console Log"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

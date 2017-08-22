@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_TCE_KILL &#8212; skiboot v5.7
+    <title>OPAL_PCI_TCE_KILL &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_POLL_EVENTS" href="opal-poll-events.html" />
     <link rel="prev" title="OPAL_PCI_SET_XIVE_PE" href="opal-pci-set-xive-pe-37.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-set-xive-pe-37.html" title="OPAL_PCI_SET_XIVE_PE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -66,7 +62,7 @@
 </pre></div>
 </div>
 <p>An abstraction around TCE kill. This allows host OS kernels to use an OPAL
-call if they don&#8217;t know the model specific invalidation method.</p>
+call if they don’t know the model specific invalidation method.</p>
 <p>Where kill_type is one of:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="p">{</span>
    <span class="n">OPAL_PCI_TCE_KILL_PAGES</span><span class="p">,</span>
@@ -83,7 +79,7 @@ PHB4, which means from POWER9 onwards it will be present.</p>
 <dt>OPAL_PARAMETER</dt>
 <dd>if phb_id is invalid (or similar)</dd>
 <dt>OPAL_UNSUPPORTED</dt>
-<dd>if PHB model doesn&#8217;t support this call. This is likely
+<dd>if PHB model doesn’t support this call. This is likely
 true for systems before POWER9/PHB4.
 Do <em>NOT</em> rely on this call existing for systems prior to
 POWER9 (i.e. PHB4).</dd>
@@ -170,14 +166,14 @@ POWER9 (i.e. PHB4).</dd>
         <li class="right" >
           <a href="opal-pci-set-xive-pe-37.html" title="OPAL_PCI_SET_XIVE_PE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

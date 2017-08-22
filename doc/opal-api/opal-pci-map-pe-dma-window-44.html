@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_MAP_PE_DMA_WINDOW &#8212; skiboot v5.7
+    <title>OPAL_PCI_MAP_PE_DMA_WINDOW &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_PCI_MAP_PE_DMA_WINDOW_REAL" href="opal-pci-map-pe-dma-window-real-45.html" />
     <link rel="prev" title="OPAL_PCI_GET_XIVE_REISSUE and OPAL_PCI_SET_XIVE_REISSUE" href="opal-pci-get-set-xive-reissue-35-36.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-get-set-xive-reissue-35-36.html" title="OPAL_PCI_GET_XIVE_REISSUE and OPAL_PCI_SET_XIVE_REISSUE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -100,7 +96,7 @@ from 1 to ibm,opal-dmawins property &lt;translation levels&gt;.</dd>
 for mult-level) TCE table in the translation hiearchy.</dd>
 <dt><code class="docutils literal"><span class="pre">tce_table_size</span></code></dt>
 <dd>is the size, in bytes, of each TCE table in the translation
-hierarchy. A value of &#8216;0&#8217; indicates to disable this DMA window.</dd>
+hierarchy. A value of ‘0’ indicates to disable this DMA window.</dd>
 </dl>
 <p>For ibm,opal-ioda, this must be a value in the range from
 128MB / tce_page_size to 256TB / tce_page_size, and must be in the format and
@@ -128,7 +124,7 @@ to this DMA window based on the input translation parameter values.</dd>
 <dt><code class="docutils literal"><span class="pre">pci_mem_type</span></code></dt>
 <dd>selects whether this DMA window should be created in 32-bit
 or 64-bit PCI memory. The input values correspond to the same PCI memory
-space locators as MMIO spaces in the ranges&lt;&gt; property &#8211; 0x2 indicated
+space locators as MMIO spaces in the ranges&lt;&gt; property – 0x2 indicated
 32-bit PCI memory and 0x3 indicates 64-bit memory.</dd>
 </dl>
 <p>Window 0 for both ibm,opal-ioda and ibm,opal-ioda2 PHBs must be within 32-bit
@@ -193,14 +189,14 @@ if (!phb-&gt;ops-&gt;map_pe_dma_window)
         <li class="right" >
           <a href="opal-pci-get-set-xive-reissue-35-36.html" title="OPAL_PCI_GET_XIVE_REISSUE and OPAL_PCI_SET_XIVE_REISSUE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

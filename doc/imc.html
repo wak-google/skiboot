@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL/Skiboot In-Memory Collection (IMC) interface Documentation &#8212; skiboot v5.7
+    <title>OPAL/Skiboot In-Memory Collection (IMC) interface Documentation &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="Secure and Trusted Boot Overview" href="stb.html" />
     <link rel="prev" title="P9 XIVE Exploitation" href="xive.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="xive.html" title="P9 XIVE Exploitation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -63,7 +59,7 @@ for counters that (once started) can be read from memory at any time by
 an operating system. Such counters include those for the Nest and Core
 units, enabling continuous monitoring of resource utilisation on the chip.</p>
 <p>The API is agnostic as to how these counters are implemented. For the
-Nest units, they&#8217;re implemented by having microcode in an on-chip
+Nest units, they’re implemented by having microcode in an on-chip
 microcontroller and for core units, they are implemented as part of core logic
 to gather data and periodically write it to the memory locations.</p>
 </div>
@@ -88,8 +84,8 @@ Two of these are dedicated to count core cycles and instructions.
 The 2 remaining CPMCs have to multiplex 128 events each.</p>
 <p>Core IMC hardware does not support interrupts and it peridocially (based on
 sampling duration) fetches the counter data and accumulate to main memory.
-Memory to accumulate counter data are refered from &#8220;PDBAR&#8221; (per-core scom)
-and &#8220;LDBAR&#8221; per-thread spr.</p>
+Memory to accumulate counter data are refered from “PDBAR” (per-core scom)
+and “LDBAR” per-thread spr.</p>
 </div>
 <div class="section" id="opal-apis">
 <h2>OPAL APIs:<a class="headerlink" href="#opal-apis" title="Permalink to this headline">¶</a></h2>
@@ -156,13 +152,13 @@ device tree.</p>
         <li class="right" >
           <a href="xive.html" title="P9 XIVE Exploitation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

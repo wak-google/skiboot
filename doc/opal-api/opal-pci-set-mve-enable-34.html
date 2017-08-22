@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_SET_MVE_ENABLE &#8212; skiboot v5.7
+    <title>OPAL_PCI_SET_MVE_ENABLE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -28,10 +24,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="OPAL_PCI_SET_PE" href="opal-pci-set-pe-31.html" />
+    <link rel="next" title="OPAL_PCI_SET_P2P" href="opal-pci-set-p2p-157.html" />
     <link rel="prev" title="OPAL_PCI_SET_MVE" href="opal-pci-set-mve-33.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,12 +35,12 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="opal-pci-set-pe-31.html" title="OPAL_PCI_SET_PE"
+          <a href="opal-pci-set-p2p-157.html" title="OPAL_PCI_SET_P2P"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="opal-pci-set-mve-33.html" title="OPAL_PCI_SET_MVE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -79,7 +75,7 @@ DMA address and message data value.</p>
 <dt><code class="docutils literal"><span class="pre">mve_number</span></code></dt>
 <dd>is the index, from 0 to ibm,opal,ibm-num-msi-ports minus1</dd>
 <dt><code class="docutils literal"><span class="pre">state</span></code></dt>
-<dd>A &#8216;1&#8217; value of the state parameter indicates to enable the MVE and a &#8216;0&#8217;
+<dd>A ‘1’ value of the state parameter indicates to enable the MVE and a ‘0’
 value indicates to disable the MVE.</dd>
 </dl>
 <p>This call sets the MVE to an enabled (1) or disabled (0) state.</p>
@@ -102,8 +98,8 @@ if (!phb-&gt;ops-&gt;set_mve_enable)
   <p class="topless"><a href="opal-pci-set-mve-33.html"
                         title="previous chapter">OPAL_PCI_SET_MVE</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="opal-pci-set-pe-31.html"
-                        title="next chapter">OPAL_PCI_SET_PE</a></p>
+  <p class="topless"><a href="opal-pci-set-p2p-157.html"
+                        title="next chapter">OPAL_PCI_SET_P2P</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -132,19 +128,19 @@ if (!phb-&gt;ops-&gt;set_mve_enable)
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="opal-pci-set-pe-31.html" title="OPAL_PCI_SET_PE"
+          <a href="opal-pci-set-p2p-157.html" title="OPAL_PCI_SET_P2P"
              >next</a> |</li>
         <li class="right" >
           <a href="opal-pci-set-mve-33.html" title="OPAL_PCI_SET_MVE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

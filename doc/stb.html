@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Secure and Trusted Boot Overview &#8212; skiboot v5.7
+    <title>Secure and Trusted Boot Overview &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="Device Tree" href="device-tree.html" />
     <link rel="prev" title="OPAL/Skiboot In-Memory Collection (IMC) interface Documentation" href="imc.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="imc.html" title="OPAL/Skiboot In-Memory Collection (IMC) interface Documentation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -87,7 +83,7 @@ PCRs that are extended with the same hash algorithm. TPM 2.0 has a SHA1 bank
 and a SHA256 bank with 24 PCRs each.</p>
 <p>When the system boot is complete, each non-zero PCR value represents one or more
 events measured during the boot in chronological order. Interested parties
-can make inferences about the system&#8217;s state by using an attestation tool to
+can make inferences about the system’s state by using an attestation tool to
 remotely compare the PCR values of a TPM against known good values, and also
 identify unexpected events by replaying the Event Log against known good Event
 Log entries.</p>
@@ -249,13 +245,13 @@ are added to skiboot. The TSS and tpmLogMgr interfaces are defined in
         <li class="right" >
           <a href="imc.html" title="OPAL/Skiboot In-Memory Collection (IMC) interface Documentation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

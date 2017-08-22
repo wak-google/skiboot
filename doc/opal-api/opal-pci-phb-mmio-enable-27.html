@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_PHB_MMIO_ENABLE &#8212; skiboot v5.7
+    <title>OPAL_PCI_PHB_MMIO_ENABLE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_PCI_SET_MVE" href="opal-pci-set-mve-33.html" />
     <link rel="prev" title="OPAL_PCI_MAP_PE_MMIO_WINDOW" href="opal-pci-map-pe-mmio-window-29.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-map-pe-mmio-window-29.html" title="OPAL_PCI_MAP_PE_MMIO_WINDOW"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -68,8 +64,8 @@ not representative of OPALv3 as implemented by skiboot. This should be
 used as a starting point for full documentation.</p>
 <p>The host calls this function to enable or disable PHB decode of the PCI IO
 and Memory address spaces below that PHB. Window_num selects an mmio window
-within that address space. Enable set to &#8216;1&#8217; enables the PHB to decode and
-forward system real addresses to PCI memory, while enable set to &#8216;0&#8217; disables
+within that address space. Enable set to ‘1’ enables the PHB to decode and
+forward system real addresses to PCI memory, while enable set to ‘0’ disables
 PHB decode and forwarding for the address range defined in a particular MMIO
 window.</p>
 <p>Not all PHB hardware may support disabling some or all MMIO windows. OPAL
@@ -86,9 +82,9 @@ not support disable.</p>
 <dd>is the value from the PHB node ibm,opal-phbid property.</dd>
 <dt><code class="docutils literal"><span class="pre">window_type</span></code></dt>
 <dd><p class="first">specifies 32-bit or 64-bit PCI memory</p>
-<p>&#8216;0&#8217; selects PCI IO Space</p>
-<p>&#8216;1&#8217; selects 32-bit PCI memory space</p>
-<p class="last">&#8216;2&#8217; selects 64 bit PCI memory space</p>
+<p>‘0’ selects PCI IO Space</p>
+<p>‘1’ selects 32-bit PCI memory space</p>
+<p class="last">‘2’ selects 64 bit PCI memory space</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">window_num</span></code></dt>
 <dd>is the MMIO window number within the specified PCI memory space</dd>
@@ -142,14 +138,14 @@ not support disable.</p>
         <li class="right" >
           <a href="opal-pci-map-pe-mmio-window-29.html" title="OPAL_PCI_MAP_PE_MMIO_WINDOW"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL Specification &#8212; skiboot v5.7
+    <title>OPAL Specification &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="SkiBoot Console Log" href="console-log.html" />
     <link rel="prev" title="Skiboot overview" href="overview.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -58,7 +54,7 @@
 <h1>OPAL Specification<a class="headerlink" href="#opal-specification" title="Permalink to this headline">¶</a></h1>
 <p><strong>DRAFT - VERSION 0.0.1 AT BEST.</strong></p>
 <p><strong>COMMENTS ARE WELCOME</strong> - and indeed, needed.</p>
-<p>If you are reading this, congratulations: you&#8217;re now reviewing it!</p>
+<p>If you are reading this, congratulations: you’re now reviewing it!</p>
 <p>This document aims to define what it means to be OPAL compliant.</p>
 <p>While skiboot is the reference implementation, this documentation should
 be complete enough that (given hardware documentation) create another
@@ -69,9 +65,14 @@ implementation. It is not recommended that you do this though.</p>
 </div>
 <div class="section" id="definitions">
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
-<p>Host processor - the main POWER CPU (e.g. the POWER8 CPU)
-Host OS - the operating system running on the host processor.
-OPAL - OpenPOWER Abstraction Layer.</p>
+<dl class="docutils">
+<dt>Host processor</dt>
+<dd>the main POWER CPU (e.g. the POWER8 CPU)</dd>
+<dt>Host OS</dt>
+<dd>the operating system running on the host processor.</dd>
+<dt>OPAL</dt>
+<dd>OpenPOWER Abstraction Layer.</dd>
+</dl>
 </div>
 <div class="section" id="what-is-opal">
 <h2>What is OPAL?<a class="headerlink" href="#what-is-opal" title="Permalink to this headline">¶</a></h2>
@@ -130,7 +131,7 @@ and not be limited to the IBM POWER8.</li>
 <p>Explicitly not covered in this specification:</p>
 <ul class="simple">
 <li>A 32bit OPAL Specification
-There is no reason this couldn&#8217;t exist but the current specification is for
+There is no reason this couldn’t exist but the current specification is for
 64bit POWER systems only.</li>
 </ul>
 </div>
@@ -225,12 +226,12 @@ appropriately convert parameters before passing them to OPAL.</p>
 <p>A Host OS may need to detect the presence of OPAL as it may support booting
 under other platforms. For example, a single Linux kernel can be built to boot
 under OPAL and under PowerVM or qemu pseries machine type.</p>
-<p>The root node of the device tree MUST have compatible = &#8220;ibm,powernv&#8221;.
+<p>The root node of the device tree MUST have compatible = “ibm,powernv”.
 See <a class="reference internal" href="device-tree.html#device-tree"><span class="std std-ref">Device Tree</span></a> for more details.</p>
-<p>The presence of the &#8220;/ibm,opal&#8221; entry in the device tree signifies running
-under OPAL. Additionally, the &#8220;/ibm,opal&#8221; node MUST have a compatibile property
-listing &#8220;ibm,opal-v3&#8221;.</p>
-<p>The &#8220;/ibm,opal&#8221; node MUST have the following properties:</p>
+<p>The presence of the “/ibm,opal” entry in the device tree signifies running
+under OPAL. Additionally, the “/ibm,opal” node MUST have a compatibile property
+listing “ibm,opal-v3”.</p>
+<p>The “/ibm,opal” node MUST have the following properties:</p>
 <div class="highlight-dts"><div class="highlight"><pre><span></span><span class="nc">ibm,opal</span> <span class="p">{</span>
          <span class="nf">compatible</span> <span class="o">=</span> <span class="s">&quot;ibm,opal-v3&quot;</span><span class="p">;</span>
          <span class="nf">opal-base-address</span> <span class="o">=</span> <span class="p">&lt;&gt;;</span>
@@ -239,12 +240,12 @@ listing &#8220;ibm,opal-v3&#8221;.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>The compatible property MAY have other strings, such as a future &#8220;ibm,opal-v4&#8221;.
+<p>The compatible property MAY have other strings, such as a future “ibm,opal-v4”.
 These are reserved for future use.</p>
 <p>Some releases of the reference implementation (skiboot) have had compatible
-contain &#8220;ibm,opal-v2&#8221; as well as &#8220;ibm,opal-v3&#8221;. Host operating systems MUST
-NOT rely on &#8220;ibm,opal-v2&#8221;, this is a relic from early OPAL history.</p>
-<p>The &#8220;ibm,opal&#8221; node MUST have a child node named &#8220;firmware&#8221;. It MUST contain
+contain “ibm,opal-v2” as well as “ibm,opal-v3”. Host operating systems MUST
+NOT rely on “ibm,opal-v2”, this is a relic from early OPAL history.</p>
+<p>The “ibm,opal” node MUST have a child node named “firmware”. It MUST contain
 the following:</p>
 <div class="highlight-dts"><div class="highlight"><pre><span></span><span class="nc">firmware</span> <span class="p">{</span>
         <span class="nf">compatible</span> <span class="o">=</span> <span class="s">&quot;ibm,opal-firmware&quot;</span><span class="p">;</span>
@@ -256,7 +257,7 @@ The git-id property is deprecated, and version SHOULD be used. These
 are informative and MUST NOT be used by the host OS to determine anything
 about the firmware environment.</p>
 <p>The version property is a textual representation of the OPAL version.
-For example, it may be &#8220;skiboot-4.1&#8221; or other versioning described
+For example, it may be “skiboot-4.1” or other versioning described
 in more detail in <a class="reference internal" href="versioning.html#versioning"><span class="std std-ref">Versioning Scheme of skiboot</span></a>.</p>
 </div>
 <div class="section" id="opal-log">
@@ -334,13 +335,13 @@ while more messages go to the in memory buffer.</p>
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

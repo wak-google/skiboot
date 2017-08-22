@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_SET_XIVE &#8212; skiboot v5.7
+    <title>OPAL_SET_XIVE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_SIGNAL_SYSTEM_RESET" href="opal-signal-system-reset-145.html" />
     <link rel="prev" title="OPAL_SENSOR_READ" href="opal-sensor-read-88.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-sensor-read-88.html" title="OPAL_SENSOR_READ"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -75,8 +71,8 @@ neither on P8 nor on P9 XICS emulation.</li>
 <li>When masking, there is no guarantee that the interrupt will not
 still occur after this call returns. The reason is that it might
 already be on its way past the source controller and latched into one
-of the presenters. There is however a guarantee that it won&#8217;t replay
-indefinitely so it&#8217;s acceptable for the OS to simply ignore it.</li>
+of the presenters. There is however a guarantee that it won’t replay
+indefinitely so it’s acceptable for the OS to simply ignore it.</li>
 </ul>
 </div></blockquote>
 <div class="section" id="parameters">
@@ -84,12 +80,12 @@ indefinitely so it&#8217;s acceptable for the OS to simply ignore it.</li>
 <dl class="docutils">
 <dt><code class="docutils literal"><span class="pre">isn</span></code></dt>
 <dd>This is a global interrupt number as obtained from the device-tree
-&#8220;interrupts&#8221; or &#8220;interrupt-map&#8221; properties.</dd>
+“interrupts” or “interrupt-map” properties.</dd>
 <dt><code class="docutils literal"><span class="pre">server_number</span></code></dt>
 <dd>is the mangled server (processor) that is to receive the
 interrupt request. The mangling means that the actual processor
 number is shifted left by 2 bits, the bottom bits representing
-the &#8220;link&#8221;. However links aren&#8217;t supported in OPAL so the bottom
+the “link”. However links aren’t supported in OPAL so the bottom
 2 bits should be 0.</dd>
 <dt><code class="docutils literal"><span class="pre">priority</span></code></dt>
 <dd>is the interrupt priority value applied to the interrupt
@@ -151,14 +147,14 @@ the &#8220;link&#8221;. However links aren&#8217;t supported in OPAL so the bott
         <li class="right" >
           <a href="opal-sensor-read-88.html" title="OPAL_SENSOR_READ"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.5.0 &#8212; skiboot v5.7
+    <title>skiboot-5.5.0 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.5.0-rc1" href="skiboot-5.5.0-rc1.html" />
     <link rel="prev" title="skiboot-5.4.6" href="skiboot-5.4.6.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.4.6.html" title="skiboot-5.4.6"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -90,12 +86,12 @@ I2C interfaces. This is mainly VPD SEEPROMs.</p>
 <p>With recent changes to flash drivers in linux not all erase blocks are
 4K anymore. While most level of the pflash/gard tool stacks were written
 to not mind, it turns out there are bugs which means not 4K erase block
-backing stores aren&#8217;t handled all that well. Part of the problem is the
+backing stores aren’t handled all that well. Part of the problem is the
 FFS layout that is 4K aligned and with larger block sizes pflash and the
-gard tool don&#8217;t check if their erase commands are erase block aligned -
+gard tool don’t check if their erase commands are erase block aligned -
 which they are usually not with 64K erase blocks.</p>
 <p>This patch aims to add common functionality to blocklevel so that (at
-least) pflash and the gard tool don&#8217;t need to worry about the problem
+least) pflash and the gard tool don’t need to worry about the problem
 anymore.</p>
 </li>
 <li><p class="first">external/pflash: Use blocklevel_smart_erase()</p>
@@ -113,7 +109,7 @@ may be signed, and for signing those headers with the imprint keys.</p>
 <p>Testing:</p>
 <ul>
 <li><p class="first">mambo: Allow setting the Linux command line from the environment</p>
-<p>For automated testing it&#8217;s helpful to be able to set the Linux command
+<p>For automated testing it’s helpful to be able to set the Linux command
 line via an environment variable.</p>
 </li>
 <li><p class="first">mambo: Add util function for breaking on console output</p>
@@ -192,7 +188,7 @@ in code review across versions:</p>
 </table>
 <p>I am absolutely <em>thrilled</em> as to the uptick of reviews and tested-by occuring
 over our 5.4.0 release. Although we are not yet back up to 5.3 era levels for
-review, we&#8217;re much closer. For tested-by, we&#8217;ve set a new record, which is
+review, we’re much closer. For tested-by, we’ve set a new record, which is
 excellent!</p>
 <div class="section" id="developers-with-the-most-changesets">
 <h3>Developers with the most changesets<a class="headerlink" href="#developers-with-the-most-changesets" title="Permalink to this headline">¶</a></h3>
@@ -217,7 +213,7 @@ excellent!</p>
 <td>60</td>
 <td>(14.7%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>54</td>
 <td>(13.2%)</td>
 </tr>
@@ -351,7 +347,7 @@ excellent!</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>18278</td>
 <td>(48.5%)</td>
 </tr>
@@ -493,7 +489,7 @@ excellent!</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>8516</td>
 <td>(50.8%)</td>
 </tr>
@@ -528,7 +524,7 @@ excellent!</p>
 <td>6</td>
 <td>(1.6%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>3</td>
 <td>(0.8%)</td>
 </tr>
@@ -591,7 +587,7 @@ excellent!</p>
 <td>5</td>
 <td>(10.0%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>4</td>
 <td>(8.0%)</td>
 </tr>
@@ -697,7 +693,7 @@ excellent!</p>
 <td>1</td>
 <td>(7.1%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>1</td>
 <td>(7.1%)</td>
 </tr>
@@ -969,14 +965,14 @@ excellent!</p>
         <li class="right" >
           <a href="skiboot-5.4.6.html" title="skiboot-5.4.6"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.2.0 &#8212; skiboot v5.7
+    <title>skiboot-5.2.0 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.2.0-rc1" href="skiboot-5.2.0-rc1.html" />
     <link rel="prev" title="skiboot-5.1.9" href="skiboot-5.1.9.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.1.9.html" title="skiboot-5.1.9"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -68,7 +64,7 @@ stable rules - see <a class="reference internal" href="../stable-skiboot-rules.h
 <h2>Changes since rc2<a class="headerlink" href="#changes-since-rc2" title="Permalink to this headline">¶</a></h2>
 <p>Over skiboot-5.2.0-rc2, the following fixes are included:</p>
 <ul class="simple">
-<li>Include &#8216;extract-gcov&#8217; in make clean.</li>
+<li>Include ‘extract-gcov’ in make clean.</li>
 <li>ipmi-sel: Fix esel event logger to handle early boot PANIC events</li>
 <li>IPMI: Enable synchronous eSEL logging option (for PANIC events)</li>
 <li>libflash/libffs: Reporting seeing all 0xFF bytes during init.</li>
@@ -145,19 +141,19 @@ outputs for firmware-driven ones too.</dd>
 <h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Over skiboot-5.1, the following features have been added:</p>
 <ul class="simple">
-<li>Naples (P8&#8217;, i.e. P8 with NVLINK) processor support, including NVLINK.</li>
+<li>Naples (P8’, i.e. P8 with NVLINK) processor support, including NVLINK.</li>
 <li>Improvements in gard, libflash/pflash and opal-prd utilities<ul>
 <li>increased testing</li>
 <li>increased usability</li>
 <li>systemd scripts for opal-prd</li>
 <li>pflash can now use the /dev/mtd device to access BMC flash rather than
-accessing it directly. It is <em>important</em> that you use &#8211;mtd if your
+accessing it directly. It is <em>important</em> that you use –mtd if your
 BMC may otherwise know how to interact with its own flash.</li>
 </ul>
 </li>
 <li>support for Micron N25Q256Ax and N25Qx256Ax NOR flash.</li>
 <li>support for Winbond W25Q256BV NOR flash</li>
-<li>support for an emulated (&#8220;fake&#8221;) RTC clock, useful in simulators
+<li>support for an emulated (“fake”) RTC clock, useful in simulators
 and during bringup</li>
 <li>Explicit 1:1 mapping in ranges properties have been added to PCI
 bridges. This allows a neat trick with offb and VGA ports that should
@@ -187,10 +183,10 @@ POWER7 machines.</p>
 <h3>Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>PHB3: Fix unexpected ER (all) on errinjct by PCI config</li>
-<li>hw/bt: timeout messages when BT interface isn&#8217;t functional</li>
-<li>On Habanero, Slot3 should have been &#8220;Slot 3&#8221;.</li>
+<li>hw/bt: timeout messages when BT interface isn’t functional</li>
+<li>On Habanero, Slot3 should have been “Slot 3”.</li>
 <li>We now completely flush the console buffer before power down and reboot</li>
-<li>For chips with ibm,occ-functional-state set to false, we don&#8217;t wait
+<li>For chips with ibm,occ-functional-state set to false, we don’t wait
 for the OCC to start. This caused needless delay in booting on simulators
 which did not simulate OCCs.</li>
 <li>Change OCC reset order to always reset slave OCCs first.</li>
@@ -205,7 +201,7 @@ Some devices can otherwise leave the bus in a held state.</li>
 <ul class="simple">
 <li>many fixes of compiler and static analysis warnings</li>
 <li>increased unit test coverage</li>
-<li>Unit test of &#8220;boot debian jessie installer&#8221;</li>
+<li>Unit test of “boot debian jessie installer”</li>
 <li>ability to plug in other simulators to run existing tests (e.g. simulator for
 non pegasus p8)</li>
 <li>Support using (patched) Qemu with PowerNV platform support for running
@@ -225,7 +221,7 @@ skiboot and associated utilities.</li>
 back, we have roughly the same number of changesets (372 for 5.1.0, 334 for
 5.2.0-rc1 - even closer for 5.1.0-beta1) which indicates a relatively stable
 rate of development.</p>
-<p>Complete statistics are included below (generated by gitdm), but I&#8217;d like to
+<p>Complete statistics are included below (generated by gitdm), but I’d like to
 draw attention to a couple of stats:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -269,11 +265,11 @@ draw attention to a couple of stats:</p>
 </tr>
 </tbody>
 </table>
-<p>Overall, it looks like we&#8217;re on the right trajectory for increasing the number
+<p>Overall, it looks like we’re on the right trajectory for increasing the number
 of eyeballs looking at code before it heads in tree, especially around testing.
 Largely, this increase in Tested-by can be attributed to encouraging the
 existing test teams to start commenting on the patches themselves.</p>
-<p>Anyway, here&#8217;s the full stats from skiboot 5.1.0 to 5.2.0-rc1:</p>
+<p>Anyway, here’s the full stats from skiboot 5.1.0 to 5.2.0-rc1:</p>
 <p>Processed 334 csets from 27 developers
 2 employers found
 A total of 46172 lines added, 23274 removed (delta 22898)</p>
@@ -284,8 +280,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="30%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -331,7 +327,7 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <tr class="row-odd"><td>Shilpasri G Bhat</td>
 <td>4 (1.2%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>4 (1.2%)</td>
 </tr>
 <tr class="row-odd"><td>Mahesh Salgaonkar</td>
@@ -379,15 +375,15 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Stewart Smith</td>
 <td>19533 (39.4%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>17920 (36.1%)</td>
 </tr>
 <tr class="row-even"><td>Alistair Popple</td>
@@ -474,8 +470,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -500,8 +496,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -523,8 +519,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -567,8 +563,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -590,8 +586,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="33%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -616,8 +612,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -657,8 +653,8 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
 <col width="34%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -749,14 +745,14 @@ A total of 46172 lines added, 23274 removed (delta 22898)</p>
         <li class="right" >
           <a href="skiboot-5.1.9.html" title="skiboot-5.1.9"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

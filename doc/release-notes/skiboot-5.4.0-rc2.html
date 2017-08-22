@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.4.0-rc2 &#8212; skiboot v5.7
+    <title>skiboot-5.4.0-rc2 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.4.0-rc3" href="skiboot-5.4.0-rc3.html" />
     <link rel="prev" title="skiboot-5.4.0-rc1" href="skiboot-5.4.0-rc1.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.4.0-rc1.html" title="skiboot-5.4.0-rc1"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -85,18 +81,18 @@ force Secure Mode through the whole firmware boot process, but we
 are wanting to be able to test it (classic chicken and egg problem with
 build infrastructure).</p>
 <p>We disabled secure mode if the secure-enabled devtree property is
-read from the device tree <em>IF</em> we aren&#8217;t overriding it through NVRAM.
-Seeing as we can only increase (not decrease) what we&#8217;re checking through
+read from the device tree <em>IF</em> we aren’t overriding it through NVRAM.
+Seeing as we can only increase (not decrease) what we’re checking through
 the NVRAM variable, it is safe.</p>
 <p>The NVRAM setting is force-secure-mode=true in the ibm,skiboot partition.</p>
 <p>However, if you want to force secure mode even if Hostboot has <em>not</em> set
 the secure-enabled proprety in the device tree, set force-secure-mode
-to &#8220;always&#8221;.</p>
+to “always”.</p>
 <p>There is also a force-trusted-mode NVRAM setting to force trusted mode
 even if Hostboot has not enabled it int the device tree.</p>
-<p>To indicate to Linux that we haven&#8217;t gone through the whole firmware
-process in secure mode, we replace the &#8216;secure-enabled&#8217; property with
-&#8216;partial-secure-enabled&#8217;, to indicate that only part of the firmware
+<p>To indicate to Linux that we haven’t gone through the whole firmware
+process in secure mode, we replace the ‘secure-enabled’ property with
+‘partial-secure-enabled’, to indicate that only part of the firmware
 boot process has gone through secure mode.</p>
 </li>
 </ul>
@@ -125,7 +121,7 @@ pflash (pflash world domination plans are continuing on schedule).</p>
 </li>
 <li><p class="first">external/pflash: Catch incompatible combination of flags</p>
 </li>
-<li><p class="first">external/common: arm: Don&#8217;t error trying to wrprotect with MTD access</p>
+<li><p class="first">external/common: arm: Don’t error trying to wrprotect with MTD access</p>
 </li>
 <li><p class="first">libflash/libffs: Use blocklevel_smart_write() when updating partitions</p>
 </li>
@@ -144,8 +140,8 @@ is mostly 32bit).</p>
 <h2>Fast Reset<a class="headerlink" href="#fast-reset" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">fast-reset: disable fast reboot in event of platform error</p>
-<p>Most of the time, if we&#8217;re rebooting due to a platform error, we should
-trigger a checkstop. However, if we haven&#8217;t been told what we should do
+<p>Most of the time, if we’re rebooting due to a platform error, we should
+trigger a checkstop. However, if we haven’t been told what we should do
 to trigger a checkstop (e.g. on an FSP machine), then we should still
 fail to fast-reboot.</p>
 <p>So, disable fast-reboot in the OPAL_CEC_REBOOT2 code path
@@ -158,7 +154,7 @@ for OPAL_REBOOT_PLATFORM_ERROR reboot type.</p>
 fenced during the reboot resulting in major problems when we load the new
 kernel.</p>
 <p>In order to handle this safely, we need to disable CAPI mode before
-resetting PHBs during the fast reboot. However, we don&#8217;t currently support
+resetting PHBs during the fast reboot. However, we don’t currently support
 this.</p>
 <p>In the meantime, when fast rebooting, check if there are any PHBs with a
 CAPP attached, and if so, abort the fast reboot and revert to a normal
@@ -168,9 +164,9 @@ reboot instead.</p>
 </div>
 <div class="section" id="openpower-platforms">
 <h2>OpenPOWER Platforms<a class="headerlink" href="#openpower-platforms" title="Permalink to this headline">¶</a></h2>
-<p>For all hardware platforms that aren&#8217;t IBM FSP machines:</p>
+<p>For all hardware platforms that aren’t IBM FSP machines:</p>
 <ul>
-<li><p class="first">Revert &#8220;flash: Move flash node under ibm,opal/flash/&#8221;</p>
+<li><p class="first">Revert “flash: Move flash node under ibm,opal/flash/”</p>
 <p>This reverts commit e1e6d009860d0ef60f9daf7a0fbe15f869516bd0.</p>
 <p>Breaks DT enough that it makes people cranky, reverting for now.
 This could break access to flash with existing kernels in POWER9 simulators</p>
@@ -184,12 +180,12 @@ addresses a long standing bug due to differing interpretations of FFS.</p>
 no matter on what the size of the partition is. Prior to this patch,
 skiboot would always load actualSize, leading to longer than needed IPL.</p>
 <p>The pflash utility updates actualSize, so no developer has really ever
-noticed this, apart from maybe an inkling that it&#8217;s odd that a freshly
+noticed this, apart from maybe an inkling that it’s odd that a freshly
 baked PNOR from op-build takes ever so slightly longer to boot than one
 that has had individual partitions pflashed in.</p>
 <p>With this patch, we now compute actualSize. For partitions with a STB
 header, we take the payload size from the STB header. For partitions
-that don&#8217;t have a STB header, we compute the size either by parsing
+that don’t have a STB header, we compute the size either by parsing
 the ELF header or by looking at the subpartition header and computing it.</p>
 <p>We now need to read the entire partition for partitions with subpartitions
 so that we pass consistent values to be measured as part of Trusted Boot.</p>
@@ -205,7 +201,7 @@ that.</p>
 <h2>PCI<a class="headerlink" href="#pci" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">pci: Check power state before powering off slot</p>
-<p>Prevents the erroneous &#8220;Error -1 powering off slot&#8221; error message.</p>
+<p>Prevents the erroneous “Error -1 powering off slot” error message.</p>
 </li>
 </ul>
 </div>
@@ -532,14 +528,14 @@ that.</p>
         <li class="right" >
           <a href="skiboot-5.4.0-rc1.html" title="skiboot-5.4.0-rc1"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

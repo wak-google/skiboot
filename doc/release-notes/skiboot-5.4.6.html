@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.4.6 &#8212; skiboot v5.7
+    <title>skiboot-5.4.6 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.5.0" href="skiboot-5.5.0.html" />
     <link rel="prev" title="skiboot-5.4.5" href="skiboot-5.4.5.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.4.5.html" title="skiboot-5.4.5"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -76,12 +72,12 @@ everything becomes normal.</p>
 when cosole is full. Side effect of this patch is, we may endup dropping
 latest console data. But better to drop console data than system hang.</p>
 <p>Alternative approach is to drop old data from console buffer, make space
-for new data. But in normal condition only FSP can update &#8216;next_out&#8217;
+for new data. But in normal condition only FSP can update ‘next_out’
 pointer and if we touch that pointer, it may introduce some other
 race conditions. Hence we decided to just new console write request.</p>
 </li>
 <li><p class="first">FSP: Set status field in response message for timed out message</p>
-<p>For timed out FSP messages, we set message status as &#8220;fsp_msg_timeout&#8221;.
+<p>For timed out FSP messages, we set message status as “fsp_msg_timeout”.
 But most FSP driver users (like surviellance) are ignoring this field.
 They always look for FSP returned status value in callback function
 (second byte in word1). So we endup treating timed out message as success
@@ -94,7 +90,7 @@ response from FSP.</p>
 <span class="p">[</span><span class="mf">70023.226903251</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="n">FSP</span><span class="p">:</span> <span class="n">fsp_trigger_reset</span><span class="p">()</span> <span class="n">entry</span>
 </pre></div>
 </div>
-<p>Here SURV code thought it got valid response from FSP. But actually we didn&#8217;t
+<p>Here SURV code thought it got valid response from FSP. But actually we didn’t
 receive response from FSP.</p>
 </li>
 <li><p class="first">FSP: Improve timeout message</p>
@@ -202,14 +198,14 @@ which is working fine.</p>
         <li class="right" >
           <a href="skiboot-5.4.5.html" title="skiboot-5.4.5"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

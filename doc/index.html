@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>SkiBoot Documentation &#8212; skiboot v5.7
+    <title>SkiBoot Documentation &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -30,7 +26,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Skiboot overview" href="overview.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -40,7 +36,7 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="#">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -84,7 +80,10 @@
 <h2>Developer Guide and Internals<a class="headerlink" href="#developer-guide-and-internals" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="console-log.html">SkiBoot Console Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="console-log.html">SkiBoot Console Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="console-log.html#log-levels">Log levels</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="error-logging.html">How to log errors on OPAL</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="error-logging.html#error-logging-interfaces-in-opal">Error logging interfaces in OPAL</a></li>
 </ul>
@@ -96,7 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="error-logging.html#sample-output-pel-dump-got-from-fsp">Sample output PEL dump got from FSP</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bmc.html">OPAL &lt;&#8211;&gt; BMC interactions</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="bmc.html">OPAL &lt;–&gt; BMC interactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bmc.html#ipmi-sensors">IPMI sensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bmc.html#chassis-control-messages">Chassis control messages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bmc.html#watchdog-support">Watchdog support</a></li>
@@ -192,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="device-tree/nx.html">Nest (NX) Accelerator Coprocessor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/reserved-memory.html">reserved-memory device tree nodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/tpm.html">Trusted Platform Module (TPM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device-tree/vas.html">Virtual Accelerator Switchboard (VAS)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="device-tree/vpd.html">VPD (Vital Product Data)</a></li>
 </ul>
 </li>
@@ -236,6 +236,7 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-phb-mmio-enable-27.html">OPAL_PCI_PHB_MMIO_ENABLE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-mve-33.html">OPAL_PCI_SET_MVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-mve-enable-34.html">OPAL_PCI_SET_MVE_ENABLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-p2p-157.html">OPAL_PCI_SET_P2P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-pe-31.html">OPAL_PCI_SET_PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-peltv-32.html">OPAL_PCI_SET_PELTV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-phb-mem-window-28.html">OPAL_PCI_SET_PHB_MEM_WINDOW</a></li>
@@ -243,6 +244,10 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-xive-pe-37.html">OPAL_PCI_SET_XIVE_PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-tce-kill-126.html">OPAL_PCI_TCE_KILL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-poll-events.html">OPAL_POLL_EVENTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-power-shift-ratio.html">OPAL_GET_POWER_SHIFT_RATIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-power-shift-ratio.html#opal-set-power-shift-ratio">OPAL_SET_POWER_SHIFT_RATIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-powercap.html">OPAL_GET_POWERCAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-powercap.html#opal-set-powercap">OPAL_SET_POWERCAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-prd-msg-113.html">OPAL_PRD_MSG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-read-write-tpo-103-104.html">OPAL_READ_TPO and OPAL_WRITE_TPO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-register-dump-region-101.html">OPAL_REGISTER_DUMP_REGION</a></li>
@@ -250,6 +255,7 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-return-cpu-69.html">OPAL_RETURN_CPU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-rtc-read-3.html">OPAL_RTC_READ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-rtc-write-4.html">OPAL_RTC_WRITE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-sensor-group-clear-156.html">OPAL_SENSOR_GROUP_CLEAR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-sensor-read-88.html">OPAL_SENSOR_READ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-set-xive-19.html">OPAL_SET_XIVE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-signal-system-reset-145.html">OPAL_SIGNAL_SYSTEM_RESET</a></li>
@@ -284,6 +290,7 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.18.html">skiboot-5.1.18</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.19.html">skiboot-5.1.19</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.2.html">skiboot-5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.20.html">skiboot-5.1.20</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.3.html">skiboot-5.1.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.4.html">skiboot-5.1.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.1.5.html">skiboot-5.1.5</a></li>
@@ -330,6 +337,7 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.7.html">skiboot-5.7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.7-rc1.html">skiboot-5.7-rc1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.7-rc2.html">skiboot-5.7-rc2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.8-rc1.html">skiboot-5.8-rc1</a></li>
 </ul>
 </li>
 </ul>
@@ -387,13 +395,13 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="#">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>P9 XIVE Exploitation &#8212; skiboot v5.7
+    <title>P9 XIVE Exploitation &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL/Skiboot In-Memory Collection (IMC) interface Documentation" href="imc.html" />
     <link rel="prev" title="XSCOM Bindings" href="xscom-node-bindings.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="xscom-node-bindings.html" title="XSCOM Bindings"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -64,7 +60,7 @@
 <p>This node represents both the emulated XICS source controller and
 an abstraction of the virtualization engine. This represents the
 fact thet OPAL set_xive/get_xive functions are still supported
-though they don&#8217;t provide access to the full functionality.</p>
+though they don’t provide access to the full functionality.</p>
 <p>It is still the parent of all interrupts in the device-tree.</p>
 <p>New or modified properties:</p>
 <ul class="simple">
@@ -82,7 +78,7 @@ system.</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">ibm,opal-intc</span></code> : This represents the emulated XICS presentation
 facility and might be the only property present if the version of
-OPAL doesn&#8217;t support XIVE exploitation.</li>
+OPAL doesn’t support XIVE exploitation.</li>
 <li><code class="docutils literal"><span class="pre">ibm,opal-xive-pe</span></code> : This represents the XIVE presentation
 engine.</li>
 </ul>
@@ -91,7 +87,7 @@ engine.</li>
 of size, in ascending order.</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">ibm,xive-#priorities</span></code> : One cell, the number of supported priorities
-(the priorities will be 0...n)</p>
+(the priorities will be 0…n)</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">ibm,xive-provision-page-size</span></code> : Page size (in bytes) of the pages to
 pass to OPAL for provisioning internal structures
@@ -116,16 +112,16 @@ ranges corresponding respectively to the 4 rings:</p>
 </ul>
 </li>
 <li><p class="first">Interrupt descriptors</p>
-<p>The interrupt descriptors (aka &#8220;interrupts&#8221; properties and parts
-of &#8220;interrupt-map&#8221; properties) remain 2 cells. The first cell is
+<p>The interrupt descriptors (aka “interrupts” properties and parts
+of “interrupt-map” properties) remain 2 cells. The first cell is
 a global interrupt number which represents a unique interrupt
 source in the system and is an abstraction provided by OPAL.</p>
 <p>The default configuration for all sources in the IVT/EAS is to
-issue that number (it&#8217;s internally a combination of the source
+issue that number (it’s internally a combination of the source
 chip and per-chip interrupt number but the details of that
 combination are not exposed and subject to change).</p>
-<p>The second cell remains as usual &#8220;0&#8221; for an edge interrupt and
-&#8220;1&#8221; for a level interrupts.</p>
+<p>The second cell remains as usual “0” for an edge interrupt and
+“1” for a level interrupts.</p>
 </li>
 <li><p class="first">IPIs</p>
 <p>Each <code class="docutils literal"><span class="pre">cpu</span></code> node now contains an <code class="docutils literal"><span class="pre">interrupts</span></code> property which has
@@ -140,9 +136,9 @@ used:</p>
 <blockquote>
 <div><ul class="simple">
 <li>The legacy opal_set/get_xive() APIs only support the old
-&#8220;mangled&#8221; (ie. shifted by 2) HW processor numbers.</li>
+“mangled” (ie. shifted by 2) HW processor numbers.</li>
 <li>The new opal_xive_set/get_irq_config API (and other
-exploitation mode APIs) use a &#8220;token&#8221; VP number which is
+exploitation mode APIs) use a “token” VP number which is
 described in II-2. Unmodified HW processor numbers are valid
 VP numbers for those APIs.</li>
 </ul>
@@ -163,7 +159,7 @@ thread in the system.</p>
 target before first use. The default interrupt number is programmed
 in the EAS and will remain unchanged if the targetting/unmasking is
 done using the legacy set_xive() interface.</p>
-<p>An interrupt &#8220;target&#8221; is a combination of a target processor number
+<p>An interrupt “target” is a combination of a target processor number
 and a priority.</p>
 <p>Processor numbers are in a single domain that represents both the
 physical processors and any virtual processor or group allocated
@@ -184,7 +180,7 @@ a bit more tricky than simple powers of two however, see below.</p>
 <li><p class="first">Interrupt numbering and allocation</p>
 <p>As specified in the device-tree definition, interrupt numbers
 are abstracted by OPAL to be a 30-bit number. All HW interrupts
-are &#8220;allocated&#8221; and configured at boot time along with enough
+are “allocated” and configured at boot time along with enough
 IPIs for all processor threads.</p>
 <p>Additionally, in order to be compatible with the XICS emulation,
 all interrupt numbers present in the device-tree (ie all physical
@@ -206,7 +202,7 @@ can also specify the logical interrupt number.</p>
 <p>A VP number is a 64-bit number. The internal make-up of that number
 is opaque to the OS. However, it is a discrete integer that will
 be a naturally aligned power of two when allocating a chunk of
-VPs representing the &#8220;base&#8221; number of that chunk, the OS will do
+VPs representing the “base” number of that chunk, the OS will do
 basic arithmetic to get to all the VPs in the range.</p>
 <p>Groups, when supported, will also be numbers in that space.</p>
 <p>The physical processors numbering uses the same number space.</p>
@@ -240,7 +236,7 @@ numbers. OPAL will internally use some bits of the VP number
 to encode the group geometry.</p>
 <p>[TBD] OPAL may or may not allocate a default group of all physical
 processors, per-chip groups or per-core groups. This will be
-represented in the device-tree somewhat...</p>
+represented in the device-tree somewhat…</p>
 <p>[TBD] OPAL will provide interfaces for allocating groups</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -249,14 +245,14 @@ represented in the device-tree somewhat...</p>
 which define the type of operation supported. The following
 rules apply based on what those flags say:</p>
 <ul class="last simple">
-<li>The Q bit isn&#8217;t functional on an LSI interrupt. There is no
-garantee that the special combination &#8220;01&#8221; will work for an
+<li>The Q bit isn’t functional on an LSI interrupt. There is no
+garantee that the special combination “01” will work for an
 LSI (and in fact it will not work on the PHB LSIs). However
-just setting P to 1 is sufficient to mask an LSI (just don&#8217;t
+just setting P to 1 is sufficient to mask an LSI (just don’t
 EOI it while masked).</li>
 <li>The recommended setting for a masked interrupt that is
-temporarily masked by a driver is &#8220;10&#8221;. This means a new
-occurrence while masked will be recorded and a &#8220;StoreEOI&#8221;
+temporarily masked by a driver is “10”. This means a new
+occurrence while masked will be recorded and a “StoreEOI”
 will replay it appropriately.</li>
 </ul>
 </div>
@@ -276,7 +272,7 @@ the VP configuration.</p>
 <p>The opal_xive_get_queue_info() and opal_xive_set_queue_info() can be used
 to query a queue configuration (ie, to obtain the current page and size
 for the queue itself, but also to collect some configuration flags for
-that queue such as whether it coalesces notifications etc...) and to
+that queue such as whether it coalesces notifications etc…) and to
 obtain the MMIO address of the queue EOI page (in the case where
 coalescing is enabled).</p>
 </div>
@@ -299,7 +295,7 @@ IRQ info or queue info are fine to do so concurrently.</p>
 <p>However, there is no internal locking to prevent races
 between things such as freeing a VP block and getting/setting
 queue infos on that block.</p>
-<p class="last">These aren&#8217;t fully specified (yet) but common sense shall
+<p class="last">These aren’t fully specified (yet) but common sense shall
 apply.</p>
 </div>
 <div class="section" id="opal-xive-reset">
@@ -311,13 +307,13 @@ apply.</p>
 XIVE hardware and the OPAL XIVE related state back to all defaults.</p>
 <p>It can call it a second time before handing over to another (ie.
 kexec) to re-enable XICS emulation.</p>
-<p>The &#8220;version&#8221; argument should be set to 1 to enable the XIVE
+<p>The “version” argument should be set to 1 to enable the XIVE
 exploitation mode APIs or 0 to switch back to the default XICS
 emulation mode.</p>
 <p>Future versions of OPAL might allow higher versions than 1 to
 represent newer versions of this API. OPAL will return an error
-if it doesn&#8217;t recognize the requested version.</p>
-<p>Any page of memory that the OS has &#8220;donated&#8221; to OPAL, either backing
+if it doesn’t recognize the requested version.</p>
+<p>Any page of memory that the OS has “donated” to OPAL, either backing
 store for EQDs or VPDs or actual queue buffers will be removed from
 the various HW maps and can be re-used by the OS or freed after this
 call regardless of the version information. The HW will be reset to
@@ -359,7 +355,7 @@ bit is clear, there is either no trigger page or the trigger
 can be done in the same page as the EOI, see below.</p>
 </li>
 <li><p class="first">OPAL_XIVE_IRQ_STORE_EOI</p>
-<p>Indicates that the interrupt supports the &#8220;Store EOI&#8221; option,
+<p>Indicates that the interrupt supports the “Store EOI” option,
 ie a store to the EOI page will move Q into P and retrigger
 if the resulting P bit is 1. If this flag is 0, then a store
 to the EOI page will do a trigger if OPAL_XIVE_IRQ_TRIGGER_PAGE
@@ -367,25 +363,25 @@ is also 0.</p>
 </li>
 <li><p class="first">OPAL_XIVE_IRQ_LSI</p>
 <p>Indicates that the source is a level sensitive source and thus
-doesn&#8217;t have a functional Q bit. The Q bit may or may not be
-implemented in HW but SW shouldn&#8217;t rely on it doing anything.</p>
+doesn’t have a functional Q bit. The Q bit may or may not be
+implemented in HW but SW shouldn’t rely on it doing anything.</p>
 </li>
 <li><p class="first">OPAL_XIVE_IRQ_SHIFT_BUG</p>
 <p>Indicates that the source has a HW bug that shifts the bits
-of the &#8220;offset&#8221; inside the EOI page left by 4 bits. So when
-this is set, us 0xc000, 0xd000... instead of 0xc00, 0xd00...
+of the “offset” inside the EOI page left by 4 bits. So when
+this is set, us 0xc000, 0xd000… instead of 0xc00, 0xd00…
 as offets in the EOI page.</p>
 </li>
 <li><p class="first">OPAL_XIVE_IRQ_MASK_VIA_FW</p>
 <p>Indicates that a FW call is needed (either opal_set_xive()
 or opal_xive_set_irq_config()) to succesfully mask and unmask
-the interrupt. The operations via the ESB page aren&#8217;t fully
+the interrupt. The operations via the ESB page aren’t fully
 functional.</p>
 </li>
 <li><p class="first">OPAL_XIVE_IRQ_EOI_VIA_FW</p>
 <p>Indicates that a FW call to opal_xive_eoi() is needed to
 successfully EOI the interrupt. The operation via the ESB page
-isn&#8217;t fully functional.</p>
+isn’t fully functional.</p>
 <ul class="simple">
 <li>out_eoi_page and out_trig_page outputs will be set to the
 EOI page physical address (always) and the trigger page address
@@ -397,8 +393,8 @@ EOI and trigger pages. Current supported values are 12 (4k)
 and 16 (64k). Those cannot be configured by the OS and are set
 by firmware but can be different for different interrupt sources.</li>
 <li>out_src_chip will be set to the chip ID of the HW entity this
-interrupt is sourced from. It&#8217;s meant to be informative only
-and thus isn&#8217;t guaranteed to be 100% accurate. The idea is for
+interrupt is sourced from. It’s meant to be informative only
+and thus isn’t guaranteed to be 100% accurate. The idea is for
 the OS to use that to pick up a default target processor on
 the same chip.</li>
 </ul>
@@ -418,7 +414,7 @@ is preferred.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>This is the <em>same</em> opal_xive_eoi() call used by OPAL XICS
-emulation. However the XIRR parameter is re-purposed as &#8220;GIRQ&#8221;.</p>
+emulation. However the XIRR parameter is re-purposed as “GIRQ”.</p>
 <p class="last">The call will perform the appropriate function depending on
 whether OPAL is in XICS emulation mode  or native XIVE exploitation
 mode.</p>
@@ -438,7 +434,7 @@ interrupt number (the number that will be presented in the queue).</p>
 provided by the device-tree.</li>
 <li>out_vp: Will contain the target virtual processor where the
 interrupt is currently routed to. This can return 0xffffffff
-if the interrupt isn&#8217;t routed to a valid virtual processor.</li>
+if the interrupt isn’t routed to a valid virtual processor.</li>
 <li>out_prio: Will contain the priority of the interrupt or 0xff
 if masked</li>
 <li>out_lirq: Will contain the logical interrupt assigned to the
@@ -486,7 +482,7 @@ but to directly mask using the P/Q bits of the source instead.</p>
 no handler registered for a given interrupt anymore or when registering
 a new handler for an interrupt that had none. In these case, losing
 interrupts happening while no handler was attached is considered fine
-and the source comes up in a &#8220;clean state&#8221; when used for the first time.</p>
+and the source comes up in a “clean state” when used for the first time.</p>
 </li>
 </ul>
 </div>
@@ -507,7 +503,7 @@ with a virtual processor and a priority.</p>
 interrupt events will be posted.</p>
 </li>
 <li><p class="first">out_qsize: will contain the log2 of the size of the queue buffer
-or 0 if the queue hasn&#8217;t been populated. Example: 12 for a 4k page.</p>
+or 0 if the queue hasn’t been populated. Example: 12 for a 4k page.</p>
 </li>
 <li><p class="first">out_qeoi_page: will contain the physical address of the MMIO page
 used to perform EOIs for the queue notifications.</p>
@@ -516,13 +512,13 @@ used to perform EOIs for the queue notifications.</p>
 interrupt associated with that queue.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">The &#8220;escalate_irq&#8221; is a special interrupt number, depending
+<p class="last">The “escalate_irq” is a special interrupt number, depending
 on the implementation it may or may not correspond to a normal
 XIVE source.  Masking of escalation IRQs is only supported
 using the PQ bits, passing a priority of 0xff to opal_set_xive or
 opal_xive_set_irq_configuration() will in effect only affect
 the PQ bits. Being MSIs though, they do support the special
-&#8220;01&#8221; combination for &#8216;interrupt off&#8217;.</p>
+“01” combination for ‘interrupt off’.</p>
 </div>
 </li>
 <li><p class="first">out_qflags: will contain flags defined as follow:</p>
@@ -536,14 +532,14 @@ owner VP).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">A newly enabled queue will have the generation set to 1
-and the queue pointer to 0. If the OS wants to &#8220;reset&#8221; a queue
+and the queue pointer to 0. If the OS wants to “reset” a queue
 generation and pointer, it thus must disable and re-enable
 the queue.</p>
 </div>
 </li>
 <li><p class="first">OPAL_XIVE_EQ_ALWAYS_NOTIFY</p>
 <p>When this is set, the HW will always notify the VP on any new
-entry in the queue, thus the queue own P/Q bits won&#8217;t be relevant
+entry in the queue, thus the queue own P/Q bits won’t be relevant
 and using the EOI page will be unnecessary.</p>
 </li>
 <li><p class="first">OPAL_XIVE_EQ_ESCALATE</p>
@@ -591,7 +587,7 @@ allocated (along with its owner VP).</p>
 </pre></div>
 </div>
 <p>This call is used to donate pages to OPAL for use by VP/EQ provisioning.</p>
-<p>The pages must be of the size specified by the &#8220;ibm,xive-provision-page-size&#8221;
+<p>The pages must be of the size specified by the “ibm,xive-provision-page-size”
 property and naturally aligned.</p>
 <p>All donated pages are forgotten by OPAL (and thus returned to the OS)
 on any call to opal_xive_reset().</p>
@@ -615,7 +611,7 @@ enough pages have been provided.</p>
 representing the base of the block which will be aligned on the alloc
 order, allowing the OS to do basic arithmetic to index VPs in the block.</p>
 <p>The VPs will have queue structures reserved (but not initialized nor
-provisioned) for all the priorities defined in the &#8220;ibm,xive-#priorities&#8221;
+provisioned) for all the priorities defined in the “ibm,xive-#priorities”
 property</p>
 <p>This call might return OPAL_XIVE_PROVISIONING. In this case, the OS
 must allocate pages and provision OPAL using opal_xive_donate_page(),
@@ -766,13 +762,13 @@ will result in an OPAL_PARAMETER error.</p>
         <li class="right" >
           <a href="xscom-node-bindings.html" title="XSCOM Bindings"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

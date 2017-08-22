@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>PCI &#8212; skiboot v5.7
+    <title>PCI &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="PCI Slots" href="pci-slot.html" />
     <link rel="prev" title="Versioning Scheme of skiboot" href="versioning.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="versioning.html" title="Versioning Scheme of skiboot"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -73,7 +69,7 @@ parent) or 0 (not in the parent PE domain).</p>
 <h2>IODA MMIO Setup Sequences<a class="headerlink" href="#ioda-mmio-setup-sequences" title="Permalink to this headline">¶</a></h2>
 <p>(<strong>WARNING</strong>: this was rescued from old internal documentation. Needs verification)</p>
 <p>The host calls <code class="docutils literal"><span class="pre">opal_pci_phb_mmio_enable(</span> <span class="pre">phb_id,</span> <span class="pre">window_type,</span> <span class="pre">window_num,</span> <span class="pre">0x0)</span></code> to disable the MMIO window.</p>
-<p>The host calls <code class="docutils literal"><span class="pre">opal_pci_set_phb_mmio_window(</span> <span class="pre">phb_id,</span> <span class="pre">mmio_window,</span> <span class="pre">starting_real_address,</span> <span class="pre">starting_pci_address,</span> <span class="pre">segment_size)</span></code> to change the MMIO window location in PCI and/or processor real address space, or to change the size &#8211; and corresponding window size &#8211; of a particular MMIO window.</p>
+<p>The host calls <code class="docutils literal"><span class="pre">opal_pci_set_phb_mmio_window(</span> <span class="pre">phb_id,</span> <span class="pre">mmio_window,</span> <span class="pre">starting_real_address,</span> <span class="pre">starting_pci_address,</span> <span class="pre">segment_size)</span></code> to change the MMIO window location in PCI and/or processor real address space, or to change the size – and corresponding window size – of a particular MMIO window.</p>
 <p>The host calls <code class="docutils literal"><span class="pre">opal_pci_map_pe_mmio_window(</span> <span class="pre">pe_number,</span> <span class="pre">mmio_window,</span> <span class="pre">segment_number)</span></code> to map PEs to window segments, for each segment mapped to each PE.</p>
 <p>The host calls <code class="docutils literal"><span class="pre">opal_pci_phb_mmio_enable(</span> <span class="pre">phb_id,</span> <span class="pre">window_type,</span> <span class="pre">window_num,</span> <span class="pre">0x1)</span></code> to enable the MMIO window.</p>
 </div>
@@ -163,13 +159,13 @@ c. <code class="docutils literal"><span class="pre">opal_get_msi_64[32](phb_id,<
         <li class="right" >
           <a href="versioning.html" title="Versioning Scheme of skiboot"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

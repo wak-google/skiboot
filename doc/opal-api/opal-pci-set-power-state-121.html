@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_SET_POWER_STATE &#8212; skiboot v5.7
+    <title>OPAL_PCI_SET_POWER_STATE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_PCI_SET_XIVE_PE" href="opal-pci-set-xive-pe-37.html" />
     <link rel="prev" title="OPAL_PCI_SET_PHB_MEM_WINDOW" href="opal-pci-set-phb-mem-window-28.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-set-phb-mem-window-28.html" title="OPAL_PCI_SET_PHB_MEM_WINDOW"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -74,16 +70,16 @@ can be one of OPAL_PCI_SLOT_POWER_{OFF, ON, OFFLINE, ONLINE}.</dd>
 </div>
 <div class="section" id="calling">
 <h2>Calling<a class="headerlink" href="#calling" title="Permalink to this headline">¶</a></h2>
-<p>Set PCI slot&#8217;s power state. The power state is stored in buffer pointed
+<p>Set PCI slot’s power state. The power state is stored in buffer pointed
 by &#64;data. The typical use is to hot add or remove adapters behind the
 indicated PCI slot (by &#64;id) in PCI hotplug path.</p>
 <p>User will receive an asychronous message after calling the API. The message
-contains the API completion status: event (Power off or on), device node&#8217;s
+contains the API completion status: event (Power off or on), device node’s
 phandle identifying the PCI slot, errcode (e.g. OPAL_SUCCESS). The API returns
 OPAL_ASYNC_COMPLETION for the case.</p>
 <p>The states OPAL_PCI_SLOT_OFFLINE and OPAL_PCI_SLOT_ONLINE are used for removing
 or adding devices behind the slot. The device nodes in the device tree are
-removed or added accordingly, without actually changing the slot&#8217;s power state.
+removed or added accordingly, without actually changing the slot’s power state.
 The API call will return OPAL_SUCCESS immediately and no further asynchronous
 message will be sent.</p>
 </div>
@@ -95,7 +91,7 @@ message will be sent.</p>
 <dt>OPAL_ASYNC_COMPLETION</dt>
 <dd>PCI hotplug needs further message to confirm</dd>
 <dt>OPAL_PARAMETER</dt>
-<dd>The indicated PCI slot isn&#8217;t found</dd>
+<dd>The indicated PCI slot isn’t found</dd>
 <dt>OPAL_UNSUPPORTED</dt>
 <dd>Setting power state not supported on the PCI slot</dd>
 </dl>
@@ -157,14 +153,14 @@ message will be sent.</p>
         <li class="right" >
           <a href="opal-pci-set-phb-mem-window-28.html" title="OPAL_PCI_SET_PHB_MEM_WINDOW"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

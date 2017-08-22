@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.5.0-rc1 &#8212; skiboot v5.7
+    <title>skiboot-5.5.0-rc1 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.5.0-rc2" href="skiboot-5.5.0-rc2.html" />
     <link rel="prev" title="skiboot-5.5.0" href="skiboot-5.5.0.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.5.0.html" title="skiboot-5.5.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -75,13 +71,13 @@ and issues: <a class="reference external" href="https://github.com/open-power/sk
 <div class="section" id="new-platforms">
 <h2>New Platforms<a class="headerlink" href="#new-platforms" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>SuperMicro&#8217;s (SMC) P8DNU: An astbmc based POWER8 platform</li>
+<li>SuperMicro’s (SMC) P8DNU: An astbmc based POWER8 platform</li>
 <li>Add a generic platform to help with bringup of new systems.</li>
 <li>Four POWER9 based systems (NOTE: All POWER9 systems should be considered
 for bringup use only at this point):<ul>
 <li>Romulus</li>
 <li>Witherspoon (a POWER9 system with NVLink2 attached GPUs)</li>
-<li>Zaius (OpenCompute platform, also known as &#8220;Barreleye 2&#8221;)</li>
+<li>Zaius (OpenCompute platform, also known as “Barreleye 2”)</li>
 <li>ZZ (FSP based system)</li>
 </ul>
 </li>
@@ -106,15 +102,15 @@ place to find out how to get started.</p>
 <li><p class="first">interrupts: Add optional name for OPAL interrupts</p>
 <p>This adds the infrastructure for an interrupt source to provide
 a name for an interrupt directed toward OPAL. Those names will
-be put into an &#8220;opal-interrupts-names&#8221; property which is a
-standard DT string list corresponding 1:1 with the &#8220;opal-interrupts&#8221;
+be put into an “opal-interrupts-names” property which is a
+standard DT string list corresponding 1:1 with the “opal-interrupts”
 property. PSI interrupts get names, and this is visible in Linux
 through /proc/interrupts</p>
 </li>
 <li><p class="first">platform: add OPAL_REBOOT_FULL_IPL reboot type</p>
 <p>There may be circumstances in which a user wants to force a full IPL reboot
 rather than using fast reboot. Add a new reboot type, OPAL_REBOOT_FULL_IPL,
-that disables fast reboot. On platforms which don&#8217;t support fast reboot,
+that disables fast reboot. On platforms which don’t support fast reboot,
 this will be equivalent to a normal reboot.</p>
 </li>
 <li><p class="first">phb3: Trick to allow control of the PCIe link width and speed</p>
@@ -129,7 +125,7 @@ cause the PHB to renegociate.</p>
 <span class="n">a103</span>
 </pre></div>
 </div>
-<p>It&#8217;s at x16 Gen3 speed (8GT/s)</p>
+<p>It’s at x16 Gen3 speed (8GT/s)</p>
 <p>bits 0x0ff0 are the width and 0x000f the speed. The width can be
 1 to 16 and the speed 1 to 3 (2.5, 5 and 8GT/s)</p>
 <p>Then try to bring it down to 1x Gen1 :</p>
@@ -158,7 +154,7 @@ getmemproc.</p>
 </li>
 <li><p class="first">Add a generic platform: If /bmc in device tree, attempt to init one
 For the most part, this gets us somewhere on some OpenPOWER systems
-before there&#8217;s a platform file for that machine.</p>
+before there’s a platform file for that machine.</p>
 <p>Useful in bringup only, and marked as such with scary looking log
 messages.</p>
 </li>
@@ -167,7 +163,7 @@ messages.</p>
 <div class="section" id="core">
 <h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">asm: Don&#8217;t try to set LPCR:LPES1 on P8 and P9, the bit doesn&#8217;t exist.</p>
+<li><p class="first">asm: Don’t try to set LPCR:LPES1 on P8 and P9, the bit doesn’t exist.</p>
 </li>
 <li><p class="first">pci: Add a framework for quirks</p>
 <p>In future we may want to be able to do fixups for specific PCI devices in
@@ -175,7 +171,7 @@ skiboot, so add a small framework for doing this.</p>
 <p>This is not intended for the same purposes as quirks in the Linux kernel,
 as the PCI devices that quirks can match for in skiboot are not properly
 configured.  This is intended to enable having a custom path to make
-changes that don&#8217;t directly interact with the PCI device, for example
+changes that don’t directly interact with the PCI device, for example
 adding device tree entries.</p>
 </li>
 <li><p class="first">hw/slw: fix possible NULL dereference</p>
@@ -195,7 +191,7 @@ useful to know when debugging console related problems.</p>
 </li>
 <li><p class="first">Makefile: Disable stack protector due to gcc problems</p>
 <p>Depending on how it was built, gcc will use the canary from a global
-(works for us) or from the TLS (doesn&#8217;t work for us and accesses
+(works for us) or from the TLS (doesn’t work for us and accesses
 random stuff instead).</p>
 <p>Fixing that would be tricky. There are talks of adding a gcc option
 to force use of globals, but in the meantime, disable the stack
@@ -207,10 +203,10 @@ This adds (previously optional) parameter L.</p>
 </li>
 <li><p class="first">buddy: Add a simple generic buddy allocator</p>
 </li>
-<li><p class="first">stack: Don&#8217;t recurse into __stack_chk_fail</p>
+<li><p class="first">stack: Don’t recurse into __stack_chk_fail</p>
 </li>
 <li><p class="first">Makefile: Use -ffixed-r13
-We use r13 for our own stuff, make sure it&#8217;s properly fixed</p>
+We use r13 for our own stuff, make sure it’s properly fixed</p>
 </li>
 <li><p class="first">Always set ibm,occ-functional-state correctly</p>
 </li>
@@ -219,7 +215,7 @@ for real HW but causes a lof of pain under qemu</p>
 </li>
 <li><p class="first">slw: Set PSSCR value for idle states</p>
 </li>
-<li><p class="first">Limit number of &#8220;Poller recursion detected&#8221; errors to display</p>
+<li><p class="first">Limit number of “Poller recursion detected” errors to display</p>
 <p>In some error conditions, we could spiral out of control on this
 and spend all of our time printing the exact same backtrace.</p>
 <p>Limit it to 16 times, because 16 is a nice number.</p>
@@ -228,24 +224,24 @@ and spend all of our time printing the exact same backtrace.</p>
 <p>We add some routines that let a caller get the xscom lock once and
 then do a bunch of xscoms while holding it.
 In some situations without this, it could take long enough to get
-the xscom lock that the 1ms timeout would expire and we&#8217;d falsely
-think the SLW timer didn&#8217;t work when in fact it did.</p>
+the xscom lock that the 1ms timeout would expire and we’d falsely
+think the SLW timer didn’t work when in fact it did.</p>
 </li>
-<li><p class="first">wait_for_resource_loaded: don&#8217;t needlessly sleep for 5ms</p>
+<li><p class="first">wait_for_resource_loaded: don’t needlessly sleep for 5ms</p>
 </li>
 <li><p class="first">run pollers in cpu_process_local_jobs() if running job synchonously</p>
 </li>
-<li><p class="first">fsp: Don&#8217;t recurse pollers in ibm_fsp_terminate</p>
+<li><p class="first">fsp: Don’t recurse pollers in ibm_fsp_terminate</p>
 </li>
 <li><p class="first">chiptod: More hardening against -1 chip ID</p>
 </li>
 <li><p class="first">interrupts: Rewrite/correct doc for opal_set/get_xive</p>
 </li>
-<li><p class="first">cpu: Don&#8217;t enable nap mode/PM mode on non-P8</p>
+<li><p class="first">cpu: Don’t enable nap mode/PM mode on non-P8</p>
 </li>
 <li><p class="first">platform: Call generic platform probe and init UART there</p>
 </li>
-<li><p class="first">psi: Don&#8217;t register more interrupts than the HW supports</p>
+<li><p class="first">psi: Don’t register more interrupts than the HW supports</p>
 </li>
 <li><p class="first">psi: Add DT option to disable LPC interrupts</p>
 </li>
@@ -255,7 +251,7 @@ think the SLW timer didn&#8217;t work when in fact it did.</p>
 <h2>I2C and TPM<a class="headerlink" href="#i2c-and-tpm" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">p8i2c: Use calculated poll_interval when booting OPAL
-Otherwise we&#8217;d default to 2seconds (TIMER_POLL) during boot on
+Otherwise we’d default to 2seconds (TIMER_POLL) during boot on
 chips with a functional i2c interrupt, leading to slow i2c
 during boot (or hitting timeouts instead).</p>
 </li>
@@ -301,7 +297,7 @@ during boot (or hitting timeouts instead).</p>
 artifacts.</p>
 <p>These are suitable blobs for flashing onto Trusted Boot enabled op-build
 builds <em>WITH</em> the secure boot jumpers <em>ON</em> (i.e. <em>NOT</em> in secure mode).
-It&#8217;s just enough of the Secure and Trusted Boot container format to
+It’s just enough of the Secure and Trusted Boot container format to
 make Hostboot behave.</p>
 </li>
 </ul>
@@ -310,33 +306,33 @@ make Hostboot behave.</p>
 <h2>PCI<a class="headerlink" href="#pci" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">core/pci: Support SRIOV VFs</p>
-<p>Currently, skiboot can&#8217;t see SRIOV VFs. It introduces some troubles
+<p>Currently, skiboot can’t see SRIOV VFs. It introduces some troubles
 as I can see: The device initialization logic (phb-&gt;ops-&gt;device_init())
-isn&#8217;t applied to VFs, meaning we have to maintain same and duplicated
+isn’t applied to VFs, meaning we have to maintain same and duplicated
 mechanism in kernel for VFs only. It introduces difficulty to code
 maintaining and prone to lose sychronization.</p>
-<p>This was motivated by bug reported by Carol: The VF&#8217;s Max Payload
-Size (MPS) isn&#8217;t matched with PF&#8217;s on Mellanox&#8217;s adapter even kernel
-tried to make them same. It&#8217;s caused by readonly PCIECAP_EXP_DEVCTL
+<p>This was motivated by bug reported by Carol: The VF’s Max Payload
+Size (MPS) isn’t matched with PF’s on Mellanox’s adapter even kernel
+tried to make them same. It’s caused by readonly PCIECAP_EXP_DEVCTL
 register on VFs. The skiboot would be best place to emulate this bits
 to eliminate the gap as I can see.</p>
-<p>This supports SRIOV VFs. When the PF&#8217;s SRIOV capability is populated,
+<p>This supports SRIOV VFs. When the PF’s SRIOV capability is populated,
 the number of maximal VFs (struct pci_device) are instanciated, but
 but not usable yet. In the mean while, PCI config register filter is
 registered against PCIECAP_SRIOV_CTRL_VFE to capture the event of
-enabling or disabling VFs. The VFs are initialized, put into the PF&#8217;s
+enabling or disabling VFs. The VFs are initialized, put into the PF’s
 children list (pd-&gt;children), populate its PCI capabilities, and
 register PCI config register filter against PCICAP_EXP_DEVCTL. The
-filter&#8217;s handler caches what is written to MPS field and returns
+filter’s handler caches what is written to MPS field and returns
 the cached value on read, to eliminate the gap mentioned as above.</p>
 </li>
 <li><p class="first">core/pci: Avoid hreset after freset</p>
-<p>Commit 5ac71c9 (&#8220;pci: Avoid hot resets at boot time&#8221;) missed to
+<p>Commit 5ac71c9 (“pci: Avoid hot resets at boot time”) missed to
 avoid hot reset after fundamental reset for PCIe common slots.</p>
 <p>This fixes it.</p>
 </li>
 <li><p class="first">core/pci: Enforce polling PCIe link in hot-add path</p>
-<p>In surprise hot-add path, the power state isn&#8217;t changed on hardware.
+<p>In surprise hot-add path, the power state isn’t changed on hardware.
 Instead, we set the cached power state (&#64;slot-&gt;power_state) and
 return OPAL_SUCCESS. The upper layer starts the PCI probing immediately
 when receiving OPAL_SUCCESS. However, the PCIe link behind the PCI
@@ -363,27 +359,27 @@ complete reset.</p>
 <div class="section" id="p8dnu-platform">
 <h2>p8dnu platform<a class="headerlink" href="#p8dnu-platform" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">astbmc/p8dnu: Enable PCI slot&#8217;s power supply on PEX9733 in hot-add path</p>
+<li><p class="first">astbmc/p8dnu: Enable PCI slot’s power supply on PEX9733 in hot-add path</p>
 </li>
-<li><p class="first">astbmc/p8dnu: Enable PCI slot&#8217;s power supply on PEX8718 in hot-add path</p>
+<li><p class="first">astbmc/p8dnu: Enable PCI slot’s power supply on PEX8718 in hot-add path</p>
 </li>
 <li><p class="first">core/pci: Mark broken PDC on slots without surprise hotplug capability</p>
-<p>We has to support surprise hotplug on PCI slots that don&#8217;t support
-it on hardware. So we&#8217;re fully utilizing the PCIe link state change
+<p>We has to support surprise hotplug on PCI slots that don’t support
+it on hardware. So we’re fully utilizing the PCIe link state change
 event to detect the events (hot-remove and hot-add). The PDC (Presence
-Detection Change) event isn&#8217;t reliable for the purpose. For example,
-PEX8718 on superMicro&#8217;s machines.</p>
-<p>This adds another PCI slot property &#8220;ibm,slot-broken-pdc&#8221; in the
-device-tree, to indicate the PDC isn&#8217;t reliable on those (software
+Detection Change) event isn’t reliable for the purpose. For example,
+PEX8718 on superMicro’s machines.</p>
+<p>This adds another PCI slot property “ibm,slot-broken-pdc” in the
+device-tree, to indicate the PDC isn’t reliable on those (software
 claimed) surprise pluggable slots.</p>
 </li>
-<li><p class="first">core/pci: Fix PCIe slot&#8217;s presence</p>
+<li><p class="first">core/pci: Fix PCIe slot’s presence</p>
 <p>According to PCIe spec, the presence bit is hardcoded to 1 if PCIe
-switch downstream port doesn&#8217;t support slot capability. The register
+switch downstream port doesn’t support slot capability. The register
 used for the check in pcie_slot_get_presence_state() is wrong. It
 should be PCIe capability register instead of PCIe slot capability
 register. Otherwise, we always have present bit on the PCI topology.
-The issue is found on Supermicro&#8217;s p8dtu2u machine:</p>
+The issue is found on Supermicro’s p8dtu2u machine:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span> <span class="c1"># lspci -t</span>
  <span class="o">-+-</span><span class="p">[</span><span class="mi">0022</span><span class="p">:</span><span class="mi">00</span><span class="p">]</span><span class="o">---</span><span class="mf">00.0</span><span class="o">-</span><span class="p">[</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">----</span><span class="mf">00.0</span><span class="o">-</span><span class="p">[</span><span class="mi">02</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">--+-</span><span class="mf">01.0</span><span class="o">-</span><span class="p">[</span><span class="mi">03</span><span class="p">]</span><span class="o">----</span><span class="mf">00.0</span>
   <span class="o">|</span>                                           \<span class="o">-</span><span class="mf">02.0</span><span class="o">-</span><span class="p">[</span><span class="mi">04</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">--</span>
@@ -406,13 +402,13 @@ The issue is found on Supermicro&#8217;s p8dtu2u machine:</p>
 </div>
 </li>
 <li><p class="first">core/pci: More reliable way to update PCI slot power state</p>
-<p>The power control bit (SLOT_CTL, offset: PCIe cap + 0x18) isn&#8217;t
-reliable enough to reflect the PCI slot&#8217;s power state. Instead,
+<p>The power control bit (SLOT_CTL, offset: PCIe cap + 0x18) isn’t
+reliable enough to reflect the PCI slot’s power state. Instead,
 the power indication bits are more reliable comparatively. This
-leads to mismatch between the cached power state and PCI slot&#8217;s
+leads to mismatch between the cached power state and PCI slot’s
 presence state, resulting in the hotplug driver in kernel refuses
 to unplug the devices properly on the request. The issue was
-found on below NVMe card on &#8220;supermicro,p8dtu2u&#8221; machine. We don&#8217;t
+found on below NVMe card on “supermicro,p8dtu2u” machine. We don’t
 have this issue on the integrated PLX 8718 switch.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span> <span class="c1"># lspci</span>
  <span class="mi">0022</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">PCI</span> <span class="n">bridge</span><span class="p">:</span> <span class="n">PLX</span> <span class="n">Technology</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">PEX</span> <span class="mi">9733</span> <span class="mi">33</span><span class="o">-</span><span class="n">lane</span><span class="p">,</span> \
@@ -444,7 +440,7 @@ Always restart the opal-prd daemon, irrespective of why it stopped.</li>
 <li>external/ffspart: Simple C program to be able to make an FFS partition</li>
 <li>getscom: Add chip info for P9.</li>
 <li>gard: Fix make dist target</li>
-<li>pflash/libflash: arch_flash_arm: Don&#8217;t assume mtd labels are short</li>
+<li>pflash/libflash: arch_flash_arm: Don’t assume mtd labels are short</li>
 </ul>
 </div>
 <div class="section" id="libffs">
@@ -469,7 +465,7 @@ be in the system and throw an error if they differ.</p>
 user just an empty petitboot screen and not much else to go on. This
 patch helps in that we get a skiboot error message, and at some point
 in the future when we pump them up to the OS we could get a big friendly
-error message telling you you&#8217;re having a bad day.</p>
+error message telling you you’re having a bad day.</p>
 </li>
 <li><p class="first">pci/quirk: Populate device tree for AST2400 VGA</p>
 <p>Adding these properties enables the kernel to function in the same way
@@ -479,7 +475,7 @@ through a backdoor, which may become the default in future.</p>
 achieved in skiboot, assuming all kernels that the system boots
 support this.  Isolating the BMC and the host from each other is
 important if they are owned by different parties; for example, a cloud
-provider renting machines &#8220;bare metal&#8221;.</p>
+provider renting machines “bare metal”.</p>
 </li>
 <li><p class="first">astbmc/pnor: Use mbox-flash for flash accesses</p>
 <p>If the BMC is MBOX protocol aware, request flash reads/writes over the
@@ -514,7 +510,7 @@ dereference a NULL pointer.</p>
 <li><p class="first">dts: add support for p9 cores</p>
 </li>
 <li><p class="first">asm: Add POWER9 case to init_shared_sprs</p>
-<p>For now, setup the HID and HMEER. We&#8217;ll add more as we get
+<p>For now, setup the HID and HMEER. We’ll add more as we get
 good default values from HW.</p>
 </li>
 <li><p class="first">xive/psi/lpc: Handle proper clearing of LPC SerIRQ latch on POWER9 DD1</p>
@@ -531,7 +527,7 @@ blob and act accordingly.</p>
 <li><p class="first">core/cpu.c: Use a device-tree node to detect nest mmu presence
 The nest mmu address scom was hardcoded which could lead to boot
 failure on POWER9 systems without a nest mmu. For example Mambo
-doesn&#8217;t model the nest mmu which results in  failure when
+doesn’t model the nest mmu which results in  failure when
 calling opal_nmmu_set_ptcr() during kernel load.</p>
 </li>
 <li><p class="first">psi: Fix P9 BAR setup on multi-chips</p>
@@ -544,7 +540,7 @@ calling opal_nmmu_set_ptcr() during kernel load.</p>
 </li>
 <li><p class="first">phb4: Always assign powerbus BARs</p>
 <p>HostBoot configure them with weird values that confuse us, instead
-let&#8217;s just own the assignment. This is temporary, I will centralize
+let’s just own the assignment. This is temporary, I will centralize
 memory map management next but this gets us going.</p>
 </li>
 <li><p class="first">phb4: Fix endian issue with link control2/status2 registers
@@ -554,8 +550,8 @@ Fixes training at larger than PCIe Gen1 speeds.</p>
 Useful for debugging</p>
 </li>
 <li><p class="first">phb4: Change debug prints
-Currently we print &#8220;PHB4&#8221; and mean either &#8220;PHB version 4&#8221; or &#8220;PHB
-number 4&#8221; which can be quite confusing.</p>
+Currently we print “PHB4” and mean either “PHB version 4” or “PHB
+number 4” which can be quite confusing.</p>
 </li>
 <li><p class="first">phb4: Fix config space enable bits on DD1</p>
 </li>
@@ -575,19 +571,19 @@ number 4&#8221; which can be quite confusing.</p>
 HDAT parsing. This allows us to enable the Skiboot log console earlier
 so we can get debug output while parsing the rest of the HDAT.</p>
 </li>
-<li><p class="first">astbmc: Don&#8217;t do P8 PSI or DT fixups on P9</p>
+<li><p class="first">astbmc: Don’t do P8 PSI or DT fixups on P9</p>
 <p>Previously the HDAT format was only ever used with IBM hardware so it
 would store vital product data (VPD) blobs in the IBM ASCII Keyword VPD
 format. With P9 HDAT is used on OpenPower machines which use Industry
-Standard DIMMs that provide their product data through a &#8220;Serial Present
-Detect&#8221; EEPROM mounted on the DIMM.</p>
+Standard DIMMs that provide their product data through a “Serial Present
+Detect” EEPROM mounted on the DIMM.</p>
 <p>The SPD blob has a different format and is exported in the device-tree
-under the &#8220;spd&#8221; property rather than the &#8220;ibm,vpd&#8221; property. This patch
+under the “spd” property rather than the “ibm,vpd” property. This patch
 adds support for recognising these blobs and placing them in the
 appropriate DT property.</p>
 </li>
 <li><p class="first">hdat: Add __packed to all HDAT structures and workaround HB reserve</p>
-<p>Some HDAT structures aren&#8217;t properly aligned. We were using __packed
+<p>Some HDAT structures aren’t properly aligned. We were using __packed
 on some but not others and got at least one wrong (HB reserve). This
 adds it everywhere to avoid such problems.</p>
 <p>However this then triggers another problem where HB gives us a
@@ -603,9 +599,9 @@ workaround known HDAT bugs.</p>
 <li><p class="first">hdat: Add BMC device-tree node for P9 OpenPOWER systems</p>
 </li>
 <li><p class="first">hdat: Fix interrupt &amp; device_type of UART node</p>
-<p>The interrupt should use a standard &#8220;interrupts&#8221; property. The UART
-node also need a device_type=&#8221;serial&#8221; property for historical reasons
-otherwise Linux won&#8217;t pick it up.</p>
+<p>The interrupt should use a standard “interrupts” property. The UART
+node also need a device_type=”serial” property for historical reasons
+otherwise Linux won’t pick it up.</p>
 </li>
 <li><p class="first">parse and export STOP levels</p>
 </li>
@@ -631,7 +627,7 @@ otherwise Linux won&#8217;t pick it up.</p>
 </li>
 <li><p class="first">Fix XSCOM nodes for P9</p>
 </li>
-<li><p class="first">Remove deprecated &#8216;ibm, mem-interleave-scope&#8217; from DT on POWER9</p>
+<li><p class="first">Remove deprecated ‘ibm, mem-interleave-scope’ from DT on POWER9</p>
 </li>
 <li><p class="first">Grab system model name from HDAT when available</p>
 </li>
@@ -668,11 +664,11 @@ that is present in POWER9:</p>
 <li>xive: Improve/fix EOI of LSIs</li>
 <li>xive: Add FIXME comments about mask/umask races</li>
 <li>xive: Fix memory barrier in opal_xive_get_xirr()</li>
-<li>xive: Don&#8217;t try to find a target EQ for prio 0xff</li>
+<li>xive: Don’t try to find a target EQ for prio 0xff</li>
 <li>xive: Bump table sizes in direct mode</li>
 <li>xive: Properly register escalation interrupts</li>
 <li>xive: Split the OPAL irq flags from the internal ones</li>
-<li>xive: Don&#8217;t touch ESB masks unless masking/unmasking</li>
+<li>xive: Don’t touch ESB masks unless masking/unmasking</li>
 <li>xive: Fix xive_get_ir_targetting()</li>
 <li>xive: Cleanup escalation PQ on queue change</li>
 <li>xive: Add <em>any chip</em> for allocating interrupts</li>
@@ -687,7 +683,7 @@ that is present in POWER9:</p>
 <li>xive: Export opal_xive_reset() arguments in OPAL API</li>
 <li>xive: Add interrupt allocator</li>
 <li>xive: Implement xive_reset</li>
-<li>xive: Don&#8217;t assert if xive_get_vp() fails</li>
+<li>xive: Don’t assert if xive_get_vp() fails</li>
 <li>xive: Expose exploitation mode DT properties</li>
 <li>xive: Use a constant for max# of chips</li>
 <li>xive: Keep track of which interrupts were ever enabled
@@ -708,19 +704,19 @@ In order to speed up xive reset</li>
 <li>xive: Implement cache watch and use it for EQs</li>
 <li>xive: Add locking to some API calls</li>
 <li>xive: Add opal_xive_get_irq_info()</li>
-<li>xive: Add CPU node &#8220;interrupts&#8221; properties representing the IPIs</li>
+<li>xive: Add CPU node “interrupts” properties representing the IPIs</li>
 <li>xive: Add basic opal_xive_reset() call and exploitation mode</li>
 <li>xive: Add support for escalation interrupts</li>
 <li>xive: OPAL API update</li>
 <li>xive: Add some dump facility for debugging</li>
 <li>xive: Document exploitation mode
 (Pretty much work in progress)</li>
-<li>xive: Indirect table entries must have top bits &#8220;type&#8221; set</li>
+<li>xive: Indirect table entries must have top bits “type” set</li>
 <li>xive: Remove unused field and clarify comment</li>
 <li>xive: Provide a way to override some IPI sources</li>
 <li>xive: Add helper to retrieve an IPI trigger port</li>
 <li>xive: Fix IPI EOI logic in opal_xive_eoi()</li>
-<li>xive: Don&#8217;t try to EOI a masked source</li>
+<li>xive: Don’t try to EOI a masked source</li>
 <li>xive: Fix comments in xive_source_set_xive()</li>
 <li>xive: Fix comments in xive_get_ive()</li>
 <li>xive: Configure forwarding ports</li>
@@ -760,7 +756,7 @@ FSP are generally queued for sending later.</li>
 <ul>
 <li><dl class="first docutils">
 <dt>core/test/run-trace: Reduce number of samples when running under valgrind</dt>
-<dd><p class="first last">This reduces &#8216;make check&#8217; run time by ~10 seconds on my laptop,
+<dd><p class="first last">This reduces ‘make check’ run time by ~10 seconds on my laptop,
 and just the run-trace test itself takes 15 seconds less (under valgrind).</p>
 </dd>
 </dl>
@@ -770,7 +766,7 @@ A regression test for the mambo implementation of OPAL_SIGNAL_SYSTEM_RESET.</p>
 </li>
 <li><dl class="first docutils">
 <dt>nvram-format: Fix endian issues</dt>
-<dd><p class="first">NVRAM formats are always BE, so let&#8217;s use the sparse annotation to catch
+<dd><p class="first">NVRAM formats are always BE, so let’s use the sparse annotation to catch
 any issues (and correct said issues).</p>
 <p class="last">On LE platforms, the test was erroneously passing as with building the
 nvram-format code on LE we were produces an incorrect NVRAM image.</p>
@@ -788,7 +784,7 @@ nvram-format code on LE we were produces an incorrect NVRAM image.</p>
 <li><p class="first">mambo: add mprintf()</p>
 <blockquote>
 <div><p>mprintf() is printf(), but it goes straight to the mambo console. This
-allows it to be independent of Skiboot&#8217;s actual console infrastructure
+allows it to be independent of Skiboot’s actual console infrastructure
 so it can be used for debugging the console drivers and for debugging
 code that runs before the console is setup.</p>
 </div></blockquote>
@@ -827,8 +823,8 @@ code that runs before the console is setup.</p>
 <div><p>Reference bug: <a class="reference external" href="https://github.com/open-power/op-build/issues/751">https://github.com/open-power/op-build/issues/751</a></p>
 </div></blockquote>
 </li>
-<li><p class="first">external/fwts: Add &#8216;last-tag&#8217; to FWTS olog output
-This isn&#8217;t so useful at the moment, but this will make cleaning out
+<li><p class="first">external/fwts: Add ‘last-tag’ to FWTS olog output
+This isn’t so useful at the moment, but this will make cleaning out
 crufty old error definitions much easier.</p>
 </li>
 <li><p class="first">external/fwts: Add FWTS olog merge script
@@ -871,7 +867,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 <td>56</td>
 <td>(15.4%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>47</td>
 <td>(12.9%)</td>
 </tr>
@@ -993,7 +989,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>17961</td>
 <td>(56.7%)</td>
 </tr>
@@ -1123,7 +1119,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>8810</td>
 <td>(53.4%)</td>
 </tr>
@@ -1170,7 +1166,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 <td>6</td>
 <td>(1.9%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>3</td>
 <td>(0.9%)</td>
 </tr>
@@ -1229,7 +1225,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 <td>5</td>
 <td>(11.1%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>4</td>
 <td>(8.9%)</td>
 </tr>
@@ -1331,7 +1327,7 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
 <td>1</td>
 <td>(9.1%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>1</td>
 <td>(9.1%)</td>
 </tr>
@@ -1489,14 +1485,14 @@ A total of 18105 lines added, 16499 removed (delta 1606)</p>
         <li class="right" >
           <a href="skiboot-5.5.0.html" title="skiboot-5.5.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

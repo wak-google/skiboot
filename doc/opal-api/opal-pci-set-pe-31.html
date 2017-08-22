@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_SET_PE &#8212; skiboot v5.7
+    <title>OPAL_PCI_SET_PE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -29,9 +25,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OPAL_PCI_SET_PELTV" href="opal-pci-set-peltv-32.html" />
-    <link rel="prev" title="OPAL_PCI_SET_MVE_ENABLE" href="opal-pci-set-mve-enable-34.html" /> 
+    <link rel="prev" title="OPAL_PCI_SET_P2P" href="opal-pci-set-p2p-157.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,9 +38,9 @@
           <a href="opal-pci-set-peltv-32.html" title="OPAL_PCI_SET_PELTV"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="opal-pci-set-mve-enable-34.html" title="OPAL_PCI_SET_MVE_ENABLE"
+          <a href="opal-pci-set-p2p-157.html" title="OPAL_PCI_SET_P2P"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -67,7 +63,7 @@ without checking the source.</p>
 <p>A host OS calls this function to map a PCIE function (RID), or range of
 function bus/dev/funcs (RIDs), to a PHB PE. The bus, device, func, and
 compare parameters define a range of bus, device, or function numbers to
-define a range of RIDs within this domain. A value of &#8220;7&#8221; for the bus_compare,
+define a range of RIDs within this domain. A value of “7” for the bus_compare,
 and non-zero for the dev_compare and func_compare, define exactly one function
 RID to be a PE (within a PE number domain).</p>
 <p>This must be called prior to ALL other OPAL calls that take a PE number
@@ -102,15 +98,15 @@ bits define the range of buses in a PE domain:</p>
 </dd>
 <dt><code class="docutils literal"><span class="pre">dev_compare</span></code></dt>
 <dd>indicates to compare the RID device number to the PE
-device number or not. &#8216;0&#8217; signifies that the RID device number is not compared
-&#8211; essentially all device numbers within the bus and function number range of
+device number or not. ‘0’ signifies that the RID device number is not compared
+– essentially all device numbers within the bus and function number range of
 this PE are also within this PE. Non-zero signifies to compare the RID device
 number to the PE device number, such that only that device number is in the PE
 domain, for all buses and function numbers in the PE domain.</dd>
 <dt><code class="docutils literal"><span class="pre">func_compare</span></code></dt>
 <dd>indicates to compare the RID function number to the
-PE function number or not. &#8216;0&#8217; signifies that the RID function number is not
-compared &#8211; essentially all function numbers within the bus and device number
+PE function number or not. ‘0’ signifies that the RID function number is not
+compared – essentially all function numbers within the bus and device number
 range of this PE are also within this PE. Non-zero signifies to compare the
 RID function number to the PE function number, such that only that function
 number is in the PE domain, for all buses and device numbers in the PE domain.</dd>
@@ -146,8 +142,8 @@ number is in the PE domain, for all buses and device numbers in the PE domain.</
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="opal-pci-set-mve-enable-34.html"
-                        title="previous chapter">OPAL_PCI_SET_MVE_ENABLE</a></p>
+  <p class="topless"><a href="opal-pci-set-p2p-157.html"
+                        title="previous chapter">OPAL_PCI_SET_P2P</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="opal-pci-set-peltv-32.html"
                         title="next chapter">OPAL_PCI_SET_PELTV</a></p>
@@ -182,16 +178,16 @@ number is in the PE domain, for all buses and device numbers in the PE domain.</
           <a href="opal-pci-set-peltv-32.html" title="OPAL_PCI_SET_PELTV"
              >next</a> |</li>
         <li class="right" >
-          <a href="opal-pci-set-mve-enable-34.html" title="OPAL_PCI_SET_MVE_ENABLE"
+          <a href="opal-pci-set-p2p-157.html" title="OPAL_PCI_SET_P2P"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

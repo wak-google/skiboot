@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.4.0 &#8212; skiboot v5.7
+    <title>skiboot-5.4.0 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.4.0-rc1" href="skiboot-5.4.0-rc1.html" />
     <link rel="prev" title="skiboot-5.3.7" href="skiboot-5.3.7.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.3.7.html" title="skiboot-5.3.7"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -76,11 +72,11 @@ a file.</p>
 </li>
 <li><p class="first">Add SuperMicro p8dtu1u and p8dtu2u platforms</p>
 </li>
-<li><p class="first">Revert &#8220;core/ipmi: Set interrupt-parent property&#8221;.
+<li><p class="first">Revert “core/ipmi: Set interrupt-parent property”.
 This reverts commit d997e482705d9fdff8e25fcbe07fb56008f96ae1 (introduced
 in 5.4.0-rc1)</p>
 <p>A problem was found with pre 4.2 linux kernels where a spurious WARNING
-would be emitted. This change doesn&#8217;t matter enough to scare users
+would be emitted. This change doesn’t matter enough to scare users
 so we can just revert it.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">Warning</span> <span class="n">was</span><span class="p">:</span>
 <span class="p">[</span>    <span class="mf">0.947741</span><span class="p">]</span> <span class="n">irq</span><span class="p">:</span> <span class="n">irq</span><span class="o">-</span><span class="mi">62</span><span class="o">==&gt;</span><span class="n">hwirq</span><span class="o">-</span><span class="mh">0x3e</span> <span class="n">mapping</span> <span class="n">failed</span><span class="p">:</span> <span class="o">-</span><span class="mi">22</span>
@@ -150,7 +146,7 @@ patched, and we disable it before transferring control to Linux.</li>
 </li>
 <li><p class="first">Pointer validation of OPAL API call arguments.</p>
 <ul class="simple">
-<li>If the kernel called an OPAL API with vmalloc&#8217;d address
+<li>If the kernel called an OPAL API with vmalloc’d address
 or any other address range in real mode, we would hit
 a problem with aliasing. Since the top 4 bits are ignored
 in real mode, pointers from 0xc.. and 0xd.. (and other ranges)
@@ -168,13 +164,13 @@ You can enable the experimental support via nvram option:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nvram -p ibm,skiboot --update-config experimental-fast-reset=feeling-lucky</span>
 </pre></div>
 </div>
-<p><strong>WARNING</strong>: While we <em>think</em> we&#8217;ve managed to work out or around most of
+<p><strong>WARNING</strong>: While we <em>think</em> we’ve managed to work out or around most of
 the kinks with fast-reset, we are <em>not</em> enabling it by default in 5.4.</p>
 <p>Notably, fast reset will <em>not</em> happen in the following scenarios:</p>
 <ul>
 <li><p class="first">platform error</p>
-<p>Most of the time, if we&#8217;re rebooting due to a platform error, we should
-trigger a checkstop. However, if we haven&#8217;t been told what we should do
+<p>Most of the time, if we’re rebooting due to a platform error, we should
+trigger a checkstop. However, if we haven’t been told what we should do
 to trigger a checkstop (e.g. on an FSP machine), then we should still
 fail to fast-reboot.</p>
 <p>So, fast-reboot is disabled in the OPAL_CEC_REBOOT2 code path
@@ -189,7 +185,7 @@ for the OPAL_REBOOT_PLATFORM_ERROR reboot type.</p>
 fenced during the reboot resulting in major problems when we load the new
 kernel.</p>
 <p>In order to handle this safely, we need to disable CAPI mode before
-resetting PHBs during the fast reboot. However, we don&#8217;t currently support
+resetting PHBs during the fast reboot. However, we don’t currently support
 this.</p>
 <p>In the meantime, when fast rebooting, check if there are any PHBs with a
 CAPP attached, and if so, abort the fast reboot and revert to a normal
@@ -237,7 +233,7 @@ Now that we have mambo bogusdisk flash, we can have many flash chips.
 This is resulting in some confusing output messages.</li>
 </ul>
 </li>
-<li><p class="first">core/init: Fix &#8220;failure of getting node in the free list&#8221; warning on boot.</p>
+<li><p class="first">core/init: Fix “failure of getting node in the free list” warning on boot.</p>
 </li>
 <li><p class="first">slw: improve error message for SLW timer stuck</p>
 </li>
@@ -251,13 +247,13 @@ This is resulting in some confusing output messages.</li>
 <ul class="simple">
 <li>xscom: Map all HMER status codes to OPAL errors</li>
 <li>xscom: Initialize the data to a known value in <code class="docutils literal"><span class="pre">xscom_read</span></code>
-In case of error, don&#8217;t leave the data random. It helps debugging when
+In case of error, don’t leave the data random. It helps debugging when
 the user fails to check the error code. This happens due to a bug in the
 PRD wrapper app.</li>
 <li>chip: Add a quirk for when core direct control XSCOMs are missing</li>
 </ul>
 </li>
-<li><p class="first">p8-i2c: Don&#8217;t crash if a centaur errored out</p>
+<li><p class="first">p8-i2c: Don’t crash if a centaur errored out</p>
 </li>
 <li><p class="first">cpu: Make endian switch message more informative</p>
 </li>
@@ -272,7 +268,7 @@ This will be handled by <code class="docutils literal"><span class="pre">time_wa
 <code class="docutils literal"><span class="pre">smt_medium()</span></code>.
 Note that this introduce a difference in behaviour: time_wait
 will only call the pollers on the boot CPU while <code class="docutils literal"><span class="pre">cpu_wait_job()</span></code>
-could call them on any. However, I can&#8217;t think of a case where
+could call them on any. However, I can’t think of a case where
 this is a problem.</p>
 </li>
 <li><p class="first">cpu: Remove global job queue
@@ -290,7 +286,7 @@ be found, we fallback to a synchronous call.</p>
 <li><dl class="first docutils">
 <dt>interrupts: Add new source <code class="docutils literal"><span class="pre">-&gt;attributes()</span></code> callback</dt>
 <dd><p class="first">This allows a given source to provide per-interrupt attributes
-such as whether it targets OPAL or Linux and it&#8217;s estimated
+such as whether it targets OPAL or Linux and it’s estimated
 frequency.</p>
 <p class="last">The former allows to get rid of the double set of ops used to
 decide which interrupts go where on some modules like the PHBs
@@ -334,10 +330,10 @@ fail case, so it would wrongly perform operations on a non-existant PE 4.</dd>
 <li>assert the NPU irq min is aligned.</li>
 <li>program NPU BUID reg properly</li>
 <li><dl class="first docutils">
-<dt>npu: reword &#8220;error&#8221; to indicate it&#8217;s actually a warning</dt>
+<dt>npu: reword “error” to indicate it’s actually a warning</dt>
 <dd>Incorrect FWTS annotation.
 Without this patch, you get spurious FirmWare Test Suite (FWTS) warnings
-about NVLink not working on machines that aren&#8217;t fully populated with
+about NVLink not working on machines that aren’t fully populated with
 GPUs.</dd>
 </dl>
 </li>
@@ -357,7 +353,7 @@ device and the procedure number.</dd>
 <ul>
 <li><p class="first">Claim surprise hotplug capability</p>
 </li>
-<li><p class="first">Reserve PCI buses for RC&#8217;s slot</p>
+<li><p class="first">Reserve PCI buses for RC’s slot</p>
 </li>
 <li><p class="first">Update PCI topology after power change</p>
 </li>
@@ -370,27 +366,27 @@ device and the procedure number.</dd>
 <li><p class="first">Fix initial PCIe slot power state</p>
 </li>
 <li><p class="first">Print CRS retry times
-It&#8217;s useful to know the CRS retry times before the PCI device is
+It’s useful to know the CRS retry times before the PCI device is
 detected successfully. In PCI hot add case, it usually indicates
-time consumed for the adapter&#8217;s firmware to be partially ready
+time consumed for the adapter’s firmware to be partially ready
 (responsive PCI config space).</p>
 </li>
 <li><p class="first">core/pci: Fix the power-off timeout in <code class="docutils literal"><span class="pre">pci_slot_power_off()</span></code>
 The timeout should be 1000ms instead of 1000 ticks while powering
-off PCI slot in <code class="docutils literal"><span class="pre">pci_slot_power_off()</span></code>. Otherwise, it&#8217;s likely to
+off PCI slot in <code class="docutils literal"><span class="pre">pci_slot_power_off()</span></code>. Otherwise, it’s likely to
 hit timeout powering off the PCI slot as below skiboot logs reveal:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">5399576870</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="n">PHB</span><span class="c1">#0005:02:11.0 Timeout powering off slot</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">pci: Check power state before powering off slot.
-Prevents the erroneous &#8220;Error -1 powering off slot&#8221; error message.</p>
+Prevents the erroneous “Error -1 powering off slot” error message.</p>
 </li>
 </ul>
 </li>
 <li><p class="first">PHB3</p>
 <ul class="simple">
-<li>Override root slot&#8217;s <code class="docutils literal"><span class="pre">prepare_link_change()</span></code> with PHB&#8217;s</li>
+<li>Override root slot’s <code class="docutils literal"><span class="pre">prepare_link_change()</span></code> with PHB’s</li>
 <li>Disable surprise link down event on PCI slots</li>
 <li>Disable ECRC on Broadcom adapter behind PMC switch</li>
 </ul>
@@ -409,7 +405,7 @@ and the downstream ports of the PCIe switch supports PCI hotplug.</li>
 <li><dl class="first docutils">
 <dt>hw/phb3: Update capi initialization sequence</dt>
 <dd>The capi initialization sequence was revised in a circumvention
-document when a &#8216;link down&#8217; error was converted from fatal to Endpoint
+document when a ‘link down’ error was converted from fatal to Endpoint
 Recoverable. Other, non-capi, register setup was corrected even before
 the initial open-source release of skiboot, but a few capi-related
 registers were not updated then, so this patch fixes it.</dd>
@@ -442,7 +438,7 @@ script.</li>
 <ul>
 <li><p class="first">fix harmless buffer overflow: <code class="docutils literal"><span class="pre">fl_total_size</span></code> was <code class="docutils literal"><span class="pre">uint32_t</span></code> not <code class="docutils literal"><span class="pre">uint64_t</span></code>.</p>
 </li>
-<li><p class="first">Don&#8217;t try to write protect when writing to flash file</p>
+<li><p class="first">Don’t try to write protect when writing to flash file</p>
 </li>
 <li><p class="first">Misc small improvements to code and code style</p>
 </li>
@@ -456,7 +452,7 @@ pflash (pflash world domination plans are continuing on schedule).</p>
 </li>
 <li><p class="first">external/pflash: Catch incompatible combination of flags</p>
 </li>
-<li><p class="first">external/common: arm: Don&#8217;t error trying to wrprotect with MTD access</p>
+<li><p class="first">external/common: arm: Don’t error trying to wrprotect with MTD access</p>
 </li>
 <li><p class="first">libflash/libffs: Use blocklevel_smart_write() when updating partitions</p>
 </li>
@@ -538,7 +534,7 @@ use the inband PERST as the fundamental reset, as before.</p>
 <li><dl class="first docutils">
 <dt>FSP/ELOG: Fix elog timeout issue</dt>
 <dd><p class="first last">Presently we set timeout value as soon as we add elog to queue. If
-we have multiple elogs to write, it doesn&#8217;t consider queue wait time.
+we have multiple elogs to write, it doesn’t consider queue wait time.
 Instead set timeout value when we are actually sending elog to FSP.</p>
 </dd>
 </dl>
@@ -556,7 +552,7 @@ only one error log instead of getting all error log in
 </div>
 <div class="section" id="power9">
 <h2>POWER9<a class="headerlink" href="#power9" title="Permalink to this headline">¶</a></h2>
-<p>Skiboot 5.4 contains only <em>preliminary</em> support for POWER9. It&#8217;s suitable
+<p>Skiboot 5.4 contains only <em>preliminary</em> support for POWER9. It’s suitable
 only for use in simulators. If working on hardware, use more recent skiboot
 or development branches. We will not be backporting POWER9 fixes to 5.4.x.</p>
 <ul class="simple">
@@ -577,20 +573,20 @@ Enables testing BT and IPMI functionality in the Qemu simulator</li>
 <li>init: In debug builds, enable debug output to console</li>
 <li><dl class="first docutils">
 <dt>mem_region: Be a bit smarter about poisoning</dt>
-<dd>Don&#8217;t poison chunks that are already free and poison regions on
+<dd>Don’t poison chunks that are already free and poison regions on
 first allocation. This speeds things up dramatically.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>libc: Use 8-bytes stores for non-0 memset too</dt>
-<dd>Memory poisoning hammers this, so let&#8217;s be a bit smart about it and
+<dd>Memory poisoning hammers this, so let’s be a bit smart about it and
 avoid falling back to byte stores when the data is not 0</dd>
 </dl>
 </li>
 <li>fwts: add annotation for manufacturing mode</li>
 <li>check: Fix bugs in mem region tests</li>
 <li><dl class="first docutils">
-<dt>Don&#8217;t set -fstack-protector-all unconditionally</dt>
+<dt>Don’t set -fstack-protector-all unconditionally</dt>
 <dd>We set it already in DEBUG builds and we use -fstack-protector-strong
 in release builds which provides most of the benefits and is more
 efficient.</dd>
@@ -638,12 +634,12 @@ addresses a long standing bug due to differing interpretations of FFS.</p>
 no matter on what the size of the partition is. Prior to this patch,
 skiboot would always load actualSize, leading to longer than needed IPL.</p>
 <p>The pflash utility updates actualSize, so no developer has really ever
-noticed this, apart from maybe an inkling that it&#8217;s odd that a freshly
+noticed this, apart from maybe an inkling that it’s odd that a freshly
 baked PNOR from op-build takes ever so slightly longer to boot than one
 that has had individual partitions pflashed in.</p>
 <p>With this patch, we now compute actualSize. For partitions with a STB
 header, we take the payload size from the STB header. For partitions
-that don&#8217;t have a STB header, we compute the size either by parsing
+that don’t have a STB header, we compute the size either by parsing
 the ELF header or by looking at the subpartition header and computing it.</p>
 <p>We now need to read the entire partition for partitions with subpartitions
 so that we pass consistent values to be measured as part of Trusted Boot.</p>
@@ -722,8 +718,8 @@ in code review across versions:</p>
 </tr>
 </tbody>
 </table>
-<p>Interesting is the stats of 5.4.0-rc1 versus the final 5.4.0, there&#8217;s been
-a doubling of Acks, an increase in reviewed-by and reported-by. There&#8217;s
+<p>Interesting is the stats of 5.4.0-rc1 versus the final 5.4.0, there’s been
+a doubling of Acks, an increase in reviewed-by and reported-by. There’s
 nothing like an impending release to get people to look closer.</p>
 <p>Processed 361 csets from 34 developers
 A total of 20206 lines added, 5843 removed (delta 14363)</p>
@@ -761,7 +757,7 @@ A total of 20206 lines added, 5843 removed (delta 14363)</p>
 <td>20</td>
 <td>(5.5%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>18</td>
 <td>(5.0%)</td>
 </tr>
@@ -917,7 +913,7 @@ A total of 20206 lines added, 5843 removed (delta 14363)</p>
 <td>565</td>
 <td>(2.7%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>343</td>
 <td>(1.6%)</td>
 </tr>
@@ -1315,14 +1311,14 @@ A total of 20206 lines added, 5843 removed (delta 14363)</p>
         <li class="right" >
           <a href="skiboot-5.3.7.html" title="skiboot-5.3.7"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

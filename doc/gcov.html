@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>GCOV for skiboot &#8212; skiboot v5.7
+    <title>GCOV for skiboot &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="Memory in skiboot" href="memory.html" />
     <link rel="prev" title="OPAL &lt;–&gt; BMC interactions" href="bmc.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="bmc.html" title="OPAL &lt;–&gt; BMC interactions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -106,7 +102,7 @@ the extract-gcov utility in the skiboot repo.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">extract</span><span class="o">-</span><span class="n">gcov</span> <span class="n">skiboot</span><span class="o">.</span><span class="n">dump</span> <span class="mh">0x3023ec40</span>
 </pre></div>
 </div>
-<p>Once you&#8217;ve run extract-gcov, it will have extracted the gcda files
+<p>Once you’ve run extract-gcov, it will have extracted the gcda files
 from the skiboot memory image.</p>
 <p>You can then run lcov:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lcov</span> <span class="o">-</span><span class="n">b</span> <span class="o">.</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">d</span> <span class="o">.</span> <span class="o">-</span><span class="n">o</span> <span class="n">skiboot</span><span class="o">-</span><span class="n">boot</span><span class="o">.</span><span class="n">info</span>
@@ -115,7 +111,7 @@ from the skiboot memory image.</p>
 </pre></div>
 </div>
 <p><em>IMPORTANT</em> you should point lcov to the gcov for the compiler you used
-to build skiboot, otherwise you&#8217;re likely to get errors.</p>
+to build skiboot, otherwise you’re likely to get errors.</p>
 </div>
 </div>
 
@@ -138,7 +134,7 @@ to build skiboot, otherwise you&#8217;re likely to get errors.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="bmc.html"
-                        title="previous chapter">OPAL &lt;&#8211;&gt; BMC interactions</a></p>
+                        title="previous chapter">OPAL &lt;–&gt; BMC interactions</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="memory.html"
                         title="next chapter">Memory in skiboot</a></p>
@@ -175,13 +171,13 @@ to build skiboot, otherwise you&#8217;re likely to get errors.</p>
         <li class="right" >
           <a href="bmc.html" title="OPAL &lt;–&gt; BMC interactions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2 &#8212; skiboot v5.7
+    <title>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_CHECK_TOKEN" href="opal-check-token-80.html" />
     <link rel="prev" title="OPAL_CEC_POWER_DOWN" href="opal-cec-power-down-5.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-cec-power-down-5.html" title="OPAL_CEC_POWER_DOWN"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -105,15 +101,15 @@ before triggering reboot.</p>
 <dd>Behavior is as similar to that of opal_cec_reboot()</dd>
 <dt>OPAL_REBOOT_PLATFORM_ERROR = 1</dt>
 <dd><p class="first">Log an error to the BMC and then trigger a system checkstop, using
-the information provided by &#8216;ibm,sw-checkstop-fir&#8217; property in the
+the information provided by ‘ibm,sw-checkstop-fir’ property in the
 device-tree. Post the checkstop trigger, OCC/BMC will collect
 relevant data for error analysis and trigger a reboot.</p>
-<p class="last">In absence of &#8216;ibm,sw-checkstop-fir&#8217; device property, this function
+<p class="last">In absence of ‘ibm,sw-checkstop-fir’ device property, this function
 will return with OPAL_UNSUPPORTED and no reboot will be triggered.</p>
 </dd>
 <dt>OPAL_REBOOT_FULL_IPL = 2</dt>
 <dd><p class="first">Force a full IPL reboot rather than using fast reboot.</p>
-<p class="last">On platforms that don&#8217;t support fast reboot, this is equivalent to a
+<p class="last">On platforms that don’t support fast reboot, this is equivalent to a
 normal reboot.</p>
 </dd>
 <dt>Unsupported Reboot type</dt>
@@ -181,14 +177,14 @@ OPAL_UNSUPPORTED and no reboot will be triggered.</dd>
         <li class="right" >
           <a href="opal-cec-power-down-5.html" title="OPAL_CEC_POWER_DOWN"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL API Documentation &#8212; skiboot v5.7
+    <title>OPAL API Documentation &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_CEC_POWER_DOWN" href="opal-cec-power-down-5.html" />
     <link rel="prev" title="VPD (Vital Product Data)" href="../device-tree/vpd.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="../device-tree/vpd.html" title="VPD (Vital Product Data)"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -99,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-phb-mmio-enable-27.html">OPAL_PCI_PHB_MMIO_ENABLE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-mve-33.html">OPAL_PCI_SET_MVE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-mve-enable-34.html">OPAL_PCI_SET_MVE_ENABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-pci-set-p2p-157.html">OPAL_PCI_SET_P2P</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-pe-31.html">OPAL_PCI_SET_PE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-peltv-32.html">OPAL_PCI_SET_PELTV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-phb-mem-window-28.html">OPAL_PCI_SET_PHB_MEM_WINDOW</a></li>
@@ -106,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-set-xive-pe-37.html">OPAL_PCI_SET_XIVE_PE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-pci-tce-kill-126.html">OPAL_PCI_TCE_KILL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-poll-events.html">OPAL_POLL_EVENTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-power-shift-ratio.html">OPAL_GET_POWER_SHIFT_RATIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-power-shift-ratio.html#opal-set-power-shift-ratio">OPAL_SET_POWER_SHIFT_RATIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-powercap.html">OPAL_GET_POWERCAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-powercap.html#opal-set-powercap">OPAL_SET_POWERCAP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-prd-msg-113.html">OPAL_PRD_MSG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-read-write-tpo-103-104.html">OPAL_READ_TPO and OPAL_WRITE_TPO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-register-dump-region-101.html">OPAL_REGISTER_DUMP_REGION</a></li>
@@ -113,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="opal-return-cpu-69.html">OPAL_RETURN_CPU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-rtc-read-3.html">OPAL_RTC_READ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-rtc-write-4.html">OPAL_RTC_WRITE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opal-sensor-group-clear-156.html">OPAL_SENSOR_GROUP_CLEAR</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-sensor-read-88.html">OPAL_SENSOR_READ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-set-xive-19.html">OPAL_SET_XIVE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opal-signal-system-reset-145.html">OPAL_SIGNAL_SYSTEM_RESET</a></li>
@@ -171,13 +173,13 @@
         <li class="right" >
           <a href="../device-tree/vpd.html" title="VPD (Vital Product Data)"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

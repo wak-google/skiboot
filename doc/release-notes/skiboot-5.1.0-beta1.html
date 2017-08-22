@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.1.0-beta1 &#8212; skiboot v5.7
+    <title>skiboot-5.1.0-beta1 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.1.0-beta2" href="skiboot-5.1.0-beta2.html" />
     <link rel="prev" title="skiboot-5.1.0" href="skiboot-5.1.0.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.1.0.html" title="skiboot-5.1.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -103,7 +99,7 @@ systems it was getting closer than we liked.</li>
 <li>Versioning of pflash and gard utilities to help Linux (or other OS)
 distributions with packaging.</li>
 <li>OCC throttle status messages to host</li>
-<li>CAPP timebase sync (&#8220;ibm,capp-timebase-sync&#8221; in DT to indicate CAPP timebase
+<li>CAPP timebase sync (“ibm,capp-timebase-sync” in DT to indicate CAPP timebase
 was synced by OPAL)</li>
 </ul>
 </div>
@@ -154,7 +150,7 @@ lead to a crash (dereferencing invalid address, deadlock)</li>
 <ul>
 <li><p class="first">(also fixed in skiboot-5.0.2) Fix race in firenze_get_slot_info() leading to
 assert() with many PCI cards</p>
-<p>With many PCI cards, we&#8217;d hit a race where calls to
+<p>With many PCI cards, we’d hit a race where calls to
 firenze_add_pcidev_to_fsp_inventory would step on each other leading to
 memory corruption and finally an assert() in the allocator being hit
 during boot.</p>
@@ -171,7 +167,7 @@ during boot.</p>
 <div class="section" id="general-improvements">
 <h2>General improvements:<a class="headerlink" href="#general-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>don&#8217;t run pollers on non-boot CPUs in time_wait</li>
+<li>don’t run pollers on non-boot CPUs in time_wait</li>
 <li>improvements to opal-prd, pflash, libflash<ul>
 <li>including new blocklevel interface in libflash</li>
 </ul>
@@ -179,7 +175,7 @@ during boot.</p>
 <li>many minor fixes to issues found by static analysis</li>
 <li>improvements in FSP error log code paths</li>
 <li>code cleanup in memory allocator</li>
-<li>Don&#8217;t expose individual nvram partitions in the device tree, just the whole
+<li>Don’t expose individual nvram partitions in the device tree, just the whole
 flash device.</li>
 <li>build improvements for building on ppc64el host</li>
 <li>improvements in cpu_relax() for idle threads, needed for GCOV on large
@@ -387,8 +383,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -422,8 +418,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -466,8 +462,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -483,8 +479,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -500,8 +496,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -523,8 +519,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="36%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -543,8 +539,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -566,8 +562,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -601,8 +597,8 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
 <col width="35%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -682,14 +678,14 @@ A total of 13696 lines added, 2754 removed (delta 10942)</p>
         <li class="right" >
           <a href="skiboot-5.1.0.html" title="skiboot-5.1.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

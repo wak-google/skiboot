@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.4.4 &#8212; skiboot v5.7
+    <title>skiboot-5.4.4 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.4.5" href="skiboot-5.4.5.html" />
     <link rel="prev" title="skiboot-5.4.3" href="skiboot-5.4.3.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.4.3.html" title="skiboot-5.4.3"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -70,13 +66,13 @@ leading to soft-lockup on the host side.</p>
 <p>Mitigate both these (known) cases by returning OPAL_BUSY so the host driver
 knows to retry later.</p>
 </li>
-<li><p class="first">core/pci: Fix PCIe slot&#8217;s presence
+<li><p class="first">core/pci: Fix PCIe slot’s presence
 According to PCIe spec, the presence bit is hardcoded to 1 if PCIe
-switch downstream port doesn&#8217;t support slot capability. The register
+switch downstream port doesn’t support slot capability. The register
 used for the check in pcie_slot_get_presence_state() is wrong. It
 should be PCIe capability register instead of PCIe slot capability
 register. Otherwise, we always have present bit on the PCI topology.</p>
-<p>The issue is found on Supermicro&#8217;s p8dtu2u machine:</p>
+<p>The issue is found on Supermicro’s p8dtu2u machine:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span> <span class="c1"># lspci -t</span>
  <span class="o">-+-</span><span class="p">[</span><span class="mi">0022</span><span class="p">:</span><span class="mi">00</span><span class="p">]</span><span class="o">---</span><span class="mf">00.0</span><span class="o">-</span><span class="p">[</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">----</span><span class="mf">00.0</span><span class="o">-</span><span class="p">[</span><span class="mi">02</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">--+-</span><span class="mf">01.0</span><span class="o">-</span><span class="p">[</span><span class="mi">03</span><span class="p">]</span><span class="o">----</span><span class="mf">00.0</span>
   <span class="o">|</span>                                           \<span class="o">-</span><span class="mf">02.0</span><span class="o">-</span><span class="p">[</span><span class="mi">04</span><span class="o">-</span><span class="mi">08</span><span class="p">]</span><span class="o">--</span>
@@ -99,13 +95,13 @@ register. Otherwise, we always have present bit on the PCI topology.</p>
 </div>
 </li>
 <li><p class="first">core/pci: More reliable way to update PCI slot power state</p>
-<p>The power control bit (SLOT_CTL, offset: PCIe cap + 0x18) isn&#8217;t
-reliable enough to reflect the PCI slot&#8217;s power state. Instead,
+<p>The power control bit (SLOT_CTL, offset: PCIe cap + 0x18) isn’t
+reliable enough to reflect the PCI slot’s power state. Instead,
 the power indication bits are more reliable comparatively. This
-leads to mismatch between the cached power state and PCI slot&#8217;s
+leads to mismatch between the cached power state and PCI slot’s
 presence state, resulting in the hotplug driver in kernel refuses
 to unplug the devices properly on the request. The issue was
-found on below NVMe card on &#8220;supermicro,p8dtu2u&#8221; machine. We don&#8217;t
+found on below NVMe card on “supermicro,p8dtu2u” machine. We don’t
 have this issue on the integrated PLX 8718 switch.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># lspci</span>
 <span class="mi">0022</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">PCI</span> <span class="n">bridge</span><span class="p">:</span> <span class="n">PLX</span> <span class="n">Technology</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">PEX</span> <span class="mi">9733</span> <span class="mi">33</span><span class="o">-</span><span class="n">lane</span><span class="p">,</span> \
@@ -123,7 +119,7 @@ have this issue on the integrated PLX 8718 switch.</p>
 <span class="mi">0022</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mf">00.0</span> <span class="n">Non</span><span class="o">-</span><span class="n">Volatile</span> <span class="n">memory</span> <span class="n">controller</span><span class="p">:</span> <span class="n">Device</span> <span class="mf">19e5</span><span class="p">:</span><span class="mi">0123</span> <span class="p">(</span><span class="n">rev</span> <span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This updates the cached PCI slot&#8217;s power state using the power
+<p>This updates the cached PCI slot’s power state using the power
 indication bits instead of power control bit, to fix above issue.</p>
 </li>
 <li><p class="first">core/pci: Avoid hreset after freset</p>
@@ -176,14 +172,14 @@ indication bits instead of power control bit, to fix above issue.</p>
         <li class="right" >
           <a href="skiboot-5.4.3.html" title="skiboot-5.4.3"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

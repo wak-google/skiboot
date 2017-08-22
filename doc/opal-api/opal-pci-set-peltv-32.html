@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_SET_PELTV &#8212; skiboot v5.7
+    <title>OPAL_PCI_SET_PELTV &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_PCI_SET_PHB_MEM_WINDOW" href="opal-pci-set-phb-mem-window-28.html" />
     <link rel="prev" title="OPAL_PCI_SET_PE" href="opal-pci-set-pe-31.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-set-pe-31.html" title="OPAL_PCI_SET_PE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -87,7 +83,7 @@ bridge).</dd>
 than another PE, such that an error involving that other PE should cause a
 collateral PE freeze for this child PE. For example a device below a
 downstream bridge of a PCIE switch is a child PE that downstream bridge PE
-and the upstream bridge PE of that switch &#8211; an ERR_Fatal from either bridge
+and the upstream bridge PE of that switch – an ERR_Fatal from either bridge
 should result in a collateral freeze of that device PE.</dd>
 </dl>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">OpalPeltvAction</span> <span class="p">{</span>
@@ -99,8 +95,8 @@ should result in a collateral freeze of that device PE.</dd>
 <p><strong>OPAL Implementation Note:</strong>
 <strong>WARNING TODO</strong>: <em>CHECK IF THIS IS CORRECT FOR skiboot:</em>
 For ibm,opal-ioda2, OPAL sets the PELTV bit in all RTT entries for the parent
-PE when the state argument is &#8216;1&#8217;. OPAL clears the PELTV bit in all RTT
-entries for the parent PE when the state argument is &#8216;0&#8217; and setting the child
+PE when the state argument is ‘1’. OPAL clears the PELTV bit in all RTT
+entries for the parent PE when the state argument is ‘0’ and setting the child
 PE bit in the parent PELTV results in an all-zeros value for that PELTV.</p>
 <p>Return value:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>if (!phb)
@@ -156,14 +152,14 @@ if (!phb-&gt;ops-&gt;set_peltv)
         <li class="right" >
           <a href="opal-pci-set-pe-31.html" title="OPAL_PCI_SET_PE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

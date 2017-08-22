@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Skiboot stable tree rules and releases &#8212; skiboot v5.7
+    <title>Skiboot stable tree rules and releases &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="Versioning Scheme of skiboot" href="versioning.html" />
     <link rel="prev" title="OPAL/Skiboot Nvlink Interface Documentation" href="nvlink.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="nvlink.html" title="OPAL/Skiboot Nvlink Interface Documentation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -56,14 +52,14 @@
             
   <div class="section" id="skiboot-stable-tree-rules-and-releases">
 <span id="stable-rules"></span><h1>Skiboot stable tree rules and releases<a class="headerlink" href="#skiboot-stable-tree-rules-and-releases" title="Permalink to this headline">¶</a></h1>
-<p>If you&#8217;re at all familiar with the Linux kernel stable trees, this should
+<p>If you’re at all familiar with the Linux kernel stable trees, this should
 seem fairly familiar.</p>
 <p>The purpose of a -stable tree is to give vendors a stable base to create
 firmware releases from and to incorporate into service packs. New stable
 releases contain critical fixes only.</p>
 <p>As a general rule, on the most recent skiboot release gets a maintained
 -stable tree. If you wish to maintain an older tree, speak up! For example,
-with my IBMer hat on, we&#8217;ll maintain branches that we ship in products.</p>
+with my IBMer hat on, we’ll maintain branches that we ship in products.</p>
 <div class="section" id="what-patches-are-accepted">
 <h2>What patches are accepted?<a class="headerlink" href="#what-patches-are-accepted" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -74,7 +70,7 @@ with my IBMer hat on, we&#8217;ll maintain branches that we ship in products.</p
 <li>A patch must fix a real bug</li>
 <li>No trivial patches, such fixups belong in main branch</li>
 <li>Not fix a purely theoretical problem unless you can prove how
-it&#8217;s exploitable</li>
+it’s exploitable</li>
 <li>The patch, or an equivalent one, must already be in master<ul>
 <li>Submitting to both at the same time is okay, but backporting is better</li>
 </ul>
@@ -84,7 +80,7 @@ it&#8217;s exploitable</li>
 <div class="section" id="howto-submit-to-stable">
 <h2>HOWTO submit to stable<a class="headerlink" href="#howto-submit-to-stable" title="Permalink to this headline">¶</a></h2>
 <p>Two ways:
-1. Send patch to the skiboot&#64; list with &#8220;[PATCH stable]&#8221; in subject</p>
+1. Send patch to the skiboot&#64; list with “[PATCH stable]” in subject</p>
 <blockquote>
 <div><ul>
 <li><p class="first">This targets the patch <em>ONLY</em> to the stable branch.</p>
@@ -111,7 +107,7 @@ commit message:</p>
 </ul>
 </div></blockquote>
 <ol class="arabic" start="2">
-<li><p class="first">Add &#8220;Cc: stable&#8221; above your Signed-off-by line when sending to skiboot&#64;</p>
+<li><p class="first">Add “Cc: stable” above your Signed-off-by line when sending to skiboot&#64;</p>
 <ul>
 <li><p class="first">This targets the patch to master and stable.</p>
 </li>
@@ -130,7 +126,7 @@ commit message:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li>please <code class="docutils literal"><span class="pre">git</span> <span class="pre">cherry-pick</span> <span class="pre">55ae15b</span></code></li>
-<li>then apply this patch to 5.1.x&#8221;.</li>
+<li>then apply this patch to 5.1.x”.</li>
 </ol>
 </div></blockquote>
 </li>
@@ -209,13 +205,13 @@ and skiboot-5.1.x could possibly outlast skiboot-5.2.x</li>
         <li class="right" >
           <a href="nvlink.html" title="OPAL/Skiboot Nvlink Interface Documentation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

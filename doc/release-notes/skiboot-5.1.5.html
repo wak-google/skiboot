@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.1.5 &#8212; skiboot v5.7
+    <title>skiboot-5.1.5 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.1.6" href="skiboot-5.1.6.html" />
     <link rel="prev" title="skiboot-5.1.4" href="skiboot-5.1.4.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.1.4.html" title="skiboot-5.1.4"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -84,9 +80,9 @@ to BMCs.</li>
 <ul>
 <li><dl class="first docutils">
 <dt>ipmi-sel: Run power action immediately if host not up</dt>
-<dd><p class="first">Our normal sequence for a soft power action (IPMI &#8216;power soft&#8217; or
-&#8216;power cycle&#8217;) involve receiving a SEL from the BMC, sending a message
-to Linux&#8217;s opal platform support which instructs the host OS to shut
+<dd><p class="first">Our normal sequence for a soft power action (IPMI ‘power soft’ or
+‘power cycle’) involve receiving a SEL from the BMC, sending a message
+to Linux’s opal platform support which instructs the host OS to shut
 down, and finally the host will request OPAL to cut power.</p>
 <p class="last">When the host is not yet up we will send the message to /dev/null, and
 no action will be taken. This patches changes that behaviour to perform
@@ -162,14 +158,14 @@ Observed in the wild that this fixes bugs for petitboot.</li>
         <li class="right" >
           <a href="skiboot-5.1.4.html" title="skiboot-5.1.4"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

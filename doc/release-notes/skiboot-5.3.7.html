@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.3.7 &#8212; skiboot v5.7
+    <title>skiboot-5.3.7 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.4.0" href="skiboot-5.4.0.html" />
     <link rel="prev" title="skiboot-5.3.6" href="skiboot-5.3.6.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.3.6.html" title="skiboot-5.3.6"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -81,11 +77,11 @@ systems.  The issue was not present in skiboot 5.2.x.</p>
 <li><dl class="first docutils">
 <dt>core/pci: Fix the power-off timeout in pci_slot_power_off()</dt>
 <dd><p class="first">The timeout should be 1000ms instead of 1000 ticks while powering
-off PCI slot in pci_slot_power_off(). Otherwise, it&#8217;s likely to
+off PCI slot in pci_slot_power_off(). Otherwise, it’s likely to
 hit timeout powering off the PCI slot as below skiboot logs reveal:</p>
-<p class="last">[47912590456,5] SkiBoot skiboot-5.3.6 starting...
+<p class="last">[47912590456,5] SkiBoot skiboot-5.3.6 starting…
 (snip)
-[5399532365,7] PHB#0005:02:11.0 Bus 0f..ff  scanning...
+[5399532365,7] PHB#0005:02:11.0 Bus 0f..ff  scanning…
 [5399540804,7] PHB#0005:02:11.0 No card in slot
 [5399576870,5] PHB#0005:02:11.0 Timeout powering off slot
 [5401431782,3] FIRENZE-PCI: Wrong state 00000000 on slot 8000000002880005</p>
@@ -121,7 +117,7 @@ the kernel instead.</p>
 <dd><p class="first">We need a way to indicate behaviour changes &amp; fixes in the prd
 interface, without requiring a major version bump.</p>
 <p class="last">This change introduces the get_interface_capabilities callback,
-returning a bitmask of capability flags, pertaining to &#8216;sets&#8217; of
+returning a bitmask of capability flags, pertaining to ‘sets’ of
 capabilities. We currently return 0 for all.</p>
 </dd>
 </dl>
@@ -194,14 +190,14 @@ the opal-reserved-pe device-tree property to match this.</p>
         <li class="right" >
           <a href="skiboot-5.3.6.html" title="skiboot-5.3.6"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

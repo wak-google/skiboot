@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Versioning Scheme of skiboot &#8212; skiboot v5.7
+    <title>Versioning Scheme of skiboot &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="PCI" href="pci.html" />
     <link rel="prev" title="Skiboot stable tree rules and releases" href="stable-skiboot-rules.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="stable-skiboot-rules.html" title="Skiboot stable tree rules and releases"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -59,7 +55,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <p>For roughly the first six months of public life, skiboot just presented a
-git SHA1 as a version &#8220;number&#8221;. This was &#8220;user visible&#8221; in two places:</p>
+git SHA1 as a version “number”. This was “user visible” in two places:</p>
 <ol class="arabic simple">
 <li><code class="docutils literal"><span class="pre">/sys/firmware/opal/msglog</span></code>
 the familiar <code class="docutils literal"><span class="pre">SkiBoot</span> <span class="pre">71664fd-dirty</span> <span class="pre">starting...</span></code> message</li>
@@ -75,7 +71,7 @@ OpenPower systems.</p>
 <div class="section" id="current-practice">
 <h2>Current practice<a class="headerlink" href="#current-practice" title="Permalink to this headline">¶</a></h2>
 <p>The version string is constructed from a few places and is designed to
-be <em>highly</em> informative about what you&#8217;re running. For the most part,
+be <em>highly</em> informative about what you’re running. For the most part,
 it should be automatically constructed by the skiboot build system. The
 only times you need to do something is if you are a) making an upstream
 skiboot release or b) building firmware to release for your platform(s).</p>
@@ -89,19 +85,19 @@ is running</li>
 </ul>
 <p>and there are going to be several concurrent maintained releases in the wild,
 likely build by different teams of people at different companies.</p>
-<p>tl;dr; is you&#8217;re likely going to see version numbers like this (for the
-hypothetical platforms &#8216;ketchup&#8217; and &#8216;mustard&#8217;):</p>
+<p>tl;dr; is you’re likely going to see version numbers like this (for the
+hypothetical platforms ‘ketchup’ and ‘mustard’):</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">skiboot-4.0-ketchup-0</span></code></li>
 <li><code class="docutils literal"><span class="pre">skiboot-4.0-ketchup-1</span></code></li>
 <li><code class="docutils literal"><span class="pre">skiboot-4.1-mustard-4</span></code></li>
 <li><code class="docutils literal"><span class="pre">skiboot-4.1-ketchup-0</span></code></li>
 </ul>
-<p>If you see <em>extra</em> things on the end of the version, then you&#8217;re running
+<p>If you see <em>extra</em> things on the end of the version, then you’re running
 a custom build from a developer
 (e.g. <code class="docutils literal"><span class="pre">skiboot-4.0-1-g23f147e-stewart-dirty-f42fc40</span></code> means something to
 us - explained below).</p>
-<p>If you see less, for example <code class="docutils literal"><span class="pre">skiboot-4.0</span></code>, then you&#8217;re running a build
+<p>If you see less, for example <code class="docutils literal"><span class="pre">skiboot-4.0</span></code>, then you’re running a build
 directly out of the main git tree. Those producing OPAL builds for users
 must <em>not</em> ship like this, even if the tree is identical.</p>
 <p>Here are the components of the version string from master:</p>
@@ -126,7 +122,7 @@ must <em>not</em> ship like this, even if the tree is identical.</p>
 <p>When doing a release for a particular platform, you are expected to create
 and tag a branch from master. For the (hypothetical) ketchup platform which
 is going to do a release based on skiboot-4.0, you would create a tag
-&#8216;skiboot-4.0-ketchup-0&#8217; pointing to the same revision as the &#8216;skiboot-4.0&#8217; tag
+‘skiboot-4.0-ketchup-0’ pointing to the same revision as the ‘skiboot-4.0’ tag
 and then make any additional modifications to skiboot that were not in the 4.0
 release. So, you could ship a skiboot with the following version string:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">skiboot</span><span class="o">-</span><span class="mf">4.0</span><span class="o">-</span><span class="n">ketchup</span><span class="o">-</span><span class="mi">1</span>
@@ -148,7 +144,7 @@ some revisions for your platform.</p>
 <div class="section" id="practical-considerations">
 <h2>Practical Considerations<a class="headerlink" href="#practical-considerations" title="Permalink to this headline">¶</a></h2>
 <p>You MUST correctly tag your git tree for sensible version numbers to be
-generated. Look at the (generated) version.c file to confirm you&#8217;re building
+generated. Look at the (generated) version.c file to confirm you’re building
 the correct version number. You will need annotated tags (git tag -a).</p>
 <p>If your build infrastructure does <em>not</em> build skiboot from a git tree, you
 should specify SKIBOOT_VERSION as an environment variable (following this
@@ -211,13 +207,13 @@ versioning scheme), otherwise the build will fail.</p>
         <li class="right" >
           <a href="stable-skiboot-rules.html" title="Skiboot stable tree rules and releases"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

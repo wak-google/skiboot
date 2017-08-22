@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_MESSAGE &#8212; skiboot v5.7
+    <title>OPAL_MESSAGE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL NPU2 calls" href="opal-npu2-141-142-143.html" />
     <link rel="prev" title="OPAL_LPC_READ" href="opal-lpc-read-write-67-68.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-lpc-read-write-67-68.html" title="OPAL_LPC_READ"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -72,7 +68,7 @@ being messages to be consumed by the OPAL_EVENT_MSG_PENDING bit being set.</p>
 messages define fewer than eight parameters. For messages that do not
 define all eight parameters, the value in the undefined parameters is
 undefined, although can safely be memcpy()d or otherwise moved.</p>
-<p>In the device tree, there&#8217;s an opal-msg-size property of the OPAL node that
+<p>In the device tree, there’s an opal-msg-size property of the OPAL node that
 says the size of a struct opal-msg. In the future, OPAL may support larger
 messages. See <code class="docutils literal"><span class="pre">OPAL_GET_MESSAGE</span></code> documentation for details.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ibm</span><span class="p">,</span><span class="n">opal</span> <span class="p">{</span>
@@ -99,9 +95,9 @@ ambient temperature or system running on UPS power with low UPS battery.
 Host OS can query OPAL via <code class="docutils literal"><span class="pre">GET_EPOW_STATUS</span></code> API to obtain information about
 EPOW conditions present. Refer include/opal-api.h for description of
 all supported EPOW events. OPAL_SYSPOWER_CHNG, OPAL_SYSPOWER_FAIL and
-OPAL_SYSPOWER_INC events don&#8217;t require system poweroff.</p>
-<p>Host OS should look for &#8216;ibm,opal-v3-epow&#8217; string as compatible property
-for &#8216;epow&#8217; node under OPAL device-tree to determine epow support.</p>
+OPAL_SYSPOWER_INC events don’t require system poweroff.</p>
+<p>Host OS should look for ‘ibm,opal-v3-epow’ string as compatible property
+for ‘epow’ node under OPAL device-tree to determine epow support.</p>
 </div>
 <div class="section" id="opal-msg-shutdown">
 <h2>OPAL_MSG_SHUTDOWN<a class="headerlink" href="#opal-msg-shutdown" title="Permalink to this headline">¶</a></h2>
@@ -319,14 +315,14 @@ of OPAL.</p>
         <li class="right" >
           <a href="opal-lpc-read-write-67-68.html" title="OPAL_LPC_READ"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.3.0-rc1 &#8212; skiboot v5.7
+    <title>skiboot-5.3.0-rc1 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.3.0-rc2" href="skiboot-5.3.0-rc2.html" />
     <link rel="prev" title="skiboot-5.3.0" href="skiboot-5.3.0.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.3.0.html" title="skiboot-5.3.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -71,7 +67,7 @@ and skiboot-5.2.4 (the existing stable releases).</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>Reserve OPAL API numbers for XICS emulation for XIVE</dt>
-<dd>Additionally, we put in some skeleton docs for what&#8217;s coming,
+<dd>Additionally, we put in some skeleton docs for what’s coming,
 key points being that this is for P9 and above, relies on a device
 being present in the device tree and is modelled on the PAPR calls.</dd>
 </dl>
@@ -87,7 +83,7 @@ No Linux kernel has ever existed for powernv that only knows linux,phandle.</li>
 <li>Add base POWER9 support
 In <em>NO WAY</em> is this geared towards real POWER9 hardware.
 Suitable for use in simulators <em>only</em>, and even then, only if you
-intensely know what you&#8217;re doing.</li>
+intensely know what you’re doing.</li>
 <li>Document changes in OPAL API for POWER9
 Some things are going to change, we start documenting them.</li>
 <li>cpu: supply ibm,dec-bits via devicetree</li>
@@ -235,7 +231,7 @@ relocate itself when loaded directly at 0.</dd>
 <li>core: Fix backtrace for gcc 6
 fixes a compiler warning on GCC 6 and above</li>
 <li><dl class="first docutils">
-<dt>cpu: Don&#8217;t call time_wait with lock held</dt>
+<dt>cpu: Don’t call time_wait with lock held</dt>
 <dd>Also make the locking around re-init safer, properly block the
 OS from restarting a thread that was caught for re-init.</dd>
 </dl>
@@ -307,8 +303,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="31%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -360,7 +356,7 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <tr class="row-odd"><td>Ian Munsie</td>
 <td>4 (1.3%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>3 (1.0%)</td>
 </tr>
 <tr class="row-odd"><td>Chris Smart</td>
@@ -414,8 +410,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -464,7 +460,7 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <tr class="row-even"><td>Brad Bishop</td>
 <td>80 (0.4%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>80 (0.4%)</td>
 </tr>
 <tr class="row-even"><td>Cyril Bur</td>
@@ -521,8 +517,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -547,8 +543,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -564,7 +560,7 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <tr class="row-odd"><td>Michael Neuling</td>
 <td>2 (0.8%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>1 (0.4%)</td>
 </tr>
 <tr class="row-odd"><td>Vipin K Parashar</td>
@@ -579,8 +575,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -635,8 +631,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -658,8 +654,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -678,8 +674,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -704,8 +700,8 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
 <col width="32%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">&#160;</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -788,14 +784,14 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
         <li class="right" >
           <a href="skiboot-5.3.0.html" title="skiboot-5.3.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

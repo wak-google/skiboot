@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.4.1 &#8212; skiboot v5.7
+    <title>skiboot-5.4.1 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.4.2" href="skiboot-5.4.2.html" />
     <link rel="prev" title="skiboot-5.4.0-rc4" href="skiboot-5.4.0-rc4.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.4.0-rc4.html" title="skiboot-5.4.0-rc4"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -63,20 +59,20 @@
 <ul class="simple">
 <li>Nuvoton i2c TPM driver: bug fixes and improvements, especially around
 timeouts and error handling.</li>
-<li>Limit number of &#8220;Poller recursion detected&#8221; errors to display.
+<li>Limit number of “Poller recursion detected” errors to display.
 In some error conditions, we could spiral out of control on this
 and spend all of our time printing the exact same backtrace.</li>
 <li>slw: do SLW timer testing while holding xscom lock.
 In some situations without this, it could take long enough to get
-the xscom lock that the 1ms timeout would expire and we&#8217;d falsely
-think the SLW timer didn&#8217;t work when in fact it did.</li>
+the xscom lock that the 1ms timeout would expire and we’d falsely
+think the SLW timer didn’t work when in fact it did.</li>
 <li>p8i2c: Use calculated poll_interval when booting OPAL.
-Otherwise we&#8217;d default to 2seconds (TIMER_POLL) during boot on
+Otherwise we’d default to 2seconds (TIMER_POLL) during boot on
 chips with a functional i2c interrupt, leading to slow i2c
 during boot (or hitting timeouts instead).</li>
 <li>i2c: More efficiently run TPM I2C operations during boot, avoiding hitting
 timeouts</li>
-<li>fsp: Don&#8217;t recurse pollers in ibm_fsp_terminate</li>
+<li>fsp: Don’t recurse pollers in ibm_fsp_terminate</li>
 </ul>
 </div>
 
@@ -125,14 +121,14 @@ timeouts</li>
         <li class="right" >
           <a href="skiboot-5.4.0-rc4.html" title="skiboot-5.4.0-rc4"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

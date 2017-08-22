@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.1.0-beta2 &#8212; skiboot v5.7
+    <title>skiboot-5.1.0-beta2 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.1.1" href="skiboot-5.1.1.html" />
     <link rel="prev" title="skiboot-5.1.0-beta1" href="skiboot-5.1.0-beta1.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.1.0-beta1.html" title="skiboot-5.1.0-beta1"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -86,14 +82,14 @@ will behave similar to that of opal_cec_reboot() call, and
 <li>could eventually lead to failing to map PRD ranges</li>
 </ul>
 </li>
-<li>On skiboot crash, don&#8217;t try to print symbol when we didn&#8217;t find one<ul>
+<li>On skiboot crash, don’t try to print symbol when we didn’t find one<ul>
 <li>makes backtrace prettier</li>
 </ul>
 </li>
 <li>On skiboot crash, dump hssr0 and hsrr1 registers correctly.</li>
 <li>Better support old and biarch compilers<ul>
-<li>test &#8220;new&#8221; compiler flags before using them</li>
-<li>Specify -mabi=elfv1 if supported (which means it&#8217;s needed)</li>
+<li>test “new” compiler flags before using them</li>
+<li>Specify -mabi=elfv1 if supported (which means it’s needed)</li>
 </ul>
 </li>
 <li>fix boot-coverage-report makefile target</li>
@@ -102,12 +98,12 @@ will behave similar to that of opal_cec_reboot() call, and
 </ul>
 </li>
 <li>IPMI: truncate SELs at 2kb<ul>
-<li>it&#8217;s the limit of the astbmc. We think.</li>
+<li>it’s the limit of the astbmc. We think.</li>
 </ul>
 </li>
 <li>IPMI/SEL/PEL:<ul>
-<li>As per PEL spec, we should log events with severity &gt;= 0x22 and &#8220;service
-action flag&#8221; is &#8220;on&#8221;. But in our case, all logs OPAL originagted logs
+<li>As per PEL spec, we should log events with severity &gt;= 0x22 and “service
+action flag” is “on”. But in our case, all logs OPAL originagted logs
 are makred as report externally.
 We now only report logs with severity &gt;= 0x22</li>
 </ul>
@@ -118,7 +114,7 @@ We now only report logs with severity &gt;= 0x22</li>
 to PE assignment request from kernel. The last M64 BAR is configured
 to have shared mode. So we have to cut off the first M64 segment,
 which corresponds to reserved PE#0 in kernel. If the first BAR
-(for example PF&#8217;s IOV BAR) requires huge alignment in kernel, we
+(for example PF’s IOV BAR) requires huge alignment in kernel, we
 have to waste huge M64 space to accommodate the alignment. If we
 have reserved PE#256, the waste of M64 space will be avoided.</li>
 </ul>
@@ -192,14 +188,14 @@ have reserved PE#256, the waste of M64 space will be avoided.</li>
         <li class="right" >
           <a href="skiboot-5.1.0-beta1.html" title="skiboot-5.1.0-beta1"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

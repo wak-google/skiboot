@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>skiboot-5.6.0-rc1 &#8212; skiboot v5.7
+    <title>skiboot-5.6.0-rc1 &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="skiboot-5.6.0-rc2" href="skiboot-5.6.0-rc2.html" />
     <link rel="prev" title="skiboot-5.6.0" href="skiboot-5.6.0.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="skiboot-5.6.0.html" title="skiboot-5.6.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
@@ -101,7 +97,7 @@ the PQ state of the IPI.</p>
 </li>
 <li><p class="first">xive: Add a per-cpu logging mechanism to XICS emulation</p>
 <p>This is a small 32-entries rolling buffer that logs a few
-operations. It&#8217;s useful to debug odd problems. The output
+operations. It’s useful to debug odd problems. The output
 is printed when opal_xive_dump() is called.</p>
 </li>
 <li><p class="first">xive: Check queues for duplicates in DEBUG builds.</p>
@@ -127,7 +123,7 @@ set a flag in the IPL parameters structure. Parse and export this
 in the device tree at: /ipl-params/sys-params/elevated-risk-level</p>
 </li>
 <li><p class="first">hdata: Respect OCC and HOMER resevations</p>
-<p>In the past we&#8217;ve ignored these since Hostboot insisted in exporting
+<p>In the past we’ve ignored these since Hostboot insisted in exporting
 broken reservations and the OCC was not being used yet. This situation
 seems to have resolved itself so we should respect the reservations that
 hostboot provides.</p>
@@ -138,7 +134,7 @@ hostboot provides.</p>
 <ul>
 <li><p class="first">i2c: Add interrupts support on P9</p>
 <p>Some older revisions of hostboot populate the host i2c device fields
-with all zero entires. Detect and ignore these so we don&#8217;t crash on
+with all zero entires. Detect and ignore these so we don’t crash on
 boot.</p>
 <p>Without this we get:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>[  151.251240444,3] DT: dt_attach_root failed, duplicate unknown@0
@@ -182,11 +178,11 @@ cause an EEH on the PHB.</p>
 <p>Having the option to disable EEH for MMIO without rebuilding skiboot
 could be useful for testing, so check for pci-eeh-mmio=disabled in nvram.</p>
 <p>This is not designed to be a supported option or configuration, just
-an option that&#8217;s useful in bringup and development of POWER9 systems.</p>
+an option that’s useful in bringup and development of POWER9 systems.</p>
 </li>
 <li><p class="first">phb4: Fix slot presence detect</p>
 <p>This has the nice side effect of improving boot times since we no
-longer waste time tring to train links that don&#8217;t have anything
+longer waste time tring to train links that don’t have anything
 present.</p>
 </li>
 <li><p class="first">phb4: Enable EEH for MMIO</p>
@@ -286,7 +282,7 @@ was adopted for FSP systems too.</p>
 <ul>
 <li><p class="first">i2c: Remove old hack for bad clock frequency</p>
 <p>This hack dates back to ancient P8 hostboots. The value
-it would use if it detected the &#8220;bad&#8221; value was incorrect
+it would use if it detected the “bad” value was incorrect
 anyway.</p>
 </li>
 <li><p class="first">i2c: Log the engine clock frequency at boot</p>
@@ -311,7 +307,7 @@ un-hnadled message from only fsp, not required from fsp-dpo.</p>
 </li>
 <li><p class="first">FSP: Notify FSP of Platform Log ID after Host Initiated Reset Reload</p>
 <p>Trigging a Host Initiated Reset (when the host detects the FSP has gone
-out to lunch and should be rebooted), would cause &#8220;Unknown Command&#8221; messages
+out to lunch and should be rebooted), would cause “Unknown Command” messages
 to appear in the OPAL log.</p>
 <p>This patch implements those messages</p>
 <p>How to trigger FSP RR(HIR):</p>
@@ -328,9 +324,9 @@ Log showing unknown command:
 [  466.340600126,3] FSP: Unhandled message ce0900
 </pre></div>
 </div>
-<p>The message we need to handle is &#8220;Get PLID after host initiated FipS
-reset/reload&#8221;. When the FSP comes back from HIR, it asks &#8220;hey, so, which
-error log explains why you rebooted me?&#8221;. So, we tell it.</p>
+<p>The message we need to handle is “Get PLID after host initiated FipS
+reset/reload”. When the FSP comes back from HIR, it asks “hey, so, which
+error log explains why you rebooted me?”. So, we tell it.</p>
 </li>
 </ul>
 </div>
@@ -342,14 +338,14 @@ error log explains why you rebooted me?&#8221;. So, we tell it.</p>
 <li><p class="first">GCC7: fixes for -Wimplicit-fallthrough expected regexes</p>
 <p>It turns out GCC7 adds a useful warning and does fancy things like
 parsing your comments to work out that you intended to do the fallthrough.
-There&#8217;s a few places where we don&#8217;t match the regex. Fix them, as it&#8217;s
+There’s a few places where we don’t match the regex. Fix them, as it’s
 harmless to do so.</p>
 <p>Found by building on Fedora Rawhide in Travis.</p>
 <p>While we do not have everything needed to start building successfully
-with GCC7 (well, at least doing so warning clean), it&#8217;s a start.</p>
+with GCC7 (well, at least doing so warning clean), it’s a start.</p>
 </li>
 <li><p class="first">hdata/i2c: avoid possible int32_t overflow</p>
-<p>We&#8217;re safe up until engine number 524288. Found by static analysis (of course)</p>
+<p>We’re safe up until engine number 524288. Found by static analysis (of course)</p>
 </li>
 <li><p class="first">tpm_i2c_nuvoton: fix use-after-free in tpm_register_chip failure path</p>
 </li>
@@ -379,7 +375,7 @@ warning, notice, printf, info, debug, trace or insane.  ie.</p>
 </li>
 <li><p class="first">xive: Fix potential for lost IPIs when manipulating CPPR</p>
 </li>
-<li><p class="first">xive: Don&#8217;t double EOI interrupts that have an EOI override</p>
+<li><p class="first">xive: Don’t double EOI interrupts that have an EOI override</p>
 </li>
 <li><p class="first">libflash/file: Only use 64bit MTD erase ioctl() when needed</p>
 <p>We recently made MTD 64 bit safe in e5720d3fe94 which now requires the
@@ -413,7 +409,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>17</td>
 <td>(21.0%)</td>
 </tr>
@@ -503,7 +499,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 <td>360</td>
 <td>(13.7%)</td>
 </tr>
-<tr class="row-odd"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-odd"><td>Oliver O’Halloran</td>
 <td>297</td>
 <td>(11.3%)</td>
 </tr>
@@ -600,7 +596,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 <td>16</td>
 <td>(21.9%)</td>
 </tr>
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>1</td>
 <td>(1.4%)</td>
 </tr>
@@ -623,7 +619,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>3</td>
 <td>(50.0%)</td>
 </tr>
@@ -658,7 +654,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>2</td>
 <td>(40.0%)</td>
 </tr>
@@ -693,7 +689,7 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Oliver O&#8217;Halloran</td>
+<tr class="row-even"><td>Oliver O’Halloran</td>
 <td>2</td>
 <td>(40.0%)</td>
 </tr>
@@ -938,14 +934,14 @@ A total of 2496 lines added, 641 removed (delta 1855)</p>
         <li class="right" >
           <a href="skiboot-5.6.0.html" title="skiboot-5.6.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

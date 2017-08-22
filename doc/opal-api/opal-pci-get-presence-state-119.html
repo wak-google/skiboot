@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>OPAL_PCI_GET_PRESENCE_STATE &#8212; skiboot v5.7
+    <title>OPAL_PCI_GET_PRESENCE_STATE &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -31,7 +27,7 @@
     <link rel="next" title="OPAL_PCI_GET_XIVE_REISSUE and OPAL_PCI_SET_XIVE_REISSUE" href="opal-pci-get-set-xive-reissue-35-36.html" />
     <link rel="prev" title="OPAL_PCI_GET_POWER_STATE" href="opal-pci-get-power-state-120.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,7 +40,7 @@
         <li class="right" >
           <a href="opal-pci-get-power-state-120.html" title="OPAL_PCI_GET_POWER_STATE"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -69,7 +65,7 @@
 </div>
 <div class="section" id="calling">
 <h2>Calling<a class="headerlink" href="#calling" title="Permalink to this headline">¶</a></h2>
-<p>Retrieve PCI slot&#8217;s presence state. The detected presence means there are
+<p>Retrieve PCI slot’s presence state. The detected presence means there are
 adapters inserted to the PCI slot. Otherwise, the PCI slot is regarded as
 an empty one. The typical use is to ensure there are adapters existing
 before probing the PCI slot in PCI hot add path. The retrieved presence
@@ -79,9 +75,9 @@ state is stored in buffer pointed by &#64;data.</p>
 <h2>Return Codes<a class="headerlink" href="#return-codes" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>OPAL_SUCCESS</dt>
-<dd>PCI slot&#8217;s presence state is retrieved successfully</dd>
+<dd>PCI slot’s presence state is retrieved successfully</dd>
 <dt>OPAL_PARAMETER</dt>
-<dd>The indicated PCI slot isn&#8217;t found</dd>
+<dd>The indicated PCI slot isn’t found</dd>
 <dt>OPAL_UNSUPPORTED</dt>
 <dd>Presence retrieval not supported on the PCI slot</dd>
 </dl>
@@ -143,14 +139,14 @@ state is stored in buffer pointed by &#64;data.</p>
         <li class="right" >
           <a href="opal-pci-get-power-state-120.html" title="OPAL_PCI_GET_POWER_STATE"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

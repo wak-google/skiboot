@@ -1,22 +1,18 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>ibm,opal/sensors/ device tree nodes &#8212; skiboot v5.7
+    <title>ibm,opal/sensors/ device tree nodes &#8212; skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</title>
-    
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     'v5.7
-',
+        VERSION:     'v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -29,9 +25,9 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="ibm,secureboot" href="../ibm,secureboot.html" />
-    <link rel="prev" title="ibm,opal/power-mgt device tree entries" href="power-mgt.html" /> 
+    <link rel="prev" title="ibm,opal/sensor-groups" href="sensor-groups.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,9 +38,9 @@
           <a href="../ibm,secureboot.html" title="ibm,secureboot"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="power-mgt.html" title="ibm,opal/power-mgt device tree entries"
+          <a href="sensor-groups.html" title="ibm,opal/sensor-groups"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Device Tree</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../ibm,opal.html" accesskey="U">ibm,opal</a> &#187;</li> 
@@ -70,14 +66,14 @@ which name follows this pattern :</p>
 </div>
 <p>Each node has a minimum set of properties describing the sensor :</p>
 <ul>
-<li><p class="first">a &#8220;compatible&#8221; property which should be &#8220;ibm,opal-sensor&#8221;</p>
+<li><p class="first">a “compatible” property which should be “ibm,opal-sensor”</p>
 </li>
-<li><p class="first">a &#8220;sensor-type&#8221; property, which can be &#8220;temp&#8221;, &#8220;fan&#8221;, &#8220;power&#8221;.
+<li><p class="first">a “sensor-type” property, which can be “temp”, “fan”, “power”.
 More will be added when new resources are supported. This type
-is used &#8220;as is&#8221; by the Linux driver to map sensors in the sysfs
+is used “as is” by the Linux driver to map sensors in the sysfs
 interface of the hwmon framework of Linux.</p>
 </li>
-<li><p class="first">a &#8220;sensor-data&#8221; property giving a unique handler for the
+<li><p class="first">a “sensor-data” property giving a unique handler for the
 OPAL_SENSOR_READ call to be used by Linux to get the value of
 a sensor attribute. This value is opaque to the OS but is <em>currently</em>
 constructed using the following encoding :</p>
@@ -89,11 +85,11 @@ constructed using the following encoding :</p>
 <p>The sensor family (FSP, DTS, etc) is used to dispatch the call to
 the appriopriate skiboot component.</p>
 </li>
-<li><p class="first">a &#8220;sensor-status&#8221; property giving the state of the sensor. The
+<li><p class="first">a “sensor-status” property giving the state of the sensor. The
 status bits have the slightly meanings depending on the resource
 type but testing against 0x6 should raise an alarm.</p>
 </li>
-<li><p class="first">an optional &#8220;label&#8221; property</p>
+<li><p class="first">an optional “label” property</p>
 </li>
 </ul>
 <p>Each node can have some extra properties depending on the resource
@@ -163,8 +159,8 @@ they represent. See the tree below for more information.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="power-mgt.html"
-                        title="previous chapter">ibm,opal/power-mgt device tree entries</a></p>
+  <p class="topless"><a href="sensor-groups.html"
+                        title="previous chapter">ibm,opal/sensor-groups</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../ibm,secureboot.html"
                         title="next chapter">ibm,secureboot</a></p>
@@ -199,17 +195,17 @@ they represent. See the tree below for more information.</p>
           <a href="../ibm,secureboot.html" title="ibm,secureboot"
              >next</a> |</li>
         <li class="right" >
-          <a href="power-mgt.html" title="ibm,opal/power-mgt device tree entries"
+          <a href="sensor-groups.html" title="ibm,opal/sensor-groups"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v5.7
+        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v5.8-rc1-1-g87f1c8745d33-stewart-dirty-1892193
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Device Tree</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../ibm,opal.html" >ibm,opal</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
