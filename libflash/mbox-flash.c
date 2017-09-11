@@ -94,33 +94,35 @@ static mbox_handler mbox_flash_do_close_window;
 /* Plus one, commands start at 1 */
 static mbox_handler *handlers_v3[MBOX_COMMAND_COUNT + 1] = {
 	NULL,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_get_mbox_info,
-	&mbox_flash_do_get_flash_info,
-	&mbox_flash_do_create_read_window,
-	&mbox_flash_do_close_window,
-	&mbox_flash_do_create_write_window,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop
+	&mbox_flash_do_nop,                 /* RESET_STATE */
+	&mbox_flash_do_get_mbox_info,       /* GET_MBOX_INFO */
+	&mbox_flash_do_get_flash_info,      /* GET_FLASH_INFO */
+	&mbox_flash_do_create_read_window,  /* CREATE_READ_WINDOW */
+	&mbox_flash_do_close_window,        /* CLOSE_WINDOW */
+	&mbox_flash_do_create_write_window, /* CREATE_WRITE_WINDOW */
+	&mbox_flash_do_nop,                 /* MARK_WRITE_DIRTY */
+	&mbox_flash_do_nop,                 /* WRITE_FLUSH */
+	&mbox_flash_do_nop,                 /* BMC_EVENT_ACK */
+	&mbox_flash_do_nop,                 /* MARK_WRITE_ERASED */
+	&mbox_flash_do_illegal,             /* GET_FLASH_NAME */
+	&mbox_flash_do_nop,                 /* MARK_LOCKED */
 };
 
 /* Plus one, commands start at 1 */
 static mbox_handler *handlers_v2[MBOX_COMMAND_COUNT + 1] = {
 	NULL,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_get_mbox_info,
-	&mbox_flash_do_get_flash_info,
-	&mbox_flash_do_create_read_window,
-	&mbox_flash_do_close_window,
-	&mbox_flash_do_create_write_window,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_illegal
+	&mbox_flash_do_nop,                 /* RESET_STATE */
+	&mbox_flash_do_get_mbox_info,       /* GET_MBOX_INFO */
+	&mbox_flash_do_get_flash_info,      /* GET_FLASH_INFO */
+	&mbox_flash_do_create_read_window,  /* CREATE_READ_WINDOW */
+	&mbox_flash_do_close_window,        /* CLOSE_WINDOW */
+	&mbox_flash_do_create_write_window, /* CREATE_WRITE_WINDOW */
+	&mbox_flash_do_nop,                 /* MARK_WRITE_DIRTY */
+	&mbox_flash_do_nop,                 /* WRITE_FLUSH */
+	&mbox_flash_do_nop,                 /* BMC_EVENT_ACK */
+	&mbox_flash_do_nop,                 /* MARK_WRITE_ERASED */
+	&mbox_flash_do_illegal,             /* GET_FLASH_NAME */
+	&mbox_flash_do_illegal,             /* MARK_LOCKED */
 };
 
 /*
@@ -131,17 +133,18 @@ static mbox_handler *handlers_v2[MBOX_COMMAND_COUNT + 1] = {
  */
 static mbox_handler *handlers_v1[MBOX_COMMAND_COUNT + 1] = {
 	NULL,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_get_mbox_info,
-	&mbox_flash_do_get_flash_info_v1,
-	&mbox_flash_do_create_read_window_v1,
-	&mbox_flash_do_close_window,
-	&mbox_flash_do_create_write_window_v1,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_nop,
-	&mbox_flash_do_illegal,
-	&mbox_flash_do_illegal
+	&mbox_flash_do_nop,                    /* RESET_STATE */
+	&mbox_flash_do_get_mbox_info,          /* GET_MBOX_INFO */
+	&mbox_flash_do_get_flash_info_v1,      /* GET_FLASH_INFO */
+	&mbox_flash_do_create_read_window_v1,  /* CREATE_READ_WINDOW */
+	&mbox_flash_do_close_window,           /* CLOSE_WINDOW */
+	&mbox_flash_do_create_write_window_v1, /* CREATE_WRITE_WINDOW */
+	&mbox_flash_do_nop,                    /* MARK_WRITE_DIRTY */
+	&mbox_flash_do_nop,                    /* WRITE_FLUSH */
+	&mbox_flash_do_nop,                    /* BMC_EVENT_ACK */
+	&mbox_flash_do_illegal,                /* MARK_WRITE_ERASED */
+	&mbox_flash_do_illegal,                /* GET_FLASH_NAME */
+	&mbox_flash_do_illegal,                /* MARK_LOCKED */
 };
 
 
