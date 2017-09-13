@@ -54,6 +54,8 @@
 #define MBOX_ATTN_BMC_FLASH_LOST (1 << 6)
 #define MBOX_ATTN_BMC_DAEMON_READY (1 << 7)
 
+#define MBOX_FLASH_NAME_LEN 11
+
 /* Default poll interval before interrupts are working */
 #define MBOX_DEFAULT_POLL_MS	200
 
