@@ -53,6 +53,16 @@ struct lpc_window {
 	bool open;
 };
 
+struct mbox_flash_dev {
+	struct blocklevel_device bl;
+	uint32_t total_size;
+	uint32_t erase_granule;
+	uint8_t flash_id;
+	char name[MBOX_FLASH_NAME_LEN+1];
+	bool registered;
+	bool reboot;
+};
+
 struct mbox_flash {
 	int version;
 	uint16_t timeout;
@@ -60,24 +70,17 @@ struct mbox_flash {
 	struct lpc_window read;
 	struct lpc_window write;
 	int rc;
-	uint8_t num_flashes;
+	char last_flash_name[MBOX_FLASH_NAME_LEN+1];
 	bool reboot;
 	bool pause;
 	bool busy;
 	bool ack;
 	mbox_handler **handlers;
+	uint8_t num_flashes;
+	struct mbox_flash_dev **mbox_flash_devs;
 };
 
 static struct mbox_flash mbox_flash;
-
-struct mbox_flash_dev {
-	struct blocklevel_device bl;
-	uint32_t total_size;
-	uint32_t erase_granule;
-	uint8_t flash_id;
-	char name[MBOX_FLASH_NAME_LEN+1];
-	bool name_locked;
-};
 
 static mbox_handler mbox_flash_do_nop;
 static mbox_handler mbox_flash_do_illegal;
@@ -534,23 +537,11 @@ static void mbox_flash_do_get_flash_name(
 		struct mbox_flash_dev *mbox_flash_dev,
 		struct bmc_mbox_msg *msg)
 {
-	char name[MBOX_FLASH_NAME_LEN+1];
 	uint8_t i;
 
 	for (i = 0; i < MBOX_FLASH_NAME_LEN; ++i)
-		name = msg_get_u8(&msg, i);
-	name[MBOX_FLASH_NAME_LEN] = '\0';
-
-	/* If we don't have a name yet, take the name of the flash */
-	if (!mbox_flash_dev->name_locked) {
-		memcpy(mbox_flash_dev->name, name, sizeof(name));
-		mbox_flash_dev->name_locked = true;
-		return;
-	}
-
-	/* Otherwise we need to validate that our name matches */
-	if (memcmp(mbox_flash_dev->name, name, sizeof(name)) != 0)
-		mbox_flash.rc = MBOX_R_PARAM_ERROR;
+		mbox_flash.last_flash_name[i] = msg_get_u8(&msg, i);
+	mbox_flash.last_flash_name[MBOX_FLASH_NAME_LEN] = '\0';
 }
 
 static int handle_reboot()
@@ -846,14 +837,15 @@ static int mbox_flash_read(struct blocklevel_device *bl, uint64_t pos,
 	return rc;
 }
 
-static int mbox_flash_get_info(struct blocklevel_device *bl, const char **name,
-		uint64_t *total_size, uint32_t *erase_granule)
+/*
+ * GET_FLASH_INFO and GET_FLASH_NAME take the same parameters so group them
+ * up under one data population function
+ */
+static int mbox_flash_populate_data(struct mbox_flash_dev *mbox_flash_dev,
+		uint8_t command)
 {
-	struct bmc_mbox_msg msg = MSG_CREATE(MBOX_C_GET_FLASH_INFO);
-	struct mbox_flash_dev *mbox_flash_dev;
+	struct bmc_mbox_msg msg = MSG_CREATE(command);
 	int rc;
-
-	mbox_flash_dev = container_of(bl, struct mbox_flash_dev, bl);
 
 	if (do_delayed_work())
 		return FLASH_ERR_AGAIN;
@@ -866,17 +858,42 @@ static int mbox_flash_get_info(struct blocklevel_device *bl, const char **name,
 		return rc;
 	}
 
-	if (wait_for_bmc(mbox_flash, mbox_flash->timeout)) {
+	if (wait_for_bmc(mbox_flash.timeout)) {
 		prlog(PR_ERR, "Error waiting for BMC\n");
 		return rc;
 	}
 
-	mbox_flash->bl.erase_mask = mbox_flash->erase_granule - 1;
+	return 0;
+}
 
+static int mbox_flash_get_info(struct blocklevel_device *bl, const char **name,
+		uint64_t *total_size, uint32_t *erase_granule)
+{
+	struct mbox_flash_dev *mbox_flash_dev;
+	int rc;
+
+	mbox_flash_dev = container_of(bl, struct mbox_flash_dev, bl);
+
+	rc = mbox_flash_populate_data(mbox_flash_dev, MBOX_C_GET_FLASH_NAME);
+	if (rc) {
+		perror(PR_ERR, "Failed to get the flash name");
+		return rc;
+	}
+
+	rc = mbox_flash_populate_data(mbox_flash_dev, MBOX_C_GET_FLASH_INFO);
+	if (rc) {
+		perror(PR_ERR, "Failed to get the flash info");
+		return rc;
+	}
+
+	bl.erase_mask = mbox_flash.erase_granule - 1;
+
+	if (name)
+		*name = mbox_flash_dev->name;
 	if (total_size)
-		*total_size = mbox_flash->total_size;
+		*total_size = mbox_flash_dev->total_size;
 	if (erase_granule)
-		*erase_granule = mbox_flash->erase_granule;
+		*erase_granule = mbox_flash_dev->erase_granule;
 
 	return rc;
 }
@@ -890,7 +907,7 @@ static int mbox_flash_erase_v2(struct blocklevel_device *bl, uint64_t pos,
 	if (pos > UINT_MAX || len > UINT_MAX)
 		return FLASH_ERR_PARM_ERROR;
 
-	mbox_flash = container_of(bl, struct mbox_flash_data, bl);
+	mbox_flash_dev = container_of(bl, struct mbox_flash_dev, bl);
 
 	prlog(PR_TRACE, "Flash erase at 0x%08x for 0x%08x\n", (u32) pos, (u32) len);
 	while (len > 0) {
@@ -898,12 +915,12 @@ static int mbox_flash_erase_v2(struct blocklevel_device *bl, uint64_t pos,
 		int rc;
 
 		/* Move window and get a new size to erase */
-		rc = mbox_window_move(mbox_flash, &mbox_flash->write,
+		rc = mbox_window_move(mbox_flash_dev, &mbox_flash->write,
 				      MBOX_C_CREATE_WRITE_WINDOW, pos, len, &size);
 		if (rc)
 			return rc;
 
-		rc = mbox_flash_erase(mbox_flash, pos, size);
+		rc = mbox_flash_erase(pos, size);
 		if (rc)
 			return rc;
 
@@ -912,7 +929,7 @@ static int mbox_flash_erase_v2(struct blocklevel_device *bl, uint64_t pos,
 		* isn't clear if a write happened there or not
 		*/
 
-		rc = mbox_flash_flush(mbox_flash);
+		rc = mbox_flash_flush();
 		if (rc)
 			return rc;
 
@@ -942,30 +959,28 @@ static int mbox_flash_erase_v1(struct blocklevel_device *bl __unused,
 }
 
 /* Called from interrupt handler, don't send any mbox messages */
-static void mbox_flash_attn(uint8_t attn, void *priv)
+static void mbox_flash_attn(uint8_t attn, void *priv __unused)
 {
-	struct mbox_flash_data *mbox_flash = priv;
-
 	if (attn & MBOX_ATTN_ACK_MASK)
-		mbox_flash->ack = true;
+		mbox_flash.ack = true;
 	if (attn & MBOX_ATTN_BMC_REBOOT) {
-		mbox_flash->reboot = true;
-		mbox_flash->read.open = false;
-		mbox_flash->write.open = false;
+		mbox_flash.reboot = true;
+		mbox_flash.read.open = false;
+		mbox_flash.write.open = false;
 		attn &= ~MBOX_ATTN_BMC_REBOOT;
 	}
 
 	if (attn & MBOX_ATTN_BMC_WINDOW_RESET) {
-		mbox_flash->read.open = false;
-		mbox_flash->write.open = false;
+		mbox_flash.read.open = false;
+		mbox_flash.write.open = false;
 		attn &= ~MBOX_ATTN_BMC_WINDOW_RESET;
 	}
 
 	if (attn & MBOX_ATTN_BMC_FLASH_LOST) {
-		mbox_flash->pause = true;
+		mbox_flash.pause = true;
 		attn &= ~MBOX_ATTN_BMC_FLASH_LOST;
 	} else {
-		mbox_flash->pause = false;
+		mbox_flash.pause = false;
 	}
 
 	if (attn & MBOX_ATTN_BMC_DAEMON_READY)
@@ -974,35 +989,35 @@ static void mbox_flash_attn(uint8_t attn, void *priv)
 
 static void mbox_flash_callback(struct bmc_mbox_msg *msg, void *priv)
 {
-	struct mbox_flash_data *mbox_flash = priv;
+	struct mbox_flash_dev *mbox_flash_dev = priv;
 
 	prlog(PR_TRACE, "BMC OK command %u\n", msg->command);
 
 	if (msg->response != MBOX_R_SUCCESS) {
 		prlog(PR_ERR, "Bad response code from BMC %d\n", msg->response);
-		mbox_flash->rc = msg->response;
+		mbox_flash.rc = msg->response;
 		goto out;
 	}
 
 	if (msg->command > MBOX_COMMAND_COUNT) {
 		prlog(PR_ERR, "Got response to unknown command %02x\n", msg->command);
-		mbox_flash->rc = -1;
+		mbox_flash.rc = -1;
 		goto out;
 	}
 
-	if (!mbox_flash->handlers[msg->command]) {
+	if (!mbox_flash.handlers[msg->command]) {
 		prlog(PR_ERR, "Couldn't find handler for message! command: %u, seq: %u\n",
 				msg->command, msg->seq);
-		mbox_flash->rc = MBOX_R_SYSTEM_ERROR;
+		mbox_flash.rc = MBOX_R_SYSTEM_ERROR;
 		goto out;
 	}
 
-	mbox_flash->rc = 0;
+	mbox_flash.rc = 0;
 
-	mbox_flash->handlers[msg->command](mbox_flash, msg);
+	mbox_flash.handlers[msg->command](mbox_flash_dev, msg);
 
 out:
-	mbox_flash->busy = false;
+	mbox_flash.busy = false;
 }
 
 static int protocol_init(uint8_t shift)
@@ -1010,17 +1025,17 @@ static int protocol_init(uint8_t shift)
 	struct bmc_mbox_msg msg = MSG_CREATE(MBOX_C_GET_MBOX_INFO);
 	int rc;
 
-	mbox_flash->read.open = false;
-	mbox_flash->write.open = false;
+	mbox_flash.read.open = false;
+	mbox_flash.write.open = false;
 
 	/* Assume V2+ */
-	mbox_flash->bl.read = &mbox_flash_read;
-	mbox_flash->bl.write = &mbox_flash_write;
-	mbox_flash->bl.erase = &mbox_flash_erase_v2;
-	mbox_flash->bl.get_info = &mbox_flash_get_info;
+	mbox_flash_dev->bl.read = &mbox_flash_read;
+	mbox_flash_dev->bl.write = &mbox_flash_write;
+	mbox_flash_dev->bl.erase = &mbox_flash_erase_v2;
+	mbox_flash_dev->bl.get_info = &mbox_flash_get_info;
 
 	/* Assume V3 */
-	mbox_flash->handlers = handlers_v3;
+	mbox_flash.handlers = handlers_v3;
 
 	bmc_mbox_register_callback(&mbox_flash_callback, mbox_flash);
 	bmc_mbox_register_attn(&mbox_flash_attn, mbox_flash);
@@ -1029,7 +1044,7 @@ static int protocol_init(uint8_t shift)
 	 * For V1 of the protocol this is fixed.
 	 * V2+: The init code will update this
 	 */
-	mbox_flash->shift = 12;
+	mbox_flash.shift = 12;
 
 	/*
 	 * For V1 we'll use this value.

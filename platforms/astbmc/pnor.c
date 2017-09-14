@@ -70,14 +70,9 @@ int pnor_init_legacy()
 	return rc;
 }
 
-int pnor_init_mbox()
-{
-	return mbox_flash_init();
-}
-
 int pnor_init(void)
 {
 	if (as_is_mbox_pnor())
-		return pnor_init_mbox();
+		return mbox_flash_init();
 	return pnor_init_legacy();
 }
